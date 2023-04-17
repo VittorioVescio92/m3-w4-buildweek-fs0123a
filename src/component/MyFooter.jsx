@@ -9,7 +9,7 @@ import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icon
 
 const MyFooter = () => {
   return (
-    <Container fluid="md" className="d-flex flex-row align-items-start">
+    <Container fluid="md" className="d-flex flex-row align-items-start my-5">
       <Container className="m-0 d-flex">
         <Row className="d-flex flew-wrap justify-content-start align-items-start">
           <Col>
