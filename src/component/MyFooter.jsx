@@ -2,33 +2,39 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownType from "react-bootstrap/DropdownType";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { DropdownButton } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icons";
+import {
+  GearFill,
+  QuestionCircleFill,
+  ShieldShaded,
+} from "react-bootstrap-icons";
 
 const MyFooter = () => {
   return (
-    <Container fluid="md" className="d-flex flex-row align-items-start my-5">
+    <Container className="d-flex flex-row align-items-start my-5">
       <Container className="m-0 d-flex">
         <Row className="d-flex flew-wrap justify-content-start align-items-start">
-          <Col>
-            {/* rgb(156 156 154) colore testo */}
-            <Link to="#" className="text-decoration-none text-secondary">
-              Informazioni
-            </Link>
-          </Col>
-          <Col>
-            <Link to="#" className="text-decoration-none text-secondary">
-              Accessibilità
-            </Link>
-          </Col>
-          <Col>
-            <Link to="#" className="text-decoration-none text-secondary">
-              Talent Solutions
-            </Link>
-          </Col>
-          <Row>
+          <Row className="mb-2">
+            <Col>
+              {/* rgb(156 156 154) colore testo */}
+              <Link to="#" className="text-decoration-none text-secondary">
+                Informazioni
+              </Link>
+            </Col>
+            <Col>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Accessibilità
+              </Link>
+            </Col>
+            <Col>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Talent Solutions
+              </Link>
+            </Col>
+          </Row>
+          <Row className="mb-2">
             <Col>
               <Link to="#" className="text-decoration-none text-secondary">
                 Linee guida della community
@@ -45,23 +51,30 @@ const MyFooter = () => {
               </Link>
             </Col>
           </Row>
-          <Row>
+          <Row className="mb-2">
             <Col>
-              <Link to="#" className="text-decoration-none text-secondary">
+              {/* <Link to="#" className="text-decoration-none text-secondary">
                 Privacy e condizioni
-              </Link>
-              {/* <DropdownType
-                // as={ButtonGroup}
-                // key={idx}
-                // id={`dropdown-button-drop-${idx}`}
-                size="sm"
-                variant="secondary"
+              </Link> */}
+              <NavDropdown
+                className="text-secondary"
+                id="nav-dropdown-dark-example"
                 title="Privacy e condizioni"
+                menuVariant="secondary"
               >
-                <Dropdown.Item as="button">English</Dropdown.Item>
-                <Dropdown.Item as="button">Deutsch</Dropdown.Item>
-                <Dropdown.Item as="button">Espanol</Dropdown.Item>
-              </DropdownType> */}
+                <NavDropdown.Item href="#action/3.1" className="fw-bold">
+                  Informativa sulla privacy
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2" className="fw-bold">
+                  Contratto di licenza
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3" className="fw-bold">
+                  Informativa sui cookie
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4" className="fw-bold">
+                  Informativa sul copyright
+                </NavDropdown.Item>
+              </NavDropdown>
             </Col>
             <Col>
               <Link to="#" className="text-decoration-none text-secondary">
@@ -74,7 +87,7 @@ const MyFooter = () => {
               </Link>
             </Col>
           </Row>
-          <Row>
+          <Row className="mb-2">
             <Col>
               <Link to="#" className="text-decoration-none text-secondary">
                 Sales Solutions
@@ -91,48 +104,56 @@ const MyFooter = () => {
               </Link>
             </Col>
           </Row>
-          <Row>
+          <Row className="mb-2">
             <Col>
               <Link to="#" className="text-decoration-none text-secondary">
                 Centro sicurezza
               </Link>
             </Col>
           </Row>
-          <Row>
-            <Col>Linkedin Corporation &copy; 2023</Col>
+          <Row className="mt-5">
+            <Col className="text-secondary">
+              Linkedin Corporation &copy; 2023
+            </Col>
           </Row>
         </Row>
       </Container>
 
       <Container className="m-0">
         <Col>
-          <QuestionCircleFill className="mx-2" />
-          <Link to="#" className="text-decoration-none text-secondary">
+          <QuestionCircleFill className="mx-2 text-secondary" />
+          <Link to="#" className="text-decoration-none text-secondary fw-bold">
             Domande?
           </Link>
-          <p>Visita il nostro Centro assistenza.</p>
+          <p className="text-secondary">Visita il nostro Centro assistenza.</p>
         </Col>
 
         <Col>
-          <GearFill className="mx-2" />
-          <Link to="#" className="text-decoration-none text-secondary">
+          <GearFill className="mx-2 text-secondary" />
+          <Link to="#" className="text-decoration-none text-secondary fw-bold">
             Gestisci il tuo account e la tua privacy
           </Link>
-          <p>Vai alle impostazioni</p>
+          <p className="text-secondary">Vai alle impostazioni</p>
         </Col>
         <Col>
-          <ShieldShaded className="mx-2" />
-          <Link to="#" className="text-decoration-none text-secondary">
+          <ShieldShaded className="mx-2 text-secondary" />
+          <Link to="#" className="text-decoration-none text-secondary fw-bold">
             Trasparenza sui contenuti consigliati
           </Link>
-          <p>Scopri di più sui contenuti consigliati.</p>
+          <p className="text-secondary">
+            Scopri di più sui contenuti consigliati.
+          </p>
         </Col>
       </Container>
 
       <Container className="m-0">
         <Col>
-          <span>Seleziona lingua</span>
-          <DropdownButton variant="light" className="" id="dropdown-item-button" title="Italiano (Italiano) ">
+          <span className="text-secondary">Seleziona lingua</span>
+          <DropdownButton
+            variant="light border-dark rounded text-secondary"
+            id="dropdown-item-button"
+            title="Italiano (Italiano) "
+          >
             <Dropdown.Item as="button">English</Dropdown.Item>
             <Dropdown.Item as="button">Deutsch</Dropdown.Item>
             <Dropdown.Item as="button">Espanol</Dropdown.Item>
