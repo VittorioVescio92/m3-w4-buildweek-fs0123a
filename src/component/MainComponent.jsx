@@ -5,6 +5,8 @@ import KeyPointsComponent from "./KeyPointsComponent";
 import ProfileComponent from "./ProfileComponent";
 import SideComponent from "./SideComponent";
 import PeopleComponent from "./PeopleComponent";
+import { Link } from "react-router-dom";
+import ExperienceComponents from "./ExperienceComponents";
 
 const MainComponent = () => {
   return (

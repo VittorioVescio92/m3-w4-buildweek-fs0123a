@@ -13,7 +13,7 @@ const persistConfig = {
   transforms: [
     encryptTransform({
       secretKey: process.env.REACT_APP_PERSIST_KEY,
-      secretToken: process.env.REACT_APP_STRIVE_TOKEN,
+      secretToken: process.env.REACT_APP_STRIVE_TOKEN
     }),
   ],
 };
