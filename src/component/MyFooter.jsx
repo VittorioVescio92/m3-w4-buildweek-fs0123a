@@ -53,28 +53,9 @@ const MyFooter = () => {
           </Row>
           <Row className="mb-2">
             <Col>
-              {/* <Link to="#" className="text-decoration-none text-secondary">
-                Privacy e condizioni
-              </Link> */}
-              <NavDropdown
-                className="text-secondary"
-                id="nav-dropdown-dark-example"
-                title="Privacy e condizioni"
-                menuVariant="secondary"
-              >
-                <NavDropdown.Item href="#action/3.1" className="fw-bold">
-                  Informativa sulla privacy
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2" className="fw-bold">
-                  Contratto di licenza
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3" className="fw-bold">
-                  Informativa sui cookie
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4" className="fw-bold">
-                  Informativa sul copyright
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Centro sicurezza
+              </Link>
             </Col>
             <Col>
               <Link to="#" className="text-decoration-none text-secondary">
@@ -106,9 +87,25 @@ const MyFooter = () => {
           </Row>
           <Row className="mb-2">
             <Col>
-              <Link to="#" className="text-decoration-none text-secondary">
-                Centro sicurezza
-              </Link>
+              <NavDropdown
+                className="text-secondary"
+                id="nav-dropdown-dark-example"
+                title="Privacy e condizioni"
+                menuVariant="secondary"
+              >
+                <NavDropdown.Item href="#action/3.1" className="fw-bold">
+                  Informativa sulla privacy
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2" className="fw-bold">
+                  Contratto di licenza
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3" className="fw-bold">
+                  Informativa sui cookie
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4" className="fw-bold">
+                  Informativa sul copyright
+                </NavDropdown.Item>
+              </NavDropdown>
             </Col>
           </Row>
           <Row className="mt-5">
