@@ -5,6 +5,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 // import persistStore from "redux-persist/es/persistStore";
 import {persistReducer, persistStore} from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import userReducer from "../reducers/userReducer";
 
 const persistConfig = {
   key: "root",
@@ -12,12 +13,14 @@ const persistConfig = {
   transforms: [
     encryptTransform({
       secretKey: process.env.REACT_APP_PERSIST_KEY,
+      secretToken: process.env.REACT_APP_STRIVE_TOKEN,
     }),
   ],
 };
 
 const rootReducer = combineReducers({
   main: MainReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
