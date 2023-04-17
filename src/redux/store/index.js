@@ -1,0 +1,29 @@
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import MainReducer from "../reducers/MainReducer";
+import { encryptTransform } from "redux-persist-transform-encrypt";
+import persistReducer from "redux-persist/es/persistReducer";
+import persistStore from "redux-persist/es/persistStore";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  storage,
+  transforms: [
+    encryptTransform({
+      secretKey: process.env.REACT_APP_PERSIST_KEY,
+    }),
+  ],
+};
+
+const rootReducer = combineReducers({
+  main: MainReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),
+});
+
+export const persistor = persistStore(store);
