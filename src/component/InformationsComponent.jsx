@@ -5,7 +5,7 @@ const InformationsComponent = () => {
     <Container className="mt-2">
       <Row>
         <Col md={9}>
-          <section className="rounded-3 border-dark profile p-5">
+          <section className="rounded-3 border-dark profile p-3">
             <h3>Informazioni</h3>
             <p>Full Stack Developer. HTML - CSS - JavaScript - ReactJS - Java </p>
           </section>

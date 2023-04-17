@@ -6,7 +6,7 @@ const KeyPointsComponent = () => {
     <Container className="mt-2">
       <Row>
         <Col md={9}>
-          <section className="rounded-3 border-dark profile p-5">
+          <section className="rounded-3 border-dark profile p-3">
             <h3>Punti chiave</h3>
             <div className="d-flex justify-content-start align-items-center">
               <img src={keywordImg} alt="" className="img-fluid" />
