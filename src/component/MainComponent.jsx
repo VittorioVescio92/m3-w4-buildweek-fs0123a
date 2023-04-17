@@ -6,6 +6,8 @@ import { Pencil } from "react-bootstrap-icons";
 import InformationsComponent from "./InformationsComponent";
 import KeyPointsComponent from "./KeyPointsComponent";
 import { Link } from "react-router-dom";
+import SideComponent from "./SideComponent";
+import PeopleComponent from "./PeopleComponent";
 
 const MainComponent = () => {
   return (
@@ -62,7 +64,9 @@ const MainComponent = () => {
                         <Card>
                           <Card.Body>
                             <Card.Title className="truncate">Disponibile a lavorare 1</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -74,7 +78,9 @@ const MainComponent = () => {
                         <Card>
                           <Card.Body>
                             <Card.Title className="truncate">Disponibile a lavorare 2</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -86,7 +92,9 @@ const MainComponent = () => {
                         <Card>
                           <Card.Body>
                             <Card.Title className="truncate">Disponibile a lavorare 3</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -98,11 +106,13 @@ const MainComponent = () => {
                 </Col>
               </Row>
             </section>
+            <KeyPointsComponent />
+            <InformationsComponent />
           </Col>
+          <SideComponent />
+          <PeopleComponent />
         </Row>
       </Container>
-      <KeyPointsComponent />
-      <InformationsComponent />
     </>
   );
 };

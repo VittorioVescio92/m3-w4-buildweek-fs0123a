@@ -3,9 +3,9 @@ import keywordImg from "../Keyword.PNG";
 
 const KeyPointsComponent = () => {
   return (
-    <Container className="mt-2">
+    <Container className="mt-2 p-0">
       <Row>
-        <Col md={9}>
+        <Col>
           <section className="rounded-3 border-dark profile p-3">
             <h3>Punti chiave</h3>
             <div className="d-flex justify-content-start align-items-center">

@@ -2,9 +2,9 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const InformationsComponent = () => {
   return (
-    <Container className="mt-2">
+    <Container className="mt-2 p-0">
       <Row>
-        <Col md={9}>
+        <Col>
           <section className="rounded-3 border-dark profile p-3">
             <h3>Informazioni</h3>
             <p>Full Stack Developer. HTML - CSS - JavaScript - ReactJS - Java </p>
