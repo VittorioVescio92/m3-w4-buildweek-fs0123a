@@ -14,7 +14,7 @@ const MyNavbar = () => {
   return (
     <Navbar bg="dark" expand="lg" className="py-0 d-flex justify-content-center">
       <Col xs={8}>
-        <Container className="d-flex align-items-center">
+        <Container className="d-flex align-items-center px-0">
           <Navbar.Brand href="#home">
             <Linkedin className="text-light fs-1" />
           </Navbar.Brand>
