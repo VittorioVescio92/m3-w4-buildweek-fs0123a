@@ -117,29 +117,52 @@ const MyFooter = () => {
       </Container>
 
       <Container className="m-0">
-        <Col>
-          <QuestionCircleFill className="mx-2 text-secondary" />
-          <Link to="#" className="text-decoration-none text-secondary fw-bold">
-            Domande?
-          </Link>
-          <p className="text-secondary">Visita il nostro Centro assistenza.</p>
+        <Col className="d-flex">
+          <div>
+            <QuestionCircleFill className="mx-2 text-secondary" />
+          </div>
+          <div>
+            <Link
+              to="#"
+              className="text-decoration-none text-secondary fw-bold"
+            >
+              Domande?
+            </Link>
+            <p className="d-flex text-secondary">
+              Visita il nostro Centro assistenza.
+            </p>
+          </div>
         </Col>
 
-        <Col>
-          <GearFill className="mx-2 text-secondary" />
-          <Link to="#" className="text-decoration-none text-secondary fw-bold">
-            Gestisci il tuo account e la tua privacy
-          </Link>
-          <p className="text-secondary">Vai alle impostazioni</p>
+        <Col className="d-flex">
+          <div>
+            <GearFill className="mx-2 text-secondary" />
+          </div>
+          <div>
+            <Link
+              to="#"
+              className="text-decoration-none text-secondary fw-bold"
+            >
+              Gestisci il tuo account e la tua privacy
+            </Link>
+            <p className="text-secondary">Vai alle impostazioni</p>
+          </div>
         </Col>
-        <Col>
-          <ShieldShaded className="mx-2 text-secondary" />
-          <Link to="#" className="text-decoration-none text-secondary fw-bold">
-            Trasparenza sui contenuti consigliati
-          </Link>
-          <p className="text-secondary">
-            Scopri di più sui contenuti consigliati.
-          </p>
+        <Col className="d-flex">
+          <div>
+            <ShieldShaded className="mx-2 text-secondary" />
+          </div>
+          <div>
+            <Link
+              to="#"
+              className="text-decoration-none text-secondary fw-bold"
+            >
+              Trasparenza sui contenuti consigliati
+            </Link>
+            <p className="text-secondary">
+              Scopri di più sui contenuti consigliati.
+            </p>
+          </div>
         </Col>
       </Container>
 
