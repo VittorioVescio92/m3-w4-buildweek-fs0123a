@@ -12,8 +12,8 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<MainComponent />} />
-        <Route path="/" element={<MyFooter />} />
       </Routes>
+      <MyFooter />
     </BrowserRouter>
   );
 }

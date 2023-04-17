@@ -5,11 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 // import DropdownType from "react-bootstrap/DropdownType";
 import { DropdownButton } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  GearFill,
-  QuestionCircleFill,
-  ShieldShaded,
-} from "react-bootstrap-icons";
+import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icons";
 
 const MyFooter = () => {
   return (
@@ -136,12 +132,7 @@ const MyFooter = () => {
       <Container className="m-0">
         <Col>
           <span>Seleziona lingua</span>
-          <DropdownButton
-            variant="light"
-            className=""
-            id="dropdown-item-button"
-            title="Italiano (Italiano) "
-          >
+          <DropdownButton variant="light" className="" id="dropdown-item-button" title="Italiano (Italiano) ">
             <Dropdown.Item as="button">English</Dropdown.Item>
             <Dropdown.Item as="button">Deutsch</Dropdown.Item>
             <Dropdown.Item as="button">Espanol</Dropdown.Item>
