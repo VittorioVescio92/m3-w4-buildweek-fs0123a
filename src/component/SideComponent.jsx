@@ -6,8 +6,7 @@ import PeopleComponent from "./PeopleComponent";
 const SideComponent = () => {
   return (
     <>
-      {" "}
-      <Col id="side" md={3} className="bg-white rounded-5 mt-4 p-4">
+      <section id="side" className="bg-white rounded-5 mt-4 p-4">
         <h3 className="fs-5">Altri profili consultati</h3>
         <div className="d-flex justify-content-center border-bottom mt-3">
           <div>
@@ -74,7 +73,7 @@ const SideComponent = () => {
             </Button>
           </div>
         </div>
-      </Col>
+      </section>
     </>
   );
 };

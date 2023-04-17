@@ -13,9 +13,13 @@ const MainComponent = () => {
         <Row>
           <Col md={9}>
             <ProfileComponent />
+            <KeyPointsComponent />
+            <InformationsComponent />
           </Col>
-          <SideComponent />
-          <PeopleComponent />
+          <Col md={3}>
+            <SideComponent />
+            <PeopleComponent />
+          </Col>
         </Row>
       </Container>
     </>

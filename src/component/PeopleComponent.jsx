@@ -4,7 +4,7 @@ import { PersonAdd } from "react-bootstrap-icons";
 
 const PeopleComponent = () => {
   return (
-    <Col id="people" md={3} className="bg-white rounded-5 mt-2 p-4">
+    <section id="people" className="bg-white rounded-5 mt-2 p-4">
       <h3 className="fs-5">Persone che potresti conoscere</h3>
       <div className="d-flex justify-content-center border-bottom mt-3">
         <div>
@@ -71,7 +71,7 @@ const PeopleComponent = () => {
           </Button>
         </div>
       </div>
-    </Col>
+    </section>
   );
 };
 export default PeopleComponent;
