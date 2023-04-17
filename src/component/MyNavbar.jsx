@@ -47,7 +47,13 @@ const MyNavbar = () => {
           <div className="px-4 fs-4 text-center nav-item-col">
             <img id="avatar" src={avatar} alt="Avatar" className="rounded-circle" />
             <p className=" fs-6">
-              <NavDropdown id="nav-dropdown-dark-example" title="Tu" menuVariant="dark" className="text-center">
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Tu"
+                menuVariant="dark"
+                className="text-center"
+                align={{ lg: "end" }}
+              >
                 <NavDropdown.Item href="#action/3.1">
                   <div className="d-flex justify-content-center">
                     <div className="me-3 d-flex align-items-center">

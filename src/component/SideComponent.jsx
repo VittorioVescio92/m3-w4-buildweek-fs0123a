@@ -1,12 +1,12 @@
 import { Button, Col } from "react-bootstrap";
 import avatar from "../avatar.png";
-import { PersonAdd } from "react-bootstrap-icons";
+import { ArrowDown, PersonAdd } from "react-bootstrap-icons";
 import PeopleComponent from "./PeopleComponent";
 
 const SideComponent = () => {
   return (
     <>
-      <section id="side" className="bg-white rounded-5 mt-4 p-4">
+      <section id="side" className="bg-white rounded-3 mt-4 p-4">
         <h3 className="fs-5">Altri profili consultati</h3>
         <div className="d-flex justify-content-center border-bottom mt-3">
           <div>
@@ -73,6 +73,9 @@ const SideComponent = () => {
             </Button>
           </div>
         </div>
+        <p className="text-center fw-bold mb-0 mt-2">
+          Visualizza altro <ArrowDown />
+        </p>
       </section>
     </>
   );
