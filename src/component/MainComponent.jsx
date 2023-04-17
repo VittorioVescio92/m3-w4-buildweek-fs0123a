@@ -17,6 +17,7 @@ const MainComponent = () => {
             <ProfileComponent />
             <KeyPointsComponent />
             <InformationsComponent />
+            <ExperienceComponents />
           </Col>
           <Col md={3}>
             <SideComponent />
