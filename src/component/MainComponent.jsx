@@ -57,7 +57,7 @@ const MainComponent = () => {
                 <Col xs={12}>
                   <div className="p-3">
                     {/* Carousel React Bootstrap */}
-                    <Carousel slide={false}>
+                    <Carousel slide={false} indicators={false}>
                       <Carousel.Item>
                         <Card>
                           <Card.Body>
