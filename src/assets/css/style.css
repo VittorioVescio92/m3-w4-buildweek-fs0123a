@@ -5,7 +5,8 @@ a {
   font-weight: 600;
 }
 body {
-  background-color: rgba(243, 242,239)
+  background-color: rgba(243, 242,239);
+  color: rgba(0,0,0,0.9);
 
 }
 
@@ -74,8 +75,29 @@ body {
 }
 .image-profile {
   overflow: hidden;
+  margin-top: -150px;
+  border: 5px solid #fff;
 }
 .edit svg {
   font-size: 1.5rem;
   fill: rgba(0,0,0,0.6)
+}
+.carousel .card {
+  background-color: #dce6f1;
+  border: unset;
+}
+.carousel p,
+.carousel a {
+  font-size: 0.9rem;
+}
+.carousel .card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.carousel p,
+.carousel a {
+  font-size: 0.9rem;
+}
+.carousel a {
+  font-weight: 600;
 }
