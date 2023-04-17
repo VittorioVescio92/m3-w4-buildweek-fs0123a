@@ -54,7 +54,23 @@ body {
 .profile {
   background-color: #fff;
   color: rgba(0,0,0,0.9);
-
+}
+.profile .hero-img {
+  position: relative;
+}
+.profile .hero-img img {
+  z-index: 1;
+}
+.profile .hero-img a {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  /* height: 24px; */
+  /* width: 24px; */
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50%;
 }
 .profile h1 {
   font-size: 1.5rem;
@@ -77,6 +93,7 @@ body {
   overflow: hidden;
   margin-top: -150px;
   border: 5px solid #fff;
+  z-index: 2;
 }
 .edit svg {
   font-size: 1.5rem;
@@ -86,18 +103,13 @@ body {
   background-color: #dce6f1;
   border: unset;
 }
+.carousel .card-title,
 .carousel p,
 .carousel a {
-  font-size: 0.9rem;
-}
-.carousel .card-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.carousel p,
-.carousel a {
+  margin: 0;
   font-size: 0.9rem;
 }
 .carousel a {
+  display: block;
   font-weight: 600;
 }
