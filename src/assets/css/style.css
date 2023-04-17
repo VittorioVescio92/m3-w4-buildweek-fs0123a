@@ -54,6 +54,7 @@ body {
 .profile {
   background-color: #fff;
   color: rgba(0,0,0,0.9);
+  overflow: hidden;
 }
 .profile .hero-img {
   position: relative;
@@ -66,8 +67,6 @@ body {
   right: 20px;
   top: 20px;
   display: flex;
-  /* height: 24px; */
-  /* width: 24px; */
   padding: 10px;
   background-color: #fff;
   border-radius: 50%;
