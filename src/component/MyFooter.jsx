@@ -17,30 +17,43 @@ const MyFooter = () => {
       <Container className="m-0 d-flex">
         <Row className="d-flex flew-wrap justify-content-start align-items-start">
           <Col>
-            <Link to="#" className="">
+            {/* rgb(156 156 154) colore testo */}
+            <Link to="#" className="text-decoration-none text-secondary">
               Informazioni
             </Link>
           </Col>
           <Col>
-            <Link to="#">Accessibilità</Link>
+            <Link to="#" className="text-decoration-none text-secondary">
+              Accessibilità
+            </Link>
           </Col>
           <Col>
-            <Link to="#">Talent Solutions</Link>
+            <Link to="#" className="text-decoration-none text-secondary">
+              Talent Solutions
+            </Link>
           </Col>
           <Row>
             <Col>
-              <Link to="#">Linee guida della community</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Linee guida della community
+              </Link>
             </Col>
             <Col>
-              <Link to="#">Carriera</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Carriera
+              </Link>
             </Col>
             <Col>
-              <Link to="#">Soluzioni di marketing</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Soluzioni di marketing
+              </Link>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Link to="#">Privacy e condizioni</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Privacy e condizioni
+              </Link>
               {/* <DropdownType
                 // as={ButtonGroup}
                 // key={idx}
@@ -55,26 +68,38 @@ const MyFooter = () => {
               </DropdownType> */}
             </Col>
             <Col>
-              <Link to="#">Opzioni per gli annunci pubblicitari</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Opzioni per gli annunci pubblicitari
+              </Link>
             </Col>
             <Col>
-              <Link to="#">Pubblicità</Link>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Link to="#">Sales Solutions</Link>
-            </Col>
-            <Col>
-              <Link to="#">Mobile</Link>
-            </Col>
-            <Col>
-              <Link to="#">Piccole Imprese</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Pubblicità
+              </Link>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Link to="#">Centro sicurezza</Link>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Sales Solutions
+              </Link>
+            </Col>
+            <Col>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Mobile
+              </Link>
+            </Col>
+            <Col>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Piccole Imprese
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Link to="#" className="text-decoration-none text-secondary">
+                Centro sicurezza
+              </Link>
             </Col>
           </Row>
           <Row>
@@ -85,19 +110,25 @@ const MyFooter = () => {
 
       <Container className="m-0">
         <Col>
-          <QuestionCircleFill />
-          <Link to="#">Domande?</Link>
+          <QuestionCircleFill className="mx-2" />
+          <Link to="#" className="text-decoration-none text-secondary">
+            Domande?
+          </Link>
           <p>Visita il nostro Centro assistenza.</p>
         </Col>
 
         <Col>
-          <GearFill />
-          <Link to="#">Gestisci il tuo account e la tua privacy</Link>
+          <GearFill className="mx-2" />
+          <Link to="#" className="text-decoration-none text-secondary">
+            Gestisci il tuo account e la tua privacy
+          </Link>
           <p>Vai alle impostazioni</p>
         </Col>
         <Col>
-          <ShieldShaded />
-          <Link to="#">Trasparenza sui contenuti consigliati</Link>
+          <ShieldShaded className="mx-2" />
+          <Link to="#" className="text-decoration-none text-secondary">
+            Trasparenza sui contenuti consigliati
+          </Link>
           <p>Scopri di più sui contenuti consigliati.</p>
         </Col>
       </Container>
@@ -106,6 +137,8 @@ const MyFooter = () => {
         <Col>
           <span>Seleziona lingua</span>
           <DropdownButton
+            variant="light"
+            className=""
             id="dropdown-item-button"
             title="Italiano (Italiano) "
           >
