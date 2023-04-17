@@ -6,6 +6,7 @@ import { Pencil } from "react-bootstrap-icons";
 import InformationsComponent from "./InformationsComponent";
 import KeyPointsComponent from "./KeyPointsComponent";
 import { Link } from "react-router-dom";
+import ExperienceComponents from "./ExperienceComponents";
 
 const MainComponent = () => {
   return (
@@ -40,7 +41,8 @@ const MainComponent = () => {
                     <h1 className="mt-3">Mario Rossi</h1>
                     <p className="job">Junior Front-End Developer</p>
                     <p className="address">
-                      <span>Roma, Lazio, Italia</span> - <Link to="/">Informazioni di contatto</Link>
+                      <span>Roma, Lazio, Italia</span> -{" "}
+                      <Link to="/">Informazioni di contatto</Link>
                     </p>
                     <div className="link">
                       <Link to="/">92 Collegamenti</Link>
@@ -61,8 +63,13 @@ const MainComponent = () => {
                       <Carousel.Item>
                         <Card>
                           <Card.Body>
-                            <Card.Title className="truncate">Disponibile a lavorare 1</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Title className="truncate">
+                              Disponibile a lavorare 1
+                            </Card.Title>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer,
+                              Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -73,8 +80,13 @@ const MainComponent = () => {
                       <Carousel.Item>
                         <Card>
                           <Card.Body>
-                            <Card.Title className="truncate">Disponibile a lavorare 2</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Title className="truncate">
+                              Disponibile a lavorare 2
+                            </Card.Title>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer,
+                              Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -85,8 +97,13 @@ const MainComponent = () => {
                       <Carousel.Item>
                         <Card>
                           <Card.Body>
-                            <Card.Title className="truncate">Disponibile a lavorare 3</Card.Title>
-                            <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                            <Card.Title className="truncate">
+                              Disponibile a lavorare 3
+                            </Card.Title>
+                            <Card.Text className="truncate">
+                              Ruoli di Web Designer, Frontend Web Developer,
+                              Full Stack Web Developer
+                            </Card.Text>
                             <div>
                               <Card.Link>Mostra Dettagli</Card.Link>
                             </div>
@@ -103,6 +120,7 @@ const MainComponent = () => {
       </Container>
       <KeyPointsComponent />
       <InformationsComponent />
+      <ExperienceComponents />
     </>
   );
 };
