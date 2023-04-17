@@ -5,10 +5,14 @@ import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import { getUserProfileAction } from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 const ProfileComponent = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getUserProfileAction();
+    dispatch(getUserProfileAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -100,3 +104,12 @@ const ProfileComponent = () => {
   );
 };
 export default ProfileComponent;
+
+// const ProfileComponent = () => {
+//   const dispatch = useDispatch();
+//   useEffect(() => {
+//     const fetchData = () => {
+//       dispatch(getUserProfileAction(endpointUserProfile));
+//     };
+//     fetchData();
+//   }, []);
