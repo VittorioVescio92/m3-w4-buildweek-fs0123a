@@ -28,19 +28,19 @@ const MainComponent = () => {
                     </div>
                     <div className="flex-grow-1 edit">
                       <div className="text-end">
-                        <a href="">
+                        <Link to="/">
                           <Pencil />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <h1 className="mt-3">Mario Rossi</h1>
                   <p className="job">Junior Front-End Developer</p>
                   <p className="address">
-                    <span>Roma, Lazio, Italia</span> - <a href="#">Informazioni di contatto</a>
+                    <span>Roma, Lazio, Italia</span> - <Link to="/">Informazioni di contatto</Link>
                   </p>
                   <div className="link">
-                    <a href="#">92 Collegamenti</a>
+                    <Link to="/">92 Collegamenti</Link>
                   </div>
                   <div className="d-flex mt-3">
                     <Button className="me-2">Disponibile per</Button>
