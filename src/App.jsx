@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./assets/css/style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainComponent from "./component/MainComponent";
 import MyNavbar from "./component/MyNavbar";
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
     <BrowserRouter>
       <MyNavbar />
       <Routes>
-        <Route path="/" element="" />
+        <Route path="/" element={<MainComponent />} />
       </Routes>
     </BrowserRouter>
   );
