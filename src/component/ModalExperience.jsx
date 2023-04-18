@@ -2,8 +2,6 @@ import { Button, Dropdown, FloatingLabel, ModalFooter } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
 const ModalExperience = ({ show, handleCloseModalEx }) => {
-  //   const user = useSelector((state) => state.user.content);
-
   return (
     <>
       <Modal show={show} onHide={handleCloseModalEx}>
@@ -80,8 +78,7 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
               </Dropdown.Menu>
             </Dropdown>
             <p>
-              Scopri di più sui{" "}
-              <span className="text-primary">tipi di impiego.</span>
+              Scopri di più sui <span className="text-primary">tipi di impiego.</span>
             </p>
           </div>
           <div className="mb-3">
@@ -137,13 +134,7 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
             </Dropdown>
           </div>
           <div className="form-check">
-            <input
-              className="form-check-input bg-success"
-              type="checkbox"
-              value=""
-              id="flexCheckChecked"
-              checked
-            />
+            <input className="form-check-input bg-success" type="checkbox" value="" id="flexCheckChecked" checked />
             <label className="form-check-label mb-4" for="flexCheckChecked">
               Attualmente ricopro questo ruolo
             </label>
@@ -324,22 +315,14 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
               aria-describedby="emailHelp"
               placeholder="Es.: Commercio al dettaglio"
             />
+            <p>Linkedin utilizza le informazioni sul settore per fornire segnalazioni più pertinenti</p>
             <p>
-              Linkedin utilizza le informazioni sul settore per fornire
-              segnalazioni più pertinenti
-            </p>
-            <p>
-              Scopri di più sulle{" "}
-              <span className="text-primary">opzioni relative al settore</span>
+              Scopri di più sulle <span className="text-primary">opzioni relative al settore</span>
             </p>
           </div>
           <div className="form-floating">
             <FloatingLabel controlId="floatingSelect" label="Descrizione">
-              <textarea
-                className="form-control"
-                placeholder="Descrizione"
-                id="floatingTextarea"
-              ></textarea>
+              <textarea className="form-control" placeholder="Descrizione" id="floatingTextarea"></textarea>
             </FloatingLabel>
           </div>
           <ModalFooter>
