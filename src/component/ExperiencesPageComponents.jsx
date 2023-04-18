@@ -11,6 +11,7 @@ const ExperiencesPageComponents = () => {
 
   const navigateToHome = () => {
     navigate("/");
+    window.scrollTo(0, 0);
   };
   return (
     <Container className="mt-2 d-flex p-0">
