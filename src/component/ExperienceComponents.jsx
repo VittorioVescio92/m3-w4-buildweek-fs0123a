@@ -45,7 +45,7 @@ const ExperienceComponents = () => {
           </Button>
         </div>
         {experience &&
-          experience.map(item => (
+          experience.slice(0, 5).map(item => (
             <div key={item._id}>
               <div className="d-flex justify-content-start align-items-center">
                 <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
