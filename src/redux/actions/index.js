@@ -79,7 +79,7 @@ export const setUserExperienceAction = (userId, experienceData) => {
   };
 };
 
-export const deleteUserExperienceAction = value => ({type: DELETE_USER_EXPERIENCE, payload: value})
+export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIENCE, payload: value });
 
 // GET USERS PROFILE TO SIDEBAR
 export const getProfilesAction = () => {
@@ -91,17 +91,17 @@ export const getProfilesAction = () => {
           "Content-type": "application/json; charset=UTF-8",
           Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
         },
-      })
+      });
 
       if (resp.ok) {
         const data = await resp.json();
 
         dispatch({ type: GET_PROFILES, payload: data });
       } else {
-        console.log("errore nella fetch")
+        console.log("errore nella fetch");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 };

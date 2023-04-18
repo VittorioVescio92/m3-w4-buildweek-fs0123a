@@ -37,7 +37,7 @@ const ExperienceComponents = () => {
           </Button>
           <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} />
           <Button
-            // onClick={navigateToModalExperience}
+            onClick={navigateToExperience}
             variant="white"
             className="d-flex text-secondary align-items-center fs-3"
           >

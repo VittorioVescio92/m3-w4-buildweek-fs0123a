@@ -1,7 +1,53 @@
-import { Button, Dropdown, FloatingLabel, ModalFooter } from "react-bootstrap";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const ModalExperience = ({ show, handleCloseModalEx }) => {
+  const userId = useSelector(state => state.user._id);
+  const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
+  const [experienceData, setExperienceData] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+    area: "",
+  });
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setExperienceData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(experienceData);
+    if (experienceData.endDate === "") {
+      setExperienceData.endDate = "null";
+    }
+    fetch(endPoint, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+      },
+      body: JSON.stringify(experienceData),
+    })
+      .then(response => {
+        if (response.ok) {
+          handleCloseModalEx();
+          window.location.reload();
+        } else {
+          throw new Error("Errore durante l'invio dei dati");
+        }
+      })
+      .catch(error => console.log(error));
+  };
+
   return (
     <>
       <Modal show={show} onHide={handleCloseModalEx}>
@@ -11,323 +57,98 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div id="emailHelp" className="form-text mb-5">
-            * Indica che è obbligatorio
-          </div>
-          <div className="mb-3 mt-5">
-            <label for="exampleInputEmail1" className="form-label">
-              Qualifica*
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Esempio: Retails Sales Manager"
-            />
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Tipo di impiego
-            </label>
-            <Dropdown>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                Seleziona
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    A tempo pieno
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Part-time
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Autonomo
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Freelance
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    A contratto
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Stage
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Apprendistato
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Stagionale
-                  </a>
-                </li>
-              </Dropdown.Menu>
-            </Dropdown>
-            <p>
-              Scopri di più sui <span className="text-primary">tipi di impiego.</span>
-            </p>
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Nome azienda*
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Esempio: Microsoft"
-            />
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Località
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Esempio: Milano, Italia"
-            />
-          </div>
-          <div className="mb-4">
-            <label for="exampleInputEmail1" className="form-label">
-              Tipo di località
-            </label>
-            <Dropdown>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                Seleziona
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    In sede
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Ibrida
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Da remoto
-                  </a>
-                </li>
-              </Dropdown.Menu>
-              <p>Scegli un tipo di località (es. da remoto)</p>
-            </Dropdown>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input bg-success" type="checkbox" value="" id="flexCheckChecked" checked />
-            <label className="form-check-label mb-4" for="flexCheckChecked">
-              Attualmente ricopro questo ruolo
-            </label>
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Data di inizio*
-            </label>
-            <Dropdown>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                Mese
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Gennaio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Febbraio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Marzo
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Aprile
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Maggio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Giugno
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Luglio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Agosto
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Settembre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Ottobre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Novembre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item text-dark" href="#">
-                    Dicembre
-                  </a>
-                </li>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-          <Dropdown>
-            <Dropdown.Toggle variant="light" id="dropdown-basic">
-              Anno
-            </Dropdown.Toggle>
-          </Dropdown>
-          {/* <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Data di fine*
-            </label>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Mese
-              </Button>
-
-              <Dropdown.Menu className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Gennaio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Febbraio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Marzo
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Aprile
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Maggio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Giugno
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Luglio
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Agosto
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Settembre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Ottobre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Novembre
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Dicembre
-                  </a>
-                </li>
-              </ul>
+          <form onSubmit={handleSubmit}>
+            <div id="emailHelp" className="form-text mb-2">
+              * Indica che è obbligatorio
             </div>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Anno
-              </Button>
+            <div className="mb-2">
+              <label htmlFor="role" className="form-label mb-2">
+                Qualifica*
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Esempio: Retails Sales Manager"
+                name="role"
+                value={experienceData.role}
+                onChange={handleInputChange}
+                required
+              />
             </div>
-          </div> */}
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Settore*
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Es.: Commercio al dettaglio"
-            />
-            <p>Linkedin utilizza le informazioni sul settore per fornire segnalazioni più pertinenti</p>
-            <p>
-              Scopri di più sulle <span className="text-primary">opzioni relative al settore</span>
-            </p>
-          </div>
-          <div className="form-floating">
-            <FloatingLabel controlId="floatingSelect" label="Descrizione">
-              <textarea className="form-control" placeholder="Descrizione" id="floatingTextarea"></textarea>
-            </FloatingLabel>
-          </div>
-          <ModalFooter>
-            <Button>Salva</Button>
-          </ModalFooter>
+            <div className="mb-2">
+              <label htmlFor="company" className="form-label mb-2">
+                Nome azienda*
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Esempio: Microsoft"
+                name="company"
+                value={experienceData.company}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="startDate" className="form-label mb-2">
+                Data di inizio*
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                name="startDate"
+                value={experienceData.startDate}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="endDate" className="form-label mb-2">
+                Data di fine
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                name="endDate"
+                value={experienceData.endDate}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="description" className="form-label mb-2">
+                Competenze
+              </label>
+              <textarea
+                className="form-control"
+                placeholder="Esempio: Gestione contabilità, Amministrazione, Approvvigionamento Risorse ecc."
+                name="description"
+                value={experienceData.description}
+                onChange={handleInputChange}
+                rows={3}
+              />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="area" className="form-label mb-2">
+                Località
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Esempio: Roma, Italia"
+                name="area"
+                value={experienceData.area}
+                onChange={handleInputChange}
+              />
+            </div>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModalEx}>
+                Annulla
+              </Button>
+              <Button variant="primary" type="submit">
+                Salva
+              </Button>
+            </Modal.Footer>
+          </form>
         </Modal.Body>
       </Modal>
     </>
