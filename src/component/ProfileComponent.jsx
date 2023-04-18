@@ -1,14 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import coverImg from "../assets/img/cover.jpeg";
 import profileImg from "../assets/img/img-profile.jpg";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import { getUserProfileAction } from "../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ModalProfile from "./ModalProfile";
 
 const ProfileComponent = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.content);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     dispatch(getUserProfileAction());
@@ -40,10 +46,16 @@ const ProfileComponent = () => {
                 </div>
               </div>
             </div>
-            <h1 className="mt-3">Mario Rossi</h1>
-            <p className="job">Junior Front-End Developer</p>
+            <h1 className="mt-3">
+              {user.name} {user.surname}
+            </h1>
+            <p className="job">{user.title}</p>
             <p className="address">
-              <span>Roma, Lazio, Italia</span> - <Link to="/">Informazioni di contatto</Link>
+              <span>{user.area}</span> -
+              <Button variant="" bsPrefix="editBtn" className="btnLink" onClick={handleShow}>
+                Informazioni di contatto
+              </Button>
+              <ModalProfile show={show} handleClose={handleClose} />
             </p>
             <div className="link">
               <Link to="/">92 Collegamenti</Link>
@@ -104,12 +116,3 @@ const ProfileComponent = () => {
   );
 };
 export default ProfileComponent;
-
-// const ProfileComponent = () => {
-//   const dispatch = useDispatch();
-//   useEffect(() => {
-//     const fetchData = () => {
-//       dispatch(getUserProfileAction(endpointUserProfile));
-//     };
-//     fetchData();
-//   }, []);

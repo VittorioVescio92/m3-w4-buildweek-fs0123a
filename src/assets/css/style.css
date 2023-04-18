@@ -1,5 +1,5 @@
 /* ---------- RESET ---------- */
-a {
+a, .btnLink {
   text-decoration: none;
   color: rgb(10, 102, 194);
   font-weight: 600;
@@ -104,7 +104,11 @@ body {
   border: 5px solid #fff;
   z-index: 2;
 }
-.edit svg {
+.editBtn {
+  background-color: transparent;
+  border: unset;
+}
+.editBtn svg {
   font-size: 1.5rem;
   fill: rgba(0, 0, 0, 0.6);
 }
@@ -122,9 +126,37 @@ body {
   display: block;
   font-weight: 600;
 }
+.modal-header, 
+.modal-body {
+  padding-inline: 24px;
+}
+.modal h1,
+.modal h2,
+.modal h3 {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.modal h2 {
+  margin-bottom: 1rem;
+}
+.modal h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+.modal svg {
+  font-size: 20px;
+}
+.modal a {
+  color: #0a66c2;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 36px;
+}
 
 /* ---------- SIDE-COL ---------- */
-
 .sideImg {
   width: 100px;
 }
