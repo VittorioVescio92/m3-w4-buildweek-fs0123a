@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import EpicodeImg from "../assets/img/epicode-logo.png";
 import { ArrowRight } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserExperienceAction } from "../redux/actions";
@@ -17,6 +17,10 @@ const ExperienceComponents = () => {
     dispatch(getUserExperienceAction(userId));
   }, []);
 
+  const navigate = useNavigate();
+  const navigateToExperience = () => {
+    navigate("/experience");
+  };
   return (
     <Container className="mt-2 d-flex p-0">
       <Row className="d-flex">
@@ -116,10 +120,17 @@ const ExperienceComponents = () => {
               </Col>
             </Row>
             <hr></hr>
-            <Link to="#" className="d-flex justify-content-center text-secondary align-items-center">
-              Mostra tutte le esperienze (6)
-              <ArrowRight className="ms-2" />
-            </Link>
+            <div className="d-flex justify-content-center">
+              <Button
+                // to="#"
+                onClick={navigateToExperience}
+                variant="white"
+                className="d-flex text-secondary align-items-center"
+              >
+                Mostra tutte le esperienze (6)
+                <ArrowRight className="ms-2" />
+              </Button>
+            </div>
           </section>
         </Col>
       </Row>

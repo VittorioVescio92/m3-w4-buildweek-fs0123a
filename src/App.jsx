@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainComponent from "./component/MainComponent";
 import MyNavbar from "./component/MyNavbar";
 import MyFooter from "./component/MyFooter";
+import ExperiencesPageComponents from "./component/ExperiencesPageComponents";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<MainComponent />} />
+        <Route path="/experience" element={<ExperiencesPageComponents />} />
       </Routes>
       <MyFooter />
     </BrowserRouter>
