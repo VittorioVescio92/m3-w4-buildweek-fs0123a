@@ -1,19 +1,29 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import EpicodeImg from "../assets/img/epicode-logo.png";
-import { ArrowRight } from "react-bootstrap-icons";
+import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
+import SideComponent from "./SideComponent";
 
-const ExperienceComponents = () => {
+const ExperiencesPageComponents = () => {
   const navigate = useNavigate();
   const navigateToExperience = () => {
-    navigate("/experience");
+    navigate("/");
   };
   return (
     <Container className="mt-2 d-flex p-0">
       <Row className="d-flex">
-        <Col>
-          <section className="rounded-3 border-dark profile p-3">
-            <h3>Esperienze</h3>
+        <Col md={9}>
+          <section className="mt-4 rounded-3 border-dark profile p-3">
+            <div className="d-flex">
+              <Button
+                variant="light"
+                onClick={navigateToExperience}
+                className="rounded-pill my-2"
+              >
+                <ArrowLeft className="fs-2" />
+              </Button>
+              <h3 className="ms-4 my-4">Esperienze</h3>
+            </div>
             <div className="d-flex justify-content-start align-items-center">
               <img
                 src={EpicodeImg}
@@ -151,23 +161,14 @@ const ExperienceComponents = () => {
                 </div>
               </Col>
             </Row>
-            <hr></hr>
-            <div className="d-flex justify-content-center">
-              <Button
-                // to="#"
-                onClick={navigateToExperience}
-                variant="white"
-                className="d-flex text-secondary align-items-center"
-              >
-                Mostra tutte le esperienze (6)
-                <ArrowRight className="ms-2" />
-              </Button>
-            </div>
           </section>
+        </Col>
+        <Col md={3}>
+          <SideComponent />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default ExperienceComponents;
+export default ExperiencesPageComponents;
