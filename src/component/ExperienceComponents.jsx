@@ -10,8 +10,8 @@ import { getUserExperienceAction } from "../redux/actions";
 
 const ExperienceComponents = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.user.content._id);
-  const experience = useSelector((state) => state.experience.content);
+  const userId = useSelector(state => state.user.content._id);
+  const experience = useSelector(state => state.experience.content);
   // const experienceData = (state => state.experience.experienceData)
 
   useEffect(() => {
@@ -21,13 +21,14 @@ const ExperienceComponents = () => {
   const navigate = useNavigate();
   const navigateToExperience = () => {
     navigate("/experience");
+    window.scrollTo(0, 0);
   };
   return (
     <Container className="mt-2 d-flex p-0">
       <section className="rounded-3 border-dark profile p-3 w-100">
         <h3>Esperienze</h3>
         {experience &&
-          experience.map((item) => (
+          experience.map(item => (
             <div key={item._id}>
               <div className="d-flex justify-content-start align-items-center">
                 <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
