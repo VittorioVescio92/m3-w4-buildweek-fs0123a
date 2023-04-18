@@ -1,9 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Col, Container, Row } from "react-bootstrap";
 import EpicodeImg from "../assets/img/epicode-logo.png";
 import { ArrowRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserExperienceAction } from "../redux/actions";
 
 const ExperienceComponents = () => {
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.user.content._id);
+  const experience = useSelector(state => state.experience.content);
+  // const experienceData = (state => state.experience.experienceData)
+
+  useEffect(() => {
+    dispatch(getUserExperienceAction(userId));
+  }, []);
+
   return (
     <Container className="mt-2 d-flex p-0">
       <Row className="d-flex">

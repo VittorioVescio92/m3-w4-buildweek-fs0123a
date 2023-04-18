@@ -3,9 +3,10 @@ import MainReducer from "../reducers/MainReducer";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 // import persistReducer from "redux-persist/es/persistReducer";
 // import persistStore from "redux-persist/es/persistStore";
-import {persistReducer, persistStore} from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import userReducer from "../reducers/userReducer";
+import experienceReducer from "../reducers/experienceReducer";
 
 const persistConfig = {
   key: "root",
@@ -13,7 +14,7 @@ const persistConfig = {
   transforms: [
     encryptTransform({
       secretKey: process.env.REACT_APP_PERSIST_KEY,
-      secretToken: process.env.REACT_APP_STRIVE_TOKEN
+      secretToken: process.env.REACT_APP_STRIVE_TOKEN,
     }),
   ],
 };
@@ -21,6 +22,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   main: MainReducer,
   user: userReducer,
+  experience: experienceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
