@@ -5,6 +5,8 @@ const endpointUserExperience = `https://striveschool-api.herokuapp.com/api/profi
 export const GET_USER_PROFILE = "GET_USER_PROFILE";
 export const GET_USER_EXPERIENCE = "GET_USER_EXPERIENCE";
 export const SET_USER_EXPERIENCE = "SET_USER_EXPERIENCE";
+export const DELETE_USER_EXPERIENCE = "DELETE_USER_EXPERIENCE";
+
 
 export const getUserProfileAction = () => {
   return async (dispatch, getState) => {
@@ -75,3 +77,5 @@ export const setUserExperienceAction = (userId, experienceData) => {
     }
   };
 };
+
+export const deleteUserExperienceAction = value => ({type: DELETE_USER_EXPERIENCE, payload: value})
