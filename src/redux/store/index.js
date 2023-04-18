@@ -7,6 +7,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import userReducer from "../reducers/userReducer";
 import experienceReducer from "../reducers/experienceReducer";
+import profilesReducer from "../reducers/profilesReducer";
 
 const persistConfig = {
   key: "root",
@@ -21,8 +22,9 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   main: MainReducer,
-  user: userReducer,
+  user: userReducer, // forse questa proprietà dovrà cambiare il nome, renderla "parlante" => myProfile
   experience: experienceReducer,
+  profiles: profilesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
