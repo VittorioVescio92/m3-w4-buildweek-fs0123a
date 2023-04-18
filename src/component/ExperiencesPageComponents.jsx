@@ -39,6 +39,7 @@ const ExperiencesPageComponents = () => {
                           {new Date(item.startDate).toLocaleDateString()} -{" "}
                           {new Date(item.endDate).toLocaleDateString()}
                         </p>
+                        <p className="ms-3 text-secondary">{item.area}</p>
                         <p className="ms-3 mt-3">
                           <span className="fw-bold">Competenze: </span> {item.description}
                         </p>
