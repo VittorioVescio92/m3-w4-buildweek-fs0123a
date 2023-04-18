@@ -1,5 +1,6 @@
 /* ---------- RESET ---------- */
-a, .btnLink {
+a,
+.btnLink {
   text-decoration: none;
   color: rgb(10, 102, 194);
   font-weight: 600;
@@ -126,7 +127,7 @@ body {
   display: block;
   font-weight: 600;
 }
-.modal-header, 
+.modal-header,
 .modal-body {
   padding-inline: 24px;
 }
@@ -159,4 +160,8 @@ body {
 /* ---------- SIDE-COL ---------- */
 .sideImg {
   width: 100px;
+}
+
+section.profile div:last-of-type hr {
+  display: none;
 }
