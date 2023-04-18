@@ -1,9 +1,5 @@
-import { useState } from "react";
-import { Button, Dropdown, ModalFooter } from "react-bootstrap";
+import { Button, Dropdown, FloatingLabel, ModalFooter } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { Envelope, Linkedin } from "react-bootstrap-icons";
-// import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 const ModalExperience = ({ show, handleCloseModalEx }) => {
   //   const user = useSelector((state) => state.user.content);
@@ -17,10 +13,10 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div id="emailHelp" className="form-text">
+          <div id="emailHelp" className="form-text mb-5">
             * Indica che è obbligatorio
           </div>
-          <div className="mb-3">
+          <div className="mb-3 mt-5">
             <label for="exampleInputEmail1" className="form-label">
               Qualifica*
             </label>
@@ -36,60 +32,56 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
             <label for="exampleInputEmail1" className="form-label">
               Tipo di impiego
             </label>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <Dropdown>
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Seleziona
-              </Button>
-              <ul className="dropdown-menu">
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     A tempo pieno
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Part-time
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Autonomo
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Freelance
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     A contratto
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Stage
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Apprendistato
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Stagionale
                   </a>
                 </li>
-              </ul>
-            </div>
+              </Dropdown.Menu>
+            </Dropdown>
             <p>
-              Scopri di più sui <a>tipi di impiego.</a>
+              Scopri di più sui{" "}
+              <span className="text-primary">tipi di impiego.</span>
             </p>
           </div>
           <div className="mb-3">
@@ -116,48 +108,43 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
               placeholder="Esempio: Milano, Italia"
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <label for="exampleInputEmail1" className="form-label">
               Tipo di località
             </label>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <Dropdown>
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Seleziona
-              </Button>
-              <ul className="dropdown-menu">
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     In sede
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Ibrida
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Da remoto
                   </a>
                 </li>
-              </ul>
+              </Dropdown.Menu>
               <p>Scegli un tipo di località (es. da remoto)</p>
-            </div>
+            </Dropdown>
           </div>
           <div className="form-check">
             <input
-              className="form-check-input"
+              className="form-check-input bg-success"
               type="checkbox"
               value=""
               id="flexCheckChecked"
               checked
             />
-            <label className="form-check-label" for="flexCheckChecked">
+            <label className="form-check-label mb-4" for="flexCheckChecked">
               Attualmente ricopro questo ruolo
             </label>
           </div>
@@ -165,90 +152,79 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
             <label for="exampleInputEmail1" className="form-label">
               Data di inizio*
             </label>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <Dropdown>
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Mese
-              </Button>
-
-              <ul className="dropdown-menu">
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Gennaio
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Febbraio
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Marzo
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Aprile
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Maggio
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Giugno
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Luglio
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Agosto
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Settembre
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Ottobre
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Novembre
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item text-dark" href="#">
                     Dicembre
                   </a>
                 </li>
-              </ul>
-            </div>
-            <div className="dropdown">
-              <Button
-                className="btn btn-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Anno
-              </Button>
-            </div>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
+          <Dropdown>
+            <Dropdown.Toggle variant="light" id="dropdown-basic">
+              Anno
+            </Dropdown.Toggle>
+          </Dropdown>
           {/* <div className="mb-3">
             <label for="exampleInputEmail1" className="form-label">
               Data di fine*
@@ -263,7 +239,7 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
                 Mese
               </Button>
 
-              <ul className="dropdown-menu">
+              <Dropdown.Menu className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">
                     Gennaio
@@ -346,22 +322,25 @@ const ModalExperience = ({ show, handleCloseModalEx }) => {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Es..: RCommercio al dettaglio"
+              placeholder="Es.: Commercio al dettaglio"
             />
             <p>
               Linkedin utilizza le informazioni sul settore per fornire
               segnalazioni più pertinenti
             </p>
             <p>
-              Scopri di più sulle <a>opzioni relative al settore</a>
+              Scopri di più sulle{" "}
+              <span className="text-primary">opzioni relative al settore</span>
             </p>
           </div>
           <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Descrizione"
-              id="floatingTextarea"
-            ></textarea>
+            <FloatingLabel controlId="floatingSelect" label="Descrizione">
+              <textarea
+                className="form-control"
+                placeholder="Descrizione"
+                id="floatingTextarea"
+              ></textarea>
+            </FloatingLabel>
           </div>
           <ModalFooter>
             <Button>Salva</Button>
