@@ -13,40 +13,40 @@ import avatar from "../avatar.png";
 const MyNavbar = () => {
   return (
     <Navbar bg="dark" expand="lg" className="py-0 d-flex justify-content-center">
-      <Col xs={8}>
+      <Col xs={8} className="mb-1">
         <Container className="d-flex align-items-center px-0">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="#" className="p-0 d-block">
             <Linkedin className="text-light fs-1" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Form inline className="ml-auto">
+            <Form className="ml-auto">
               <FormControl type="text" placeholder="cerca" className="mr-sm-2" />
             </Form>
           </Navbar.Collapse>
           <div className="px-4 fs-4 text-center nav-item-col">
             <HouseDoorFill />
-            <p className=" fs-6">Home</p>
+            <p className=" fs-6 m-0">Home</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
             <PersonLinesFill />
-            <p className=" fs-6">Rete</p>
+            <p className=" fs-6 m-0">Rete</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
             <BriefcaseFill />
-            <p className=" fs-6">Lavoro</p>
+            <p className=" fs-6 m-0">Lavoro</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
             <ChatDotsFill />
-            <p className=" fs-6">Messaggistica</p>
+            <p className=" fs-6 m-0">Messaggistica</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
             <BellFill />
-            <p className=" fs-6">Notifiche</p>
+            <p className=" fs-6 m-0">Notifiche</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
             <img id="avatar" src={avatar} alt="Avatar" className="rounded-circle" />
-            <p className=" fs-6">
+            <div className=" fs-6 m-0">
               <NavDropdown
                 id="nav-dropdown-dark-example"
                 title="Tu"
@@ -81,14 +81,14 @@ const MyNavbar = () => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.3">Esci</NavDropdown.Item>
               </NavDropdown>
-            </p>
+            </div>
           </div>
 
           <div className="ps-4 fs-4 text-center border-start border-white-50 nav-item-col">
             <Building />
-            <p className="fs-6">
+            <div className="fs-6">
               <NavDropdown id="nav-dropdown-dark-example" title="Per le aziende" menuVariant="dark"></NavDropdown>
-            </p>
+            </div>
           </div>
         </Container>
       </Col>
