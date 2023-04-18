@@ -12,7 +12,8 @@ const ExperienceComponents = () => {
   const dispatch = useDispatch();
   const userId = useSelector(state => state.user.content._id);
   const experience = useSelector(state => state.experience.content);
-  // const experienceData = (state => state.experience.experienceData)
+  const experienceData = useSelector(state => state.experience.experienceData);
+  console.log(experienceData);
 
   useEffect(() => {
     dispatch(getUserExperienceAction(userId));
