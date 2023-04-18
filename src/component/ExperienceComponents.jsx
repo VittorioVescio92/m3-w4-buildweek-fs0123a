@@ -7,15 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserExperienceAction } from "../redux/actions";
-import ModalProfile from "./ModalProfile";
 import ModalExperience from "./ModalExperience";
 
 const ExperienceComponents = () => {
   const dispatch = useDispatch();
   const userId = useSelector(state => state.user.content._id);
   const experience = useSelector(state => state.experience.content);
-  const experienceData = useSelector(state => state.experience.experienceData);
-  console.log(experienceData);
 
   useEffect(() => {
     dispatch(getUserExperienceAction(userId));
@@ -35,17 +32,10 @@ const ExperienceComponents = () => {
       <section className="rounded-3 border-dark profile p-3 w-100">
         <div className="d-flex">
           <h3 className="me-auto">Esperienze</h3>
-          <Button
-            onClick={handleShowModalEx}
-            variant="white"
-            className="d-flex text-secondary align-items-center fs-2"
-          >
+          <Button onClick={handleShowModalEx} variant="white" className="d-flex text-secondary align-items-center fs-2">
             <PlusLg />
           </Button>
-          <ModalExperience
-            show={show}
-            handleCloseModalEx={handleCloseModalEx}
-          />
+          <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} />
           <Button
             // onClick={navigateToModalExperience}
             variant="white"
@@ -58,22 +48,15 @@ const ExperienceComponents = () => {
           experience.map(item => (
             <div key={item._id}>
               <div className="d-flex justify-content-start align-items-center">
-                <img
-                  src={EpicodeImg}
-                  alt=""
-                  className="img-fluid mb-5"
-                  width={50}
-                />
+                <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
                 <div className="d-flex flex-column">
                   <p className="ms-3 fw-bold text-secondary">{item.role}</p>
                   <p className="ms-3 text-secondary">{item.company}</p>
                   <p className="ms-3 text-secondary">
-                    {new Date(item.startDate).toLocaleDateString()} -{" "}
-                    {new Date(item.endDate).toLocaleDateString()}
+                    {new Date(item.startDate).toLocaleDateString()} - {new Date(item.endDate).toLocaleDateString()}
                   </p>
                   <p className="ms-3 mt-3">
-                    <span className="fw-bold">Competenze: </span>{" "}
-                    {item.description}
+                    <span className="fw-bold">Competenze: </span> {item.description}
                   </p>
                 </div>
               </div>
@@ -81,11 +64,7 @@ const ExperienceComponents = () => {
             </div>
           ))}
         <div className="d-flex justify-content-center">
-          <Button
-            onClick={navigateToExperience}
-            variant="white"
-            className="d-flex text-secondary align-items-center"
-          >
+          <Button onClick={navigateToExperience} variant="white" className="d-flex text-secondary align-items-center">
             Mostra tutte le esperienze ({experience.length})
             <ArrowRight className="ms-2" />
           </Button>
