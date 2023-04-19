@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ModalHomeImg = ({ showImg, handleCloseHomeImg }) => {
   return (
     <>
-      <Modal showImg={showImg} onHide={handleCloseHomeImg}>
+      <Modal show={showImg} onHide={handleCloseHomeImg}>
         <Modal.Header closeButton>
           <Modal.Title>
             <h1>Modifica la tua foto</h1>

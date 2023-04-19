@@ -4,10 +4,20 @@ import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { DropdownButton } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icons";
+import { Link, useLocation } from "react-router-dom";
+import {
+  GearFill,
+  QuestionCircleFill,
+  ShieldShaded,
+} from "react-bootstrap-icons";
 
 const MyFooter = () => {
+  const location = useLocation();
+  const isHome = location.pathname.includes("home");
+
+  if (isHome) {
+    return null;
+  }
   return (
     <footer className="my-5 mx-2 d-flex flex-row">
       <Container className="p-0">
@@ -18,68 +28,104 @@ const MyFooter = () => {
                 <Row className="mb-2">
                   <Col>
                     {/* rgb(156 156 154) colore testo */}
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Informazioni
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Accessibilità
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Talent Solutions
                     </Link>
                   </Col>
                 </Row>
                 <Row className="mb-2">
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Linee guida della community
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Carriera
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Soluzioni di marketing
                     </Link>
                   </Col>
                 </Row>
                 <Row className="mb-2">
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Centro sicurezza
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Opzioni per gli annunci pubblicitari
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Pubblicità
                     </Link>
                   </Col>
                 </Row>
                 <Row className="mb-2">
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Sales Solutions
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Mobile
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="#" className="text-decoration-none text-secondary">
+                    <Link
+                      to="#"
+                      className="text-decoration-none text-secondary"
+                    >
                       Piccole Imprese
                     </Link>
                   </Col>
@@ -108,7 +154,9 @@ const MyFooter = () => {
                   </Col>
                 </Row>
                 <Row className="mt-5">
-                  <Col className="text-secondary">Linkedin Corporation &copy; 2023</Col>
+                  <Col className="text-secondary">
+                    Linkedin Corporation &copy; 2023
+                  </Col>
                 </Row>
               </Row>
             </Col>
@@ -119,10 +167,15 @@ const MyFooter = () => {
                   <QuestionCircleFill className="mx-2 text-secondary" />
                 </div>
                 <div>
-                  <Link to="#" className="text-decoration-none text-secondary fw-bold">
+                  <Link
+                    to="#"
+                    className="text-decoration-none text-secondary fw-bold"
+                  >
                     Domande?
                   </Link>
-                  <p className="d-flex text-secondary">Visita il nostro Centro assistenza.</p>
+                  <p className="d-flex text-secondary">
+                    Visita il nostro Centro assistenza.
+                  </p>
                 </div>
               </Col>
 
@@ -131,7 +184,10 @@ const MyFooter = () => {
                   <GearFill className="mx-2 text-secondary" />
                 </div>
                 <div>
-                  <Link to="#" className="text-decoration-none text-secondary fw-bold">
+                  <Link
+                    to="#"
+                    className="text-decoration-none text-secondary fw-bold"
+                  >
                     Gestisci il tuo account e la tua privacy
                   </Link>
                   <p className="text-secondary">Vai alle impostazioni</p>
@@ -142,10 +198,15 @@ const MyFooter = () => {
                   <ShieldShaded className="mx-2 text-secondary" />
                 </div>
                 <div>
-                  <Link to="#" className="text-decoration-none text-secondary fw-bold">
+                  <Link
+                    to="#"
+                    className="text-decoration-none text-secondary fw-bold"
+                  >
                     Trasparenza sui contenuti consigliati
                   </Link>
-                  <p className="text-secondary">Scopri di più sui contenuti consigliati.</p>
+                  <p className="text-secondary">
+                    Scopri di più sui contenuti consigliati.
+                  </p>
                 </div>
               </Col>
             </Col>

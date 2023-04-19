@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../avatar.png";
 import {
@@ -18,7 +18,7 @@ import ModalHomeImg from "./ModalHomeImg";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const user = useSelector(state => state.user.content);
+  const user = useSelector((state) => state.user.content);
 
   const navigate = useNavigate();
   const navigateHomePage = () => {
@@ -47,7 +47,10 @@ const Home = () => {
                 className="rounded-circle d-flex mx-auto"
                 onClick={navigateHomePage}
               />
-              <Link className="d-flex justify-content-center my-4" onClick={navigateHomePage}>
+              <Link
+                className="d-flex justify-content-center my-4"
+                onClick={navigateHomePage}
+              >
                 {user.name} {user.surname}
               </Link>
               <p>Studente</p>
@@ -82,20 +85,37 @@ const Home = () => {
               <div className="d-flex mb-3">
                 <Link>
                   <div className="m-2">
-                    <img id="avatar" src={avatar} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
+                    <img
+                      id="avatar"
+                      src={avatar}
+                      alt="Avatar"
+                      className="rounded-circle"
+                      onClick={navigateHomePage}
+                    />
                   </div>
                 </Link>
-                <Button className="border" variant="light" onClick={handleShowHome}>
+                <Button
+                  className="border"
+                  variant="light"
+                  onClick={handleShowHome}
+                >
                   <span className="text-secondary">Avvia un post</span>
                 </Button>
                 <ModalHome show={show} handleCloseHome={handleCloseHome} />
               </div>
               <div>
-                <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeImg}>
+                <Button
+                  variant="white"
+                  className="p-0 mx-2"
+                  onClick={handleShowHomeImg}
+                >
                   <Image className="text-primary" />
                   <span className="mx-2 text-secondary">Foto</span>
                 </Button>
-                <ModalHomeImg showImg={showImg} handleCloseHomeImg={handleCloseHomeImg} />
+                <ModalHomeImg
+                  showImg={showImg}
+                  handleCloseHomeImg={handleCloseHomeImg}
+                />
                 <Button variant="white" className="p-0 mx-2">
                   <PlayBtnFill className="text-success" />
                   <span className="mx-2 text-secondary">Video</span>
@@ -106,7 +126,9 @@ const Home = () => {
                 </Button>
                 <Button variant="white" className="p-0 mx-2">
                   <CardText className="text-danger" />
-                  <span className="mx-2 text-secondary">Scrivi un articolo</span>
+                  <span className="mx-2 text-secondary">
+                    Scrivi un articolo
+                  </span>
                 </Button>
               </div>
             </div>
@@ -132,7 +154,9 @@ const Home = () => {
                   <ThreeDots />
                 </Button>
               </div>
-              <p>Explore water business opportunity for the pizza in the pasta</p>
+              <p>
+                Explore water business opportunity for the pizza in the pasta
+              </p>
               <div>
                 <div>
                   <img src={avatar} alt="" width={400} />
