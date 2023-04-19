@@ -29,21 +29,23 @@ const Home = () => {
   const handleShowHomeImg = () => setShowImg(true);
   return (
     <>
-      <Button onClick={navigateHomePage}></Button>
-      <h1>provaaaaaaa</h1>
-      <Container className="d-flex">
+      <div className="d-flex align-items-start mt-3 justify-content-center">
         <div className="mx-3">
           <div className="mx-3 bg-white border rounded p-4">
-            <div>
+            <div className="">
               <img
                 id="avatar"
                 src={avatar}
                 alt="Avatar"
-                className="rounded-circle"
+                className="rounded-circle d-flex mx-auto"
+                onClick={navigateHomePage}
               />
-              <h3>
+              <a
+                className="d-flex justify-content-center my-4"
+                onClick={navigateHomePage}
+              >
                 {user.name} {user.surname}
-              </h3>
+              </a>
               <p>Studente</p>
               {/* dinamicizzare i p */}
             </div>
@@ -69,7 +71,7 @@ const Home = () => {
             <Button>Scopri di più</Button>
           </div>
         </div>
-        <Container className="bg-white border rounded">
+        <div className="bg-white border rounded">
           <div className="m-3">
             <div className="d-flex mb-3">
               <a>
@@ -79,6 +81,7 @@ const Home = () => {
                     src={avatar}
                     alt="Avatar"
                     className="rounded-circle"
+                    onClick={navigateHomePage}
                   />
                 </div>
               </a>
@@ -126,7 +129,7 @@ const Home = () => {
           ordina
         </span>
       </div> */}
-        </Container>
+        </div>
         <div className="mx-3">
           <div className="mx-3 bg-white border rounded p-4">
             <div>
@@ -138,7 +141,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </>
   );
 };
