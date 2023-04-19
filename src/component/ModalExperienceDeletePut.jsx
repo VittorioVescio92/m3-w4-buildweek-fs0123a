@@ -1,22 +1,30 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
-import { Modal } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUserExperienceAction } from "../redux/actions";
+import { useSelector } from "react-redux";
+
+import { useState, useEffect } from "react";
+import { Button, Modal } from "react-bootstrap";
 
 const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
-  const dispatch = useDispatch();
   const userId = useSelector(state => state.user._id);
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
   const [experienceItem, setExperienceItem] = useState({
-    role: experience.role,
-    company: experience.company,
-    startDate: new Date(experience.startDate).toLocaleDateString(),
-    endDate: new Date(experience.endDate).toLocaleDateString(),
-    description: experience.description,
-    area: experience.area,
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+    area: "",
   });
-  console.log(experienceItem.startDate);
+
+  useEffect(() => {
+    setExperienceItem({
+      role: experience.role,
+      company: experience.company,
+      startDate: new Date(experience.startDate).toLocaleDateString(),
+      endDate: new Date(experience.endDate).toLocaleDateString(),
+      description: experience.description,
+      area: experience.area,
+    });
+  }, [experience]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -36,7 +44,25 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
       .then(response => {
         if (response.ok) {
           handleCloseModalEx();
-          dispatch(deleteUserExperienceAction);
+        } else {
+          throw new Error("Errore durante la cancellazione dei dati");
+        }
+      })
+      .catch(error => console.log(error));
+  };
+
+  const handleMod = () => {
+    fetch(endPoint + experience._id, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+      },
+      body: JSON.stringify(experienceItem),
+    })
+      .then(response => {
+        if (response.ok) {
+          handleCloseModalEx();
         } else {
           throw new Error("Errore durante la cancellazione dei dati");
         }
@@ -53,7 +79,7 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit="">
+          <form onSubmit={handleMod}>
             <div id="emailHelp" className="form-text mb-2">
               * Indica che è obbligatorio
             </div>
@@ -146,7 +172,7 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
                 <Button variant="danger" className="mx-1" onClick={handleDelete}>
                   Elimina
                 </Button>
-                <Button variant="primary" type="submit" className="mx-1">
+                <Button variant="warning" type="submit" className="mx-1">
                   Modifica
                 </Button>
               </div>

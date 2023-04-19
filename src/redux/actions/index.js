@@ -36,8 +36,8 @@ export const getUserProfileAction = () => {
   };
 };
 
-export const getSelectedProfileAction = (id) => {
-  console.log(id)
+export const getSelectedProfileAction = id => {
+  console.log(id);
   return async (dispatch, getState) => {
     try {
       let resp = await fetch(endpointSelectedProfile + `${id === undefined ? "me" : id}`, {
@@ -61,7 +61,6 @@ export const getSelectedProfileAction = (id) => {
     }
   };
 };
-
 
 export const getUserExperienceAction = userId => {
   return async (dispatch, getState) => {

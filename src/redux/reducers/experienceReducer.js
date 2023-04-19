@@ -16,7 +16,6 @@ const experienceReducer = (state = initialState, action) => {
         ...state,
         content: state.content.filter(item => item._id !== action.payload),
       };
-
     default:
       return state;
   }
