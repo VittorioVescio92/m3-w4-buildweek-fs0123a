@@ -25,7 +25,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <img src={avatar} width={50} className="rounded-pill" />
+            <img src={avatar} alt="" width={50} className="rounded-pill" />
             <h3 className="me-auto">
               {user.name} {user.surname}
             </h3>
@@ -42,9 +42,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
               className="form-control p-0 border-white"
               id="floatingInput"
             />
-            <label for="floatingInput" className="p-0">
-              Di cosa vorresti parlare?
-            </label>
+            <label className="p-0">Di cosa vorresti parlare?</label>
           </div>
           <Button variant="white">
             <EmojiSmile />
