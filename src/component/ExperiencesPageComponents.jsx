@@ -1,11 +1,11 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import EpicodeImg from "../assets/img/epicode-logo.png";
-import { ArrowLeft, Pencil } from "react-bootstrap-icons";
+
+import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import SideComponent from "./SideComponent";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import ModalExperienceDeletePut from "./ModalExperienceDeletePut";
+
+import ExperienceSection from "./ExperienceSection";
 
 const ExperiencesPageComponents = () => {
   const navigate = useNavigate();
@@ -16,9 +16,6 @@ const ExperiencesPageComponents = () => {
     window.scrollTo(0, 0);
   };
 
-  const [show, setShow] = useState(false);
-  const handleCloseModalEx = () => setShow(false);
-  const handleShowModalEx = () => setShow(true);
   return (
     <Container className="mt-2 p-0">
       <Row>
@@ -32,39 +29,7 @@ const ExperiencesPageComponents = () => {
                 <h3 className="ms-3">Esperienze</h3>
               </div>
             </div>
-            {experience &&
-              experience.map(item => (
-                <div key={item._id}>
-                  <div className="d-flex justify-content-start align-items-center">
-                    <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
-                    <div className="d-flex justify-content-between  flex-grow-1">
-                      <div className="d-flex flex-column">
-                        <p className="ms-3 fw-bold text-secondary">{item.role}</p>
-                        <p className="ms-3 text-secondary">{item.company}</p>
-                        <p className="ms-3 text-secondary">
-                          {new Date(item.startDate).toLocaleDateString()} -{" "}
-                          {new Date(item.endDate).toLocaleDateString()}
-                        </p>
-                        <p className="ms-3 text-secondary">{item.area}</p>
-                        <p className="ms-3 mt-3">
-                          <span className="fw-bold">Competenze: </span> {item.description}
-                        </p>
-                      </div>
-                      <div>
-                        <Button onClick={handleShowModalEx} variant="light" className="rounded-pill mt-0 my-2 ml-auto">
-                          <Pencil />
-                        </Button>
-                        <ModalExperienceDeletePut
-                          show={show}
-                          handleCloseModalEx={handleCloseModalEx}
-                          experience={item}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <hr></hr>
-                </div>
-              ))}
+            {experience && experience.map(item => <ExperienceSection item={item} />)}
           </section>
         </Col>
         <Col md={3}>
