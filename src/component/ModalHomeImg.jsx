@@ -1,4 +1,5 @@
 import { Button, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ModalHomeImg = ({ showImg, handleCloseHomeImg }) => {
   return (
@@ -10,7 +11,7 @@ const ModalHomeImg = ({ showImg, handleCloseHomeImg }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <a>Seleziona le immagini da condividere</a>
+          <Link>Seleziona le immagini da condividere</Link>
           <Button variant="white" className="border-primary">
             <span className="text-primary">Annulla</span>
           </Button>

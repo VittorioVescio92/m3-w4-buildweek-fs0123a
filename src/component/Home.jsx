@@ -1,5 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import avatar from "../avatar.png";
 import {
   ArrowsFullscreen,
@@ -47,12 +47,12 @@ const Home = () => {
                 className="rounded-circle d-flex mx-auto"
                 onClick={navigateHomePage}
               />
-              <a
+              <Link
                 className="d-flex justify-content-center my-4"
                 onClick={navigateHomePage}
               >
                 {user.name} {user.surname}
-              </a>
+              </Link>
               <p>Studente</p>
               {/* dinamicizzare i p */}
             </div>
@@ -83,7 +83,7 @@ const Home = () => {
           <div className="bg-white border rounded">
             <div className="m-3">
               <div className="d-flex mb-3">
-                <a>
+                <Link>
                   <div className="m-2">
                     <img
                       id="avatar"
@@ -93,7 +93,7 @@ const Home = () => {
                       onClick={navigateHomePage}
                     />
                   </div>
-                </a>
+                </Link>
                 <Button
                   className="border"
                   variant="light"
@@ -151,9 +151,9 @@ const Home = () => {
           <div className="bg-white border rounded mt-3">
             <div className="m-3">
               <div className="d-flex mb-3">
-                <img src={avatar} width={80} />
+                <img src={avatar} alt="" width={80} />
                 <div>
-                  <a>Acquatech</a>
+                  <Link>Acquatech</Link>
                   <p>8.118 follower</p>
                   <p>Post sponsorizzato</p>
                 </div>
@@ -165,9 +165,9 @@ const Home = () => {
                 Explore water business opportunity for the pizza in the pasta
               </p>
               <div>
-                <img src={avatar} width={400} />
+                <img src={avatar} alt="" width={400} />
                 <div>
-                  <a>acquatechrade.com</a>
+                  <Link>acquatechrade.com</Link>
                   <br />
                   <span className="me-5">Acquatech China: 5-7 June 2023</span>
                   <Button className="ms-5">Scopri di più</Button>
