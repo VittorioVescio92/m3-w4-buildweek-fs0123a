@@ -18,7 +18,7 @@ import ModalHomeImg from "./ModalHomeImg";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const user = useSelector((state) => state.user.content);
+  const user = useSelector(state => state.user.content);
 
   const navigate = useNavigate();
   const navigateHomePage = () => {
@@ -47,10 +47,7 @@ const Home = () => {
                 className="rounded-circle d-flex mx-auto"
                 onClick={navigateHomePage}
               />
-              <a
-                className="d-flex justify-content-center my-4"
-                onClick={navigateHomePage}
-              >
+              <Link className="d-flex justify-content-center my-4" onClick={navigateHomePage}>
                 {user.name} {user.surname}
               </a>
               <p>Studente</p>
@@ -85,39 +82,20 @@ const Home = () => {
               <div className="d-flex mb-3">
                 <Link>
                   <div className="m-2">
-                    <img
-                      id="avatar"
-                      src={avatar}
-                      alt="Avatar"
-                      className="rounded-circle"
-                      onClick={navigateHomePage}
-                    />
+                    <img id="avatar" src={avatar} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
                   </div>
                 </Link>
-                <Button
-                  className="border"
-                  variant="light"
-                  onClick={handleShowHome}
-                >
-                  {/* onclick modale */}
+                <Button className="border" variant="light" onClick={handleShowHome}>
                   <span className="text-secondary">Avvia un post</span>
                 </Button>
                 <ModalHome show={show} handleCloseHome={handleCloseHome} />
               </div>
               <div>
-                <Button
-                  variant="white"
-                  className="p-0 mx-2"
-                  onClick={handleShowHomeImg}
-                >
+                <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeImg}>
                   <Image className="text-primary" />
                   <span className="mx-2 text-secondary">Foto</span>
                 </Button>
-                <ModalHomeImg
-                  showImg={showImg}
-                  handleCloseHomeImg={handleCloseHomeImg}
-                />
-
+                <ModalHomeImg showImg={showImg} handleCloseHomeImg={handleCloseHomeImg} />
                 <Button variant="white" className="p-0 mx-2">
                   <PlayBtnFill className="text-success" />
                   <span className="mx-2 text-secondary">Video</span>
@@ -128,26 +106,19 @@ const Home = () => {
                 </Button>
                 <Button variant="white" className="p-0 mx-2">
                   <CardText className="text-danger" />
-                  <span className="mx-2 text-secondary">
-                    Scrivi un articolo
-                  </span>
+                  <span className="mx-2 text-secondary">Scrivi un articolo</span>
                 </Button>
               </div>
             </div>
           </div>
-          {/* <div className="d-flex">
-        <span>
-          <hr></hr>
-          ordina
-        </span>
-      </div> */}
-          {/* <button variant="success" className="d-flex mx-1">
-            <hr className="d-flex flex-grow-1 mr-2"></hr>
-            <div className="d-flex">
-              <span className="d-flex">Ordina per:</span>
-              <span className="d-flex">Principali</span>
-            </div>
-          </button> */}
+          <Row className="align-items-center">
+            <Col xs={8}>
+              <hr></hr>
+            </Col>
+            <Col xs={4} className="text-center fs-6">
+              Ordina per: principali
+            </Col>
+          </Row>
           <div className="bg-white border rounded mt-3">
             <div className="m-3">
               <div className="d-flex mb-3">
@@ -161,11 +132,11 @@ const Home = () => {
                   <ThreeDots />
                 </Button>
               </div>
-              <p>
-                Explore water business opportunity for the pizza in the pasta
-              </p>
+              <p>Explore water business opportunity for the pizza in the pasta</p>
               <div>
-                <img src={avatar} alt="" width={400} />
+                <div>
+                  <img src={avatar} alt="" width={400} />
+                </div>
                 <div>
                   <Link>acquatechrade.com</Link>
                   <br />
