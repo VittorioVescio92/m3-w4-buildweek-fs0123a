@@ -1,11 +1,10 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-
 import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import SideComponent from "./SideComponent";
 import { useSelector } from "react-redux";
-
 import ExperienceSection from "./ExperienceSection";
+import PeopleComponent from "./PeopleComponent";
 
 const ExperiencesPageComponents = () => {
   const navigate = useNavigate();
@@ -34,6 +33,7 @@ const ExperiencesPageComponents = () => {
         </Col>
         <Col md={3}>
           <SideComponent />
+          <PeopleComponent />
         </Col>
       </Row>
     </Container>
