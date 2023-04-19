@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
-
 import { useState, useEffect } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Alert, Button, Modal } from "react-bootstrap";
 
-const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
-  const userId = useSelector(state => state.user._id);
+const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
+  const userId = useSelector(state => state.user.content._id);
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
   const [experienceItem, setExperienceItem] = useState({
     role: "",
@@ -14,7 +13,6 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
     description: "",
     area: "",
   });
-
   useEffect(() => {
     setExperienceItem({
       role: experience.role,
@@ -25,7 +23,8 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
       area: experience.area,
     });
   }, [experience]);
-
+  console.log(experienceItem);
+  console.log(endPoint + experience._id);
   const handleInputChange = event => {
     const { name, value } = event.target;
     setExperienceItem(prevState => ({
@@ -62,12 +61,11 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
     })
       .then(response => {
         if (response.ok) {
-          handleCloseModalEx();
         } else {
-          throw new Error("Errore durante la cancellazione dei dati");
+          throw new Error("Errore durante la modifica dei dati");
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => Alert(error));
   };
 
   return (
@@ -184,4 +182,4 @@ const ModalExperience = ({ show, handleCloseModalEx, experience }) => {
   );
 };
 
-export default ModalExperience;
+export default ModalExperienceDeletePut;

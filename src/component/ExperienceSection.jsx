@@ -8,7 +8,6 @@ const ExperienceSection = item => {
   const [show, setShow] = useState(false);
   const handleCloseModalEx = () => setShow(false);
   const handleShowModalEx = () => setShow(true);
-  console.log(item.item.startDate);
 
   return (
     <div key={item.item._id}>

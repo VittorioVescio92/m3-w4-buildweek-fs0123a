@@ -11,10 +11,9 @@ import ModalExperience from "./ModalExperience";
 
 const ExperienceComponents = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.user.content._id);
-  const experience = useSelector((state) => state.experience.content);
+  const userId = useSelector(state => state.user.content._id);
+  const experience = useSelector(state => state.experience.content);
   useEffect(() => {
-    // dispatch(getUserExperienceAction(userId));
     dispatch(getUserExperienceAction(userId));
   }, [userId]);
 
@@ -36,12 +35,16 @@ const ExperienceComponents = () => {
             <PlusLg />
           </Button>
           <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} />
-          <Button onClick={navigateToExperience} variant="white" className="d-flex text-secondary align-items-center fs-3">
+          <Button
+            onClick={navigateToExperience}
+            variant="white"
+            className="d-flex text-secondary align-items-center fs-3"
+          >
             <Pencil />
           </Button>
         </div>
         {experience &&
-          experience.slice(0, 5).map((item) => (
+          experience.slice(0, 5).map(item => (
             <div key={item._id}>
               <div className="d-flex justify-content-start align-items-center">
                 <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
