@@ -20,8 +20,8 @@ const ExperiencesPageComponents = () => {
   const handleCloseModalEx = () => setShow(false);
   const handleShowModalEx = () => setShow(true);
   return (
-    <Container className="mt-2 d-flex p-0">
-      <Row className="d-flex">
+    <Container className="mt-2 p-0">
+      <Row>
         <Col md={9}>
           <section className="mt-4 rounded-3 border-dark profile p-3">
             <div className="d-flex">
