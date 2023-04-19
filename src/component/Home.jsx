@@ -7,6 +7,8 @@ import {
   Image,
   PlayBtnFill,
 } from "react-bootstrap-icons";
+import { useState } from "react";
+import ModalHome from "./ModalHome";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,6 +16,9 @@ const Home = () => {
     navigate("/");
     window.scrollTo(0, 0);
   };
+  const [show, setShow] = useState(false);
+  const handleCloseHome = () => setShow(false);
+  const handleShowHome = () => setShow(true);
   return (
     <>
       <Button onClick={navigateHomePage}></Button>
@@ -31,10 +36,11 @@ const Home = () => {
                 />
               </div>
             </a>
-            <Button className="border" variant="light">
+            <Button className="border" variant="light" onClick={handleShowHome}>
               {/* onclick modale */}
               <span className="text-secondary">Avvia un post</span>
             </Button>
+            <ModalHome show={show} handleCloseHome={handleCloseHome} />
           </div>
           <div>
             <Button variant="white" className="p-0 mx-2">
