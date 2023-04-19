@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap-icons";
 import { useState } from "react";
 import ModalHome from "./ModalHome";
+import ModalHomeImg from "./ModalHomeImg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const handleCloseHome = () => setShow(false);
   const handleShowHome = () => setShow(true);
+
+  const [showImg, setShowImg] = useState(false);
+  const handleCloseHomeImg = () => setShowImg(false);
+  const handleShowHomeImg = () => setShowImg(true);
   return (
     <>
       <Button onClick={navigateHomePage}></Button>
@@ -43,10 +48,19 @@ const Home = () => {
             <ModalHome show={show} handleCloseHome={handleCloseHome} />
           </div>
           <div>
-            <Button variant="white" className="p-0 mx-2">
+            <Button
+              variant="white"
+              className="p-0 mx-2"
+              onClick={handleShowHomeImg}
+            >
               <Image className="text-primary" />
               <span className="mx-2 text-secondary">Foto</span>
             </Button>
+            <ModalHomeImg
+              showImg={showImg}
+              handleCloseHomeImg={handleCloseHomeImg}
+            />
+
             <Button variant="white" className="p-0 mx-2">
               <PlayBtnFill className="text-success" />
               <span className="mx-2 text-secondary">Video</span>
