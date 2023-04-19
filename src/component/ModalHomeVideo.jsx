@@ -1,17 +1,17 @@
 import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const ModalHomeImg = ({ showImg, handleCloseHomeImg }) => {
+const ModalHomeVideo = ({ showVideo, handleCloseHomeVideo }) => {
   return (
     <>
-      <Modal show={showImg} onHide={handleCloseHomeImg}>
+      <Modal show={showVideo} onHide={handleCloseHomeVideo}>
         <Modal.Header closeButton>
           <Modal.Title>
-            <h1>Modifica la tua foto</h1>
+            <h1>Seleziona/modifica video</h1>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Link>Seleziona le immagini da condividere</Link>
+          <Link>Seleziona il video da condividere</Link>
           <hr></hr>
           <Button variant="white" className="border-primary">
             <span className="text-primary">Annulla</span>
@@ -25,4 +25,4 @@ const ModalHomeImg = ({ showImg, handleCloseHomeImg }) => {
   );
 };
 
-export default ModalHomeImg;
+export default ModalHomeVideo;

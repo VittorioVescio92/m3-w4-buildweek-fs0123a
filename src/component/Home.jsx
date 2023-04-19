@@ -16,6 +16,8 @@ import { useState } from "react";
 import ModalHome from "./ModalHome";
 import ModalHomeImg from "./ModalHomeImg";
 import { useSelector } from "react-redux";
+import ModalHomeVideo from "./ModalHomeVideo";
+import ModalHomeEvent from "./ModalHomeEvent";
 
 const Home = () => {
   const user = useSelector((state) => state.user.content);
@@ -32,6 +34,14 @@ const Home = () => {
   const [showImg, setShowImg] = useState(false);
   const handleCloseHomeImg = () => setShowImg(false);
   const handleShowHomeImg = () => setShowImg(true);
+
+  const [showVideo, setShowVideo] = useState(false);
+  const handleCloseHomeVideo = () => setShowVideo(false);
+  const handleShowHomeVideo = () => setShowVideo(true);
+
+  const [showEvent, setShowEvent] = useState(false);
+  const handleCloseHomeEvent = () => setShowEvent(false);
+  const handleShowHomeEvent = () => setShowEvent(true);
   return (
     <>
       {/* CONTAINER GENERALE */}
@@ -116,14 +126,30 @@ const Home = () => {
                   showImg={showImg}
                   handleCloseHomeImg={handleCloseHomeImg}
                 />
-                <Button variant="white" className="p-0 mx-2">
+                <Button
+                  variant="white"
+                  className="p-0 mx-2"
+                  onClick={handleShowHomeVideo}
+                >
                   <PlayBtnFill className="text-success" />
                   <span className="mx-2 text-secondary">Video</span>
                 </Button>
-                <Button variant="white" className="p-0 mx-2">
+                <ModalHomeVideo
+                  showVideo={showVideo}
+                  handleCloseHomeVideo={handleCloseHomeVideo}
+                />
+                <Button
+                  variant="white"
+                  className="p-0 mx-2"
+                  onClick={handleShowHomeEvent}
+                >
                   <CalendarDate className="text-warning" />
                   <span className="mx-2 text-secondary">Evento</span>
                 </Button>
+                <ModalHomeEvent
+                  showEvent={showEvent}
+                  handleCloseHomeEvent={handleCloseHomeEvent}
+                />
                 <Button variant="white" className="p-0 mx-2">
                   <CardText className="text-danger" />
                   <span className="mx-2 text-secondary">
