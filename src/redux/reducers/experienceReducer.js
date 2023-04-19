@@ -14,7 +14,7 @@ const experienceReducer = (state = initialState, action) => {
     case DELETE_USER_EXPERIENCE:
       return {
         ...state,
-        content: state.content.filter(item => item._id !== action.payload), // ritorna un array che soddisfa la condizione, cioè l'id dell'item sarà diverso da quello che arriva dalla action
+        content: state.content.filter(item => item._id !== action.payload),
       };
 
     default:

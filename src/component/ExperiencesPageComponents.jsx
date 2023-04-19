@@ -4,6 +4,8 @@ import { ArrowLeft, Pencil } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import SideComponent from "./SideComponent";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import ModalExperienceDeletePut from "./ModalExperienceDeletePut";
 
 const ExperiencesPageComponents = () => {
   const navigate = useNavigate();
@@ -13,6 +15,10 @@ const ExperiencesPageComponents = () => {
     navigate("/");
     window.scrollTo(0, 0);
   };
+
+  const [show, setShow] = useState(false);
+  const handleCloseModalEx = () => setShow(false);
+  const handleShowModalEx = () => setShow(true);
   return (
     <Container className="mt-2 d-flex p-0">
       <Row className="d-flex">
@@ -45,9 +51,14 @@ const ExperiencesPageComponents = () => {
                         </p>
                       </div>
                       <div>
-                        <Button variant="light" className="rounded-pill mt-0 my-2 ml-auto">
+                        <Button onClick={handleShowModalEx} variant="light" className="rounded-pill mt-0 my-2 ml-auto">
                           <Pencil />
                         </Button>
+                        <ModalExperienceDeletePut
+                          show={show}
+                          handleCloseModalEx={handleCloseModalEx}
+                          experience={item}
+                        />
                       </div>
                     </div>
                   </div>
