@@ -3,23 +3,39 @@ import coverImg from "../assets/img/cover.jpeg";
 import profileImg from "../assets/img/img-profile.jpg";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
-import { getUserProfileAction } from "../redux/actions";
+import { Link, useParams } from "react-router-dom";
+// import { getSelectedProfileAction, getUserProfileAction } from "../redux/actions";
+import { getSelectedProfileAction } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import ModalProfile from "./ModalProfile";
 
 const ProfileComponent = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.content);
+  const params = useParams();
+
+  // // const user = Object.keys(params).length === 0 && params.constructor === Object ? useSelector((state) => state.user.content) : useSelector((state) => state.selectedProfile.content);
+  // if (Object.keys(params).length === 0 && params.constructor === Object) {
+  const user = useSelector((state) => state.selectedProfile.content);
+  // }
+
+  // const user = useSelector((state) => state.user.content);
+  // const selectedProfile = useSelector((state) => state.selectedProfile.content);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // useEffect(() => {
+  //   console.log(Object.keys(params).length === 0 && params.constructor === Object);
+  //   dispatch(getUserProfileAction());
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   useEffect(() => {
-    dispatch(getUserProfileAction());
+    // console.log(Object.keys(params).length === 0 && params.constructor === Object);
+    dispatch(getSelectedProfileAction(params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [params]);
 
   return (
     <section className="rounded-3 border-dark mt-4 profile">

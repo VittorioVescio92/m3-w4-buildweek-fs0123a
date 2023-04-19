@@ -12,6 +12,7 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<MainComponent />} />
+        <Route path="/:id" element={<MainComponent />} />
         <Route path="/experience" element={<ExperiencesPageComponents />} />
       </Routes>
       <MyFooter />

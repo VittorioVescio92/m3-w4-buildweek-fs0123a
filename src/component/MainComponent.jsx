@@ -1,11 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Col, Container, Row } from "react-bootstrap";
-import InformationsComponent from "./InformationsComponent";
-import KeyPointsComponent from "./KeyPointsComponent";
-import ProfileComponent from "./ProfileComponent";
 import SideComponent from "./SideComponent";
 import PeopleComponent from "./PeopleComponent";
-import ExperienceComponents from "./ExperienceComponents";
+import ProfilePage from "./ProfilePage";
 
 const MainComponent = () => {
   return (
@@ -13,10 +10,7 @@ const MainComponent = () => {
       <Container>
         <Row>
           <Col md={9}>
-            <ProfileComponent />
-            <KeyPointsComponent />
-            <InformationsComponent />
-            <ExperienceComponents />
+            <ProfilePage />
           </Col>
           <Col md={3}>
             <SideComponent />
