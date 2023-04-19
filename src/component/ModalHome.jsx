@@ -42,9 +42,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
               className="form-control p-0 border-white"
               id="floatingInput"
             />
-            <label for="floatingInput" className="p-0">
-              Di cosa vorresti parlare?
-            </label>
+            <label className="p-0">Di cosa vorresti parlare?</label>
           </div>
           <Button variant="white">
             <EmojiSmile />

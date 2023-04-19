@@ -49,7 +49,7 @@ const Home = () => {
               />
               <Link className="d-flex justify-content-center my-4" onClick={navigateHomePage}>
                 {user.name} {user.surname}
-              </Link>
+              </a>
               <p>Studente</p>
               {/* dinamicizzare i p */}
             </div>
