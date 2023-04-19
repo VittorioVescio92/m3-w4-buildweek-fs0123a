@@ -49,7 +49,7 @@ const MyNavbar = () => {
             </Form>
           </Navbar.Collapse>
           <div className="px-4 fs-4 text-center nav-item-col">
-            <Button variant="light" onClick={navigateBack}>
+            <Button variant="dark" onClick={navigateBack}>
               <HouseDoorFill />
               <p className=" fs-6 m-0">Home</p>
             </Button>
