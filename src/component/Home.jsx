@@ -191,7 +191,7 @@ const Home = () => {
                       {/* <div> */}
                       {post.image && (
                         <div>
-                          <Image className="image-fluid" src={post.image} />
+                          <Image className="img-fluid" src={post.image} />
                         </div>
                       )}
                       {/* <div>
