@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 
-const InformationsComponent = () => {
+const InfoProfileComponent = () => {
   return (
     <Container className="mt-2 p-0">
       <Row>
@@ -14,4 +14,4 @@ const InformationsComponent = () => {
     </Container>
   );
 };
-export default InformationsComponent;
+export default InfoProfileComponent;

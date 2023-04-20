@@ -1,20 +1,61 @@
-// endpoint
+// endpoint home page
+const endpointMyProfile = "https://striveschool-api.herokuapp.com/api/profile/me";
+// endpoint profile page
 const endpointSelectedProfile = "https://striveschool-api.herokuapp.com/api/profile/";
-const endpointUserProfile = "https://striveschool-api.herokuapp.com/api/profile/me";
+// endpoint experience profile page
 const endpointUserExperience = `https://striveschool-api.herokuapp.com/api/profile/`;
+// endpoint aside seen profiles
 const endpointProfiles = "https://striveschool-api.herokuapp.com/api/profile/";
+// endpoint posts home page
+const endpointPosts = "https://striveschool-api.herokuapp.com/api/posts/";
 
-export const GET_USER_PROFILE = "GET_USER_PROFILE";
-export const GET_SELECTED_PROFILE = "GET_USER_PROFILE";
-export const GET_USER_EXPERIENCE = "GET_USER_EXPERIENCE";
-export const SET_USER_EXPERIENCE = "SET_USER_EXPERIENCE";
-export const DELETE_USER_EXPERIENCE = "DELETE_USER_EXPERIENCE";
+// gestione del profilo personale
+export const GET_MY_PROFILE = "GET_MY_PROFILE";
+// gestione dei posts 
+export const GET_POSTS = "GET_POSTS";
+export const POST_USER_POST = "POST_USER_POST";
+export const DELETE_USER_POST = "DELETE_USER_POST";
+
 export const GET_PROFILES = "GET_PROFILES";
+export const GET_SELECTED_PROFILE = "GET_SELECTED_PROFILE";
+export const GET_EXPERIENCES_SELECTED_PROFILE = "GET_EXPERIENCES_SELECTED_PROFILE";
 
-export const getUserProfileAction = () => {
+// action che viene eseguita all'avvio dell'app (homepage)
+export const getMyProfileAction = () => {
   return async (dispatch, getState) => {
     try {
-      let resp = await fetch(endpointUserProfile, {
+      let resp = await fetch(endpointMyProfile, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      console.log("fetch");
+
+      if (resp.ok) {
+        const data = await resp.json();
+
+        dispatch({ type: GET_MY_PROFILE, payload: data });
+      } else {
+        console.log("errore");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+/**
+ * ACTION SPECIFICHE PER I POSTS
+ * ---------------------------------------
+ */
+// ricevo tutti i posts dell'API
+export const getPostsAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      let resp = await fetch(endpointPosts, {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -26,7 +67,7 @@ export const getUserProfileAction = () => {
       if (resp.ok) {
         const data = await resp.json();
 
-        dispatch({ type: GET_USER_PROFILE, payload: data });
+        dispatch({ type: GET_POSTS, payload: data });
       } else {
         console.log("errore");
       }
@@ -36,6 +77,56 @@ export const getUserProfileAction = () => {
   };
 };
 
+// inserisco un nuovo post
+export const postUserAction = (postId, body) => {
+  return async (dispatch) => {
+    try {
+      let resp = await fetch(`${endpointPosts}${postId}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(body),
+      });
+      if (resp.ok) {
+        let data = await resp.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("fetch loading finish");
+    }
+  };
+};
+
+// elimino uno specifico post
+export const deleteUserPost = (postId) => {
+  return async (dispatch) => {
+    try {
+      let resp = await fetch(`${endpointPosts}${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+          "Content-type": "application/json; charset=UTF-8",
+        }
+      });
+      if (resp.ok) {
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("fetch loading finish");
+    }
+  };
+};
+
+
+// action che viene eseguita quando selezioniamo un profilo
 export const getSelectedProfileAction = id => {
   console.log(id);
   return async (dispatch, getState) => {
@@ -62,7 +153,8 @@ export const getSelectedProfileAction = id => {
   };
 };
 
-export const getUserExperienceAction = userId => {
+// action che recupera le esperienze del profilo selezionato
+export const getExperienceSelectedProfileAction = userId => {
   return async (dispatch, getState) => {
     try {
       let resp = await fetch(endpointUserExperience + userId + "/experiences", {
@@ -84,6 +176,62 @@ export const getUserExperienceAction = userId => {
     }
   };
 };
+
+// action che riempie il componente AsideSeenProfiles
+export const getProfilesAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      const resp = await fetch(endpointProfiles, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+        },
+      });
+
+      if (resp.ok) {
+        const data = await resp.json();
+
+        dispatch({ type: GET_PROFILES, payload: data });
+      } else {
+        console.log("errore nella fetch");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+
+export const GET_USER_EXPERIENCE = "GET_USER_EXPERIENCE";
+export const SET_USER_EXPERIENCE = "SET_USER_EXPERIENCE";
+export const DELETE_USER_EXPERIENCE = "DELETE_USER_EXPERIENCE";
+
+// getSelectedProfileAction
+// export const getUserExperienceAction = userId => {
+// export const getExperienceselectedProfileAction = userId => {
+//   return async (dispatch, getState) => {
+//     try {
+//       let resp = await fetch(endpointUserExperience + userId + "/experiences", {
+//         headers: {
+//           Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+//         },
+//       });
+//       console.log("fetch experience profile");
+
+//       if (resp.ok) {
+//         const data = await resp.json();
+
+//         dispatch({ type: GET_USER_EXPERIENCE, payload: data });
+//       } else {
+//         console.log("errore");
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 // export const getUserExperienceAction = userId => {
 //   return async (dispatch, getState) => {
@@ -132,27 +280,3 @@ export const setUserExperienceAction = (userId, experienceData) => {
 
 export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIENCE, payload: value });
 
-// GET USERS PROFILE TO SIDEBAR
-export const getProfilesAction = () => {
-  return async (dispatch, getState) => {
-    try {
-      const resp = await fetch(endpointProfiles, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
-        },
-      });
-
-      if (resp.ok) {
-        const data = await resp.json();
-
-        dispatch({ type: GET_PROFILES, payload: data });
-      } else {
-        console.log("errore nella fetch");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};

@@ -1,17 +1,16 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+import ExperienceCard from "./experience/ExperienceCard";
+import Aside from "./Aside";
 import { ArrowLeft } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import SideComponent from "./SideComponent";
 import { useSelector } from "react-redux";
-import ExperienceSection from "./ExperienceSection";
-import PeopleComponent from "./PeopleComponent";
 
-const ExperiencesPageComponents = () => {
+const Experiences = () => {
   const navigate = useNavigate();
-  const experience = useSelector(state => state.experience.content);
+  const experience = useSelector((state) => state.experience.content);
 
   const navigateToHome = () => {
-    navigate("/");
+    navigate("/profile");
     window.scrollTo(0, 0);
   };
 
@@ -28,16 +27,15 @@ const ExperiencesPageComponents = () => {
                 <h3 className="ms-3">Esperienze</h3>
               </div>
             </div>
-            {experience && experience.map(item => <ExperienceSection item={item} />)}
+            {experience && experience.map((item) => <ExperienceCard item={item} />)}
           </section>
         </Col>
-        <Col md={3}>
-          <SideComponent />
-          <PeopleComponent />
+        <Col md={3} className="aside">
+          <Aside />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default ExperiencesPageComponents;
+export default Experiences;

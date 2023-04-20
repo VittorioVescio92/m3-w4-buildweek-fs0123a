@@ -1,10 +1,10 @@
-import { useState } from "react";
-import EpicodeImg from "../assets/img/epicode-logo.png";
+import ModalExperienceDeletePut from "./ModalExperienceDeletePut";
+import EpicodeImg from "../../assets/img/epicode-logo.png";
 import { Button } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
-import ModalExperienceDeletePut from "./ModalExperienceDeletePut";
+import { useState } from "react";
 
-const ExperienceSection = item => {
+const ExperienceCard = (item) => {
   const [show, setShow] = useState(false);
   const handleCloseModalEx = () => setShow(false);
   const handleShowModalEx = () => setShow(true);
@@ -37,4 +37,4 @@ const ExperienceSection = item => {
     </div>
   );
 };
-export default ExperienceSection;
+export default ExperienceCard;

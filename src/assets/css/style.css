@@ -6,7 +6,8 @@ a,
   font-weight: 600;
 }
 body {
-  background-color: rgba(243, 242, 239);
+  /* background-color: rgba(243, 242, 239); */
+  background-color: #f3f2ef;
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -158,14 +159,109 @@ body {
 }
 
 /* ---------- SIDE-COL ---------- */
+.aside h3 {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+}
+.aside p {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.aside button {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+}
+.aside button svg {
+  margin-right: 0.3rem;
+}
 /* .sideImg {
   width: 100px;
 } */
-.infoEmail {
+/* .infoEmail {
   font-size: 0.9rem;
   font-weight: 400;
-}
+} */
 
 section.profile div:last-of-type hr {
   display: none;
+}
+
+/* HOME */
+.homeProfile {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.homeProfile .coverProfile {
+  height: 50px;
+  object-fit: cover;
+  object-position: center center;
+  overflow: hidden;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.homeProfile .headerProfile {
+  margin-top: -30px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.9);
+}
+.homeProfile .imgProfile {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.homeProfile .headerProfile a h6 {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.9);
+}
+.homeProfile .headerProfile a p {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+.homeProfile .linkProfile,
+.homeProfile .premiumProfile,
+.homeProfile .footerProfile {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ccc;
+}
+.homeProfile .linkProfile p,
+.homeProfile .premiumProfile p,
+.homeProfile .footerProfile p {
+  font-size: 0.70rem;
+  font-weight: 600;
+  margin: 0;
+}
+.homeProfile .linkProfile > p > span:first-of-type {
+  color: rgba(0, 0, 0, 0.6);
+}
+.homeProfile .linkProfile > p > span:last-of-type {
+  color: rgb(10, 102, 194);
+}
+.homeProfile .premiumProfile p:first-of-type{
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+}
+.homeProfile .footerProfile {
+  border: unset;
+}
+/* .post .imgProfile {
+  bo
+} */
+
+
+
+
+
+/* Helpers */
+.mt1 {
+  margin-top: 1.5rem;
 }

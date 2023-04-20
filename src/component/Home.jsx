@@ -1,26 +1,26 @@
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Image } from "react-bootstrap";
+import ModalHome from "./home/ModalHome";
+import ModalHomeImg from "./home/ModalHomeImg";
+import ModalHomeEvent from "./home/ModalHomeEvent";
+import ModalHomeVideo from "./home/ModalHomeVideo";
+// import avatar from "../avatar.png";
+import { ArrowsFullscreen, CalendarDate, CardText, ChatText, HandThumbsUp, PlayBtnFill, SendFill, ThreeDots } from "react-bootstrap-icons";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import avatar from "../avatar.png";
-import {
-  ArrowsFullscreen,
-  CalendarDate,
-  CardText,
-  ChatText,
-  HandThumbsUp,
-  Image,
-  PlayBtnFill,
-  SendFill,
-  ThreeDots,
-} from "react-bootstrap-icons";
-import { useState } from "react";
-import ModalHome from "./ModalHome";
-import ModalHomeImg from "./ModalHomeImg";
-import { useSelector } from "react-redux";
-import ModalHomeVideo from "./ModalHomeVideo";
-import ModalHomeEvent from "./ModalHomeEvent";
+import { getMyProfileAction, getPostsAction } from "../redux/actions";
+import coverImg from "../assets/img/cover.jpeg";
 
 const Home = () => {
-  const user = useSelector((state) => state.user.content);
+  const dispatch = useDispatch();
+  const myProfile = useSelector((state) => state.myProfile.content);
+  const posts = useSelector((state) => state.posts.content);
+
+  useEffect(() => {
+    dispatch(getMyProfileAction());
+    dispatch(getPostsAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const navigate = useNavigate();
   const navigateHomePage = () => {
@@ -42,200 +42,169 @@ const Home = () => {
   const [showEvent, setShowEvent] = useState(false);
   const handleCloseHomeEvent = () => setShowEvent(false);
   const handleShowHomeEvent = () => setShowEvent(true);
+
   return (
     <>
-      {/* CONTAINER GENERALE */}
-      <div className="d-flex align-items-start mt-3 justify-content-center">
-        {/* COLONNA SINISTRA */}
-        <div className="mx-3">
-          <div className="mx-3 bg-white border rounded p-4">
-            <div className="">
-              <img
-                id="avatar"
-                src={avatar}
-                alt="Avatar"
-                className="rounded-circle d-flex mx-auto"
-                onClick={navigateHomePage}
-              />
-              <Link
-                className="d-flex justify-content-center my-4"
-                onClick={navigateHomePage}
-              >
-                {user.name} {user.surname}
-              </Link>
-              <p>Studente</p>
-              {/* dinamicizzare i p */}
-            </div>
-            <hr></hr>
-            <div>
-              <p>collegamenti</p>
-            </div>
-            <hr></hr>
-            <div>
-              <p>Accedi a strumenti e info</p>
-            </div>
-            <hr></hr>
-            <div>
-              icons
-              <span>I miei elementi</span>
-            </div>
-          </div>
-          <div className="mx-3 mt-3 bg-white border rounded p-4">
-            <p>Gruppi</p>
-            <p>Eventi</p>
-            <p>Hashtag più seguiti</p>
-            <hr></hr>
-            <Button>Scopri di più</Button>
-          </div>
-        </div>
-        <div>
-          {/* COLONNA CENTRALE */}
-          <div className="bg-white border rounded">
-            <div className="m-3">
-              <div className="d-flex mb-3">
-                <Link>
-                  <div className="m-2">
-                    <img
-                      id="avatar"
-                      src={avatar}
-                      alt="Avatar"
-                      className="rounded-circle"
-                      onClick={navigateHomePage}
-                    />
-                  </div>
+      <Container className="mt1">
+        <Row>
+          {/* COLONNA SINISTRA */}
+          <Col md={3}>
+            <div className="homeProfile">
+              <div className="coverProfile text-center">
+                <Image src={coverImg} className="img-fluid" />
+              </div>
+              <div className="headerProfile text-center">
+                <Image src={myProfile.image} width={60} height={60} className="imgProfile" />
+                <Link to={`/profile/${myProfile._id}`}>
+                  <h6>
+                    {myProfile.name} {myProfile.surname}
+                  </h6>
+                  <p>{myProfile.title}</p>
                 </Link>
-                <Button
-                  className="border"
-                  variant="light"
-                  onClick={handleShowHome}
-                >
-                  <span className="text-secondary">Avvia un post</span>
-                </Button>
-                <ModalHome show={show} handleCloseHome={handleCloseHome} />
               </div>
-              <div>
-                <Button
-                  variant="white"
-                  className="p-0 mx-2"
-                  onClick={handleShowHomeImg}
-                >
-                  <Image className="text-primary" />
-                  <span className="mx-2 text-secondary">Foto</span>
-                </Button>
-                <ModalHomeImg
-                  showImg={showImg}
-                  handleCloseHomeImg={handleCloseHomeImg}
-                />
-                <Button
-                  variant="white"
-                  className="p-0 mx-2"
-                  onClick={handleShowHomeVideo}
-                >
-                  <PlayBtnFill className="text-success" />
-                  <span className="mx-2 text-secondary">Video</span>
-                </Button>
-                <ModalHomeVideo
-                  showVideo={showVideo}
-                  handleCloseHomeVideo={handleCloseHomeVideo}
-                />
-                <Button
-                  variant="white"
-                  className="p-0 mx-2"
-                  onClick={handleShowHomeEvent}
-                >
-                  <CalendarDate className="text-warning" />
-                  <span className="mx-2 text-secondary">Evento</span>
-                </Button>
-                <ModalHomeEvent
-                  showEvent={showEvent}
-                  handleCloseHomeEvent={handleCloseHomeEvent}
-                />
-                <Button variant="white" className="p-0 mx-2">
-                  <CardText className="text-danger" />
-                  <span className="mx-2 text-secondary">
-                    Scrivi un articolo
-                  </span>
-                </Button>
+              <div className="linkProfile">
+                <p className="d-flex justify-content-between align-items-center">
+                  <span>Collegamenti</span>
+                  <span>92</span>
+                </p>
+                <p>Espandi la tua rete</p>
+                <p className="d-flex justify-content-between align-items-center">
+                  <span>Chi ha visitato il tuo profilo?</span>
+                  <span>9</span>
+                </p>
+              </div>
+              <div className="premiumProfile">
+                <p>Accedi a strumenti e informazioni in esclusiva</p>
+                <p>Prova Premium gratis</p>
+              </div>
+              <div className="footerProfile">
+                <p>I miei elementi</p>
               </div>
             </div>
-          </div>
-          <Row className="align-items-center">
-            <Col xs={8}>
-              <hr></hr>
-            </Col>
-            <Col xs={4} className="text-center fs-6">
-              Ordina per: principali
-            </Col>
-          </Row>
-          <div className="bg-white border rounded mt-3">
-            <div className="m-3">
-              <div className="d-flex mb-3">
-                <img src={avatar} alt="" width={80} />
-                <div>
-                  <Link>Acquatech</Link>
-                  <p>8.118 follower</p>
-                  <p>Post sponsorizzato</p>
-                </div>
-                <Button className="ms-auto" variant="white">
-                  <ThreeDots />
-                </Button>
-              </div>
-              <p>
-                Explore water business opportunity for the pizza in the pasta
-              </p>
-              <div>
-                <div>
-                  <img src={avatar} alt="" width={400} />
-                </div>
-                <div>
-                  <Link>acquatechrade.com</Link>
-                  <br />
-                  <span className="me-5">Acquatech China: 5-7 June 2023</span>
-                  <Button className="ms-5">Scopri di più</Button>
-                </div>
-              </div>
-              <div>
-                36
-                <HandThumbsUp className="me-5" />
-                <span className="ms-5">1 diffusione post</span>
-              </div>
-              <hr></hr>
-              <div>
-                <Button variant="white">
-                  <HandThumbsUp />
-                  <span className="mx-2">Consiglia</span>
-                </Button>
-                <Button variant="white">
-                  <ChatText />
-                  <span className="mx-2">Commenta</span>
-                </Button>
-                <Button variant="white">
-                  <ArrowsFullscreen />
-                  <span className="mx-2">Diffondi il post</span>
-                </Button>
-                <Button variant="white">
-                  <SendFill />
-                  <span className="mx-2">Invia</span>
-                </Button>
-              </div>
-              <p>ℹ️ Scrivi il tuo primo commento</p>
-            </div>
-          </div>
-        </div>
+          </Col>
 
-        {/* COLONNA DESTRA */}
-        <div className="mx-3">
-          <div className="mx-3 bg-white border rounded p-4">
-            <div>
-              <h5>Linkedin Notizie</h5>
-              <ul>
-                <li>Le top Companies del 2023 in Italia</li>
-              </ul>
-              <Button>Visualizza altro</Button>
+          {/* COLONNA CENTRALE */}
+          <Col md={6}>
+            {/* AVVIA UN POST */}
+            <div className="bg-white border rounded">
+              <div className="m-3">
+                <div className="d-flex mb-3">
+                  <Link>
+                    <div className="m-2">
+                      <img id="avatar" src={myProfile.image} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
+                    </div>
+                  </Link>
+                  <Button className="border" variant="light" onClick={handleShowHome}>
+                    <span className="text-secondary">Avvia un post</span>
+                  </Button>
+                  <ModalHome show={show} handleCloseHome={handleCloseHome} />
+                </div>
+                <div>
+                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeImg}>
+                    <Image className="text-primary" />
+                    <span className="mx-2 text-secondary">Foto</span>
+                  </Button>
+                  <ModalHomeImg showImg={showImg} handleCloseHomeImg={handleCloseHomeImg} />
+                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeVideo}>
+                    <PlayBtnFill className="text-success" />
+                    <span className="mx-2 text-secondary">Video</span>
+                  </Button>
+                  <ModalHomeVideo showVideo={showVideo} handleCloseHomeVideo={handleCloseHomeVideo} />
+                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeEvent}>
+                    <CalendarDate className="text-warning" />
+                    <span className="mx-2 text-secondary">Evento</span>
+                  </Button>
+                  <ModalHomeEvent showEvent={showEvent} handleCloseHomeEvent={handleCloseHomeEvent} />
+                  <Button variant="white" className="p-0 mx-2">
+                    <CardText className="text-danger" />
+                    <span className="mx-2 text-secondary">Scrivi un articolo</span>
+                  </Button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+            {/* ORDINA PER... */}
+            <Row className="align-items-center">
+              <Col xs={8}>
+                <hr></hr>
+              </Col>
+              <Col xs={4} className="text-center fs-6">
+                Ordina per: principali
+              </Col>
+            </Row>
+
+            {/* POSTS */}
+            {posts &&
+              posts.map((post) => (
+                <>
+                  <div className="bg-white border rounded mt-3 post" key={post._id}>
+                    <div className="m-3">
+                      <div className="d-flex mb-3">
+                        <Image src={post.user.image} width={60} height={60} alt="1" className="imgProfile rounded-circle me-2" />
+                        <div>
+                          <Link>{post.user.name}</Link>
+                          <p>8.118 follower</p>
+                          {/* <p>Post sponsorizzato</p> */}
+                        </div>
+                        <Button className="ms-auto" variant="white">
+                          <ThreeDots />
+                        </Button>
+                      </div>
+                      <p>{post.text}</p>
+                      {/* <div> */}
+                      {post.image ? (
+                        <div>
+                          <Image src={post.image} />
+                        </div>
+                      ) : null}
+                      {/* <div>
+                        <Image src={post.image} />
+                      </div> */}
+                      {/* <div>
+                          <Link>acquatechrade.com</Link>
+                          <br />
+                          <span className="me-5">Acquatech China: 5-7 June 2023</span>
+                          <Button className="ms-5">Scopri di più</Button>
+                        </div> */}
+                      {/* </div> */}
+                      <div className="d-flex align-items-center">
+                        <HandThumbsUp className="me-1" />
+                        <span>36</span>
+                        {/* <HandThumbsUp className="me-5" /> */}
+                        {/* <span className="ms-5">1 diffusione post</span> */}
+                      </div>
+                      <hr></hr>
+                      <div>
+                        <Button variant="white">
+                          <HandThumbsUp />
+                          <span className="mx-2">Consiglia</span>
+                        </Button>
+                        <Button variant="white">
+                          <ChatText />
+                          <span className="mx-2">Commenta</span>
+                        </Button>
+                        <Button variant="white">
+                          <ArrowsFullscreen />
+                          <span className="mx-2">Diffondi il post</span>
+                        </Button>
+                        <Button variant="white">
+                          <SendFill />
+                          <span className="mx-2">Invia</span>
+                        </Button>
+                      </div>
+                      {/* <p>ℹ️ Scrivi il tuo primo commento</p> */}
+                    </div>
+                  </div>
+                </>
+              ))}
+          </Col>
+
+          {/* COLONNA DESTRA */}
+          <Col md={3} className="">
+            Testo
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

@@ -1,21 +1,15 @@
-import { Button, Col, Container, Form, FormControl, NavDropdown, Navbar } from "react-bootstrap";
-import {
-  HouseDoorFill,
-  Linkedin,
-  PersonLinesFill,
-  BriefcaseFill,
-  ChatDotsFill,
-  BellFill,
-  Building,
-} from "react-bootstrap-icons";
-import avatar from "../avatar.png";
-import { useNavigate } from "react-router-dom";
+import { Col, Container, Form, FormControl, NavDropdown, Navbar } from "react-bootstrap";
+import { HouseDoorFill, Linkedin, PersonLinesFill, BriefcaseFill, ChatDotsFill, BellFill, Building } from "react-bootstrap-icons";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MyNavbar = () => {
   const navigate = useNavigate();
 
+  const user = useSelector((state) => state.myProfile.content);
+
   const navigateBack = () => {
-    navigate("/home");
+    navigate("/");
     window.scrollTo(0, 0);
   };
 
@@ -34,8 +28,10 @@ const MyNavbar = () => {
           </Navbar.Collapse>
 
           <div className="px-4 fs-4 text-center nav-item-col" onClick={navigateBack}>
+            {/* <Link to={`/`}> */}
             <HouseDoorFill />
             <p className=" fs-6 m-0">Home</p>
+            {/* </Link> */}
           </div>
 
           <div className="px-4 fs-4 text-center nav-item-col">
@@ -55,26 +51,24 @@ const MyNavbar = () => {
             <p className=" fs-6 m-0">Notifiche</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
-            <img id="avatar" src={avatar} alt="Avatar" className="rounded-circle" />
+            <img id="avatar" src={user.image} alt="Avatar" className="rounded-circle" />
             <div className=" fs-6 m-0">
-              <NavDropdown
-                id="nav-dropdown-dark-example"
-                title="Tu"
-                menuVariant="dark"
-                className="text-center"
-                align={{ lg: "end" }}
-              >
-                <NavDropdown.Item href="#action/3.1">
+              <NavDropdown id="nav-dropdown-dark-example" title="Tu" menuVariant="dark" className="text-center" align={{ lg: "end" }}>
+                <NavDropdown.Item>
                   <div className="d-flex justify-content-center">
                     <div className="me-3 d-flex align-items-center">
-                      <img id="avatar-big" src={avatar} alt="Avatar" className="rounded-circle" />
+                      <img id="avatar-big" src={user.image} alt="Avatar" className="rounded-circle" />
                     </div>
                     <div>
-                      <h3 className="fs-4">Ajeje Brazorv</h3>
-                      <p>Full Stack Development student presso Epicode Italia</p>
+                      <h3 className="fs-4">
+                        {user.name} {user.surname}
+                      </h3>
+                      <p>{user.title}</p>
                     </div>
                   </div>
-                  <button className="rounded-5 text-center flex-grow-1">Visualizza Profilo</button>
+                  <button className="rounded-5 text-center flex-grow-1">
+                    <Link to={`/profile/${user._id}`}>Visualizza Profilo</Link>
+                  </button>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   <h3 className="fs-4">Account</h3>

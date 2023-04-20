@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Alert, Button, Modal } from "react-bootstrap";
 
 const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
-  const userId = useSelector(state => state.user.content._id);
+  const userId = useSelector((state) => state.myProfile.content._id);
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
   const [experienceItem, setExperienceItem] = useState({
     role: "",
@@ -23,11 +23,11 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
       area: experience.area,
     });
   }, [experience]);
-  console.log(experienceItem);
-  console.log(endPoint + experience._id);
-  const handleInputChange = event => {
+  // console.log(experienceItem);
+  // console.log(endPoint + experience._id);
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setExperienceItem(prevState => ({
+    setExperienceItem((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -40,14 +40,14 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
         Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
       },
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
           handleCloseModalEx();
         } else {
           throw new Error("Errore durante la cancellazione dei dati");
         }
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   const handleMod = () => {
@@ -59,13 +59,13 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
       },
       body: JSON.stringify(experienceItem),
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
         } else {
           throw new Error("Errore durante la modifica dei dati");
         }
       })
-      .catch(error => Alert(error));
+      .catch((error) => Alert(error));
   };
 
   return (
@@ -85,54 +85,25 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
               <label htmlFor="role" className="form-label mb-2">
                 Qualifica*
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Esempio: Retails Sales Manager"
-                name="role"
-                value={experienceItem.role}
-                onChange={handleInputChange}
-                required
-              />
+              <input type="text" className="form-control" placeholder="Esempio: Retails Sales Manager" name="role" value={experienceItem.role} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="company" className="form-label mb-2">
                 Nome azienda*
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Esempio: Microsoft"
-                name="company"
-                value={experienceItem.company}
-                onChange={handleInputChange}
-                required
-              />
+              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={experienceItem.company} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="startDate" className="form-label mb-2">
                 Data di inizio*
               </label>
-              <input
-                type="date"
-                className="form-control"
-                name="startDate"
-                value={experienceItem.startDate}
-                onChange={handleInputChange}
-                required
-              />
+              <input type="date" className="form-control" name="startDate" value={experienceItem.startDate} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="endDate" className="form-label mb-2">
                 Data di fine
               </label>
-              <input
-                type="date"
-                className="form-control"
-                name="endDate"
-                value={experienceItem.endDate}
-                onChange={handleInputChange}
-              />
+              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} onChange={handleInputChange} />
             </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">
@@ -151,14 +122,7 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
               <label htmlFor="area" className="form-label mb-2">
                 Località
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Esempio: Roma, Italia"
-                name="area"
-                value={experienceItem.area}
-                onChange={handleInputChange}
-              />
+              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceItem.area} onChange={handleInputChange} />
             </div>
             <Modal.Footer className="d-flex justify-content-between">
               <div>

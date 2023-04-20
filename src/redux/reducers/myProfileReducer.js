@@ -1,12 +1,12 @@
-import { GET_USER_PROFILE } from "../actions"
+import { GET_MY_PROFILE } from "../actions"
 
 const initialState = {
   content: [],
 }
 
-const userReducer = (state = initialState, action) => {
+const myProfileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USER_PROFILE:
+    case GET_MY_PROFILE:
       return {
         ...state,
         content: action.payload,
@@ -15,4 +15,4 @@ const userReducer = (state = initialState, action) => {
       return state;
   }
 }
-export default userReducer;
+export default myProfileReducer;

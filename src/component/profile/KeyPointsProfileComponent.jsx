@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import keywordImg from "../Keyword.PNG";
+import keywordImg from "../../Keyword.PNG";
 
-const KeyPointsComponent = () => {
+const KeyPointsProfileComponent = () => {
   return (
     <Container className="mt-2 p-0">
       <Row>
@@ -21,4 +21,4 @@ const KeyPointsComponent = () => {
     </Container>
   );
 };
-export default KeyPointsComponent;
+export default KeyPointsProfileComponent;

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ModalProfile = ({ show, handleClose }) => {
-  const user = useSelector((state) => state.user.content);
+  const user = useSelector((state) => state.myProfile.content);
 
   return (
     <>

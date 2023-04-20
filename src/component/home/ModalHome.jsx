@@ -1,19 +1,10 @@
 import { Button, Modal } from "react-bootstrap";
-import avatar from "../avatar.png";
+import avatar from "../../avatar.png";
 import { useSelector } from "react-redux";
-import {
-  ChatText,
-  Clock,
-  EmojiSmile,
-  FileEarmarkText,
-  GlobeAmericas,
-  Image,
-  PlayBtnFill,
-  ThreeDots,
-} from "react-bootstrap-icons";
+import { ChatText, Clock, EmojiSmile, FileEarmarkText, GlobeAmericas, Image, PlayBtnFill, ThreeDots } from "react-bootstrap-icons";
 
 const ModalHome = ({ show, handleCloseHome }) => {
-  const user = useSelector((state) => state.user.content);
+  const user = useSelector((state) => state.myProfile.content);
 
   return (
     <>
@@ -37,11 +28,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
             </div>
           </div>
           <div className="form-floating my-3">
-            <input
-              type="text"
-              className="form-control p-0 border-white"
-              id="floatingInput"
-            />
+            <input type="text" className="form-control p-0 border-white" id="floatingInput" />
             <label className="p-0">Di cosa vorresti parlare?</label>
           </div>
           <Button variant="white">

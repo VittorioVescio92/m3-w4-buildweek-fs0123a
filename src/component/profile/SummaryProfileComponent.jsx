@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import coverImg from "../assets/img/cover.jpeg";
-import profileImg from "../assets/img/img-profile.jpg";
-import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
+import coverImg from "../../assets/img/cover.jpeg";
+import { Button, Card, Carousel, Col, Image, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { Link, useParams } from "react-router-dom";
 // import { getSelectedProfileAction, getUserProfileAction } from "../redux/actions";
-import { getSelectedProfileAction } from "../redux/actions";
+import { getSelectedProfileAction } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import ModalProfile from "./ModalProfile";
 
-const ProfileComponent = () => {
+const SummaryProfileComponent = () => {
   const dispatch = useDispatch();
   const params = useParams();
+  console.log(params);
 
   // // const user = Object.keys(params).length === 0 && params.constructor === Object ? useSelector((state) => state.user.content) : useSelector((state) => state.selectedProfile.content);
   // if (Object.keys(params).length === 0 && params.constructor === Object) {
@@ -42,7 +42,7 @@ const ProfileComponent = () => {
       <Row>
         <Col xs={12}>
           <div className="hero-img">
-            <img src={coverImg} alt="" className="img-fluid" />
+            <Image src={coverImg} className="img-fluid" alt="1" />
             <Link to="/">
               <Pencil />
             </Link>
@@ -52,7 +52,7 @@ const ProfileComponent = () => {
           <div className="p-3">
             <div className="d-flex">
               <div className="rounded-circle image-profile">
-                <img className="img-fluid" src={profileImg} alt="" />
+                <Image className="img-fluid" src={user.image} width={200} height={200} alt="1" />
               </div>
               <div className="flex-grow-1 edit">
                 <div className="text-end">
@@ -131,4 +131,4 @@ const ProfileComponent = () => {
     </section>
   );
 };
-export default ProfileComponent;
+export default SummaryProfileComponent;
