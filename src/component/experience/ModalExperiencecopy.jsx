@@ -4,22 +4,17 @@ import { Modal } from "react-bootstrap";
 // import { useSelector } from "react-redux";
 
 const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
-  const [experienceRole, setExperienceRole] = useState("");
-  const [experienceCompany, setExperienceCompany] = useState("");
-  const [experienceDescription, setExperienceDescription] = useState("");
-  const [experienceArea, setExperienceArea] = useState("");
-
   // const userId = useSelector((state) => state.myProfile._id);
   // const endPoint = `https://striveschool-api.herokuapp.com/api/profile/643d1a4522a6ab00141a856d/experiences`;
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${paramsId}/experiences`;
-  // const [experienceData, setExperienceData] = useState({
-  //   role: "",
-  //   company: "",
-  //   startDate: "",
-  //   endDate: "",
-  //   description: "",
-  //   area: "",
-  // });
+  const [experienceData, setExperienceData] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+    area: "",
+  });
 
   const [isWorking, setIsWorking] = useState(true);
 
@@ -57,20 +52,11 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formExperienceObj = {
-      role: experienceRole,
-      company: experienceCompany,
-      startDate: "",
-      endDate: "",
-      description: experienceDescription,
-      area: experienceArea,
-    };
-
     // postExperience();
-    // console.log(JSON.stringify(experienceData));
-    // if (experienceData.endDate === "") {
-    //   setExperienceData.endDate = "null";
-    // }
+    console.log(JSON.stringify(experienceData));
+    if (experienceData.endDate === "") {
+      setExperienceData.endDate = "null";
+    }
     fetch(endPoint, {
       method: "POST",
       headers: {
@@ -107,21 +93,13 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
               <label htmlFor="role" className="form-label mb-2">
                 Qualifica*
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Esempio: Retails Sales Manager"
-                name="role"
-                value={(e) => setExperienceRole(e.target.value)}
-                onChange={handleInputChange}
-                required
-              />
+              <input type="text" className="form-control" placeholder="Esempio: Retails Sales Manager" name="role" value={experienceData.role} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="company" className="form-label mb-2">
                 Nome azienda*
               </label>
-              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={(e) => setExperienceCompany(e.target.value)} onChange={handleInputChange} required />
+              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={experienceData.company} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <div className="form-check">

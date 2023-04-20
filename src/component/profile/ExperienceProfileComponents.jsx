@@ -21,7 +21,8 @@ const ExperienceProfileComponents = () => {
 
   const navigate = useNavigate();
   const navigateToExperience = () => {
-    navigate("/experience");
+    // navigate("/experience/");
+    navigate(`/experience/${params.id}`);
     window.scrollTo(0, 0);
   };
 

@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/experience" element={<Experiences />} />
+        <Route path="/experience/:id" element={<Experiences />} />
       </Routes>
       <MyFooter />
     </BrowserRouter>

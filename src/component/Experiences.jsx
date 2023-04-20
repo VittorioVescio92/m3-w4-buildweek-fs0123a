@@ -2,15 +2,16 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import ExperienceCard from "./experience/ExperienceCard";
 import Aside from "./Aside";
 import { ArrowLeft } from "react-bootstrap-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Experiences = () => {
   const navigate = useNavigate();
+  const params = useParams();
   const experience = useSelector((state) => state.experience.content);
 
   const navigateToHome = () => {
-    navigate("/profile");
+    navigate(`/profile/${params.id}`);
     window.scrollTo(0, 0);
   };
 

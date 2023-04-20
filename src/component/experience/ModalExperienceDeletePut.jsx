@@ -5,6 +5,8 @@ import { Alert, Button, Modal } from "react-bootstrap";
 const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
   const userId = useSelector((state) => state.myProfile.content._id);
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
+  const [isWorking, setIsWorking] = useState(true);
+
   const [experienceItem, setExperienceItem] = useState({
     role: "",
     company: "",
@@ -17,8 +19,9 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
     setExperienceItem({
       role: experience.role,
       company: experience.company,
-      startDate: new Date(experience.startDate).toLocaleDateString(),
+      startDate: experience.startDate.substring(0, 10),
       endDate: new Date(experience.endDate).toLocaleDateString(),
+      // endDate: isWorking ? null : experience.endDate.substring(0, 10),
       description: experience.description,
       area: experience.area,
     });
@@ -94,6 +97,14 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
               <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={experienceItem.company} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" id="isWorking" defaultChecked onChange={() => setIsWorking(!isWorking)} value={isWorking} />
+                <label className="form-check-label" htmlFor="isWorking">
+                  Attualmente ricopro questo ruolo
+                </label>
+              </div>
+            </div>
+            <div className="mb-2">
               <label htmlFor="startDate" className="form-label mb-2">
                 Data di inizio*
               </label>
@@ -103,7 +114,7 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
               <label htmlFor="endDate" className="form-label mb-2">
                 Data di fine
               </label>
-              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} onChange={handleInputChange} />
+              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} disabled={isWorking} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">
