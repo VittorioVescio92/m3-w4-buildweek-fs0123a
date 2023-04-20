@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ImageUploader from "./imageUploader";
 
 const ModalProfilePicture = ({ show, handleClose }) => {
-  const user = useSelector(state => state.myProfile.content);
+  const user = useSelector(state => state.selectedProfile.content);
   const [uploadModal, setUploadModal] = useState(false);
 
   const handleUploadClose = () => {
