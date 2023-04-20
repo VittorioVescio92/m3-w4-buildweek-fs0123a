@@ -4,7 +4,16 @@ import ModalHomeImg from "./home/ModalHomeImg";
 import ModalHomeEvent from "./home/ModalHomeEvent";
 import ModalHomeVideo from "./home/ModalHomeVideo";
 // import avatar from "../avatar.png";
-import { ArrowsFullscreen, CalendarDate, CardText, ChatText, HandThumbsUp, PlayBtnFill, SendFill, ThreeDots } from "react-bootstrap-icons";
+import {
+  ArrowsFullscreen,
+  CalendarDate,
+  CardText,
+  ChatText,
+  HandThumbsUp,
+  PlayBtnFill,
+  SendFill,
+  ThreeDots,
+} from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,12 +22,24 @@ import coverImg from "../assets/img/cover.jpeg";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const myProfile = useSelector((state) => state.myProfile.content);
-  const posts = useSelector((state) => state.posts.content);
+  const myProfile = useSelector(state => state.myProfile.content);
+  const posts = useSelector(state => state.posts.content);
+  const [postsData, setPostsData] = useState([]);
+
+  const getRandomPosts = () => {
+    const shuffledPosts = [...posts].sort(() => Math.random() - 0.5);
+    return shuffledPosts;
+  };
+
+  const updatePostsData = () => {
+    const randomPosts = getRandomPosts();
+    setPostsData(randomPosts);
+  };
 
   useEffect(() => {
     dispatch(getMyProfileAction());
     dispatch(getPostsAction());
+    updatePostsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -91,7 +112,13 @@ const Home = () => {
                 <div className="d-flex mb-3">
                   <Link>
                     <div className="m-2">
-                      <img id="avatar" src={myProfile.image} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
+                      <img
+                        id="avatar"
+                        src={myProfile.image}
+                        alt="Avatar"
+                        className="rounded-circle"
+                        onClick={navigateHomePage}
+                      />
                     </div>
                   </Link>
                   <Button className="border" variant="light" onClick={handleShowHome}>
@@ -134,13 +161,19 @@ const Home = () => {
             </Row>
 
             {/* POSTS */}
-            {posts &&
-              posts.map((post) => (
+            {postsData &&
+              postsData.map(post => (
                 <>
                   <div className="bg-white border rounded mt-3 post" key={post._id}>
                     <div className="m-3">
                       <div className="d-flex mb-3">
-                        <Image src={post.user.image} width={60} height={60} alt="1" className="imgProfile rounded-circle me-2" />
+                        <Image
+                          src={post.user.image}
+                          width={60}
+                          height={60}
+                          alt="1"
+                          className="imgProfile rounded-circle me-2"
+                        />
                         <div>
                           <Link>{post.user.name}</Link>
                           <p>8.118 follower</p>
