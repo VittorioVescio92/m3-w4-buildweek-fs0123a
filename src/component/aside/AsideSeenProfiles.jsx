@@ -1,16 +1,28 @@
 import { Button, Image } from "react-bootstrap";
 import { ArrowDown, PersonAdd } from "react-bootstrap-icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProfilesAction } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const AsideSeenProfiles = () => {
   const dispatch = useDispatch();
-  const profiles = useSelector((state) => state.profiles.content);
+  const profiles = useSelector(state => state.profiles.content);
+  const [profilesData, setProfilesData] = useState([]);
+
+  const getRandomProfiles = () => {
+    const shuffledProfiles = [...profiles].sort(() => Math.random() - 0.5);
+    return shuffledProfiles;
+  };
+
+  const updateProfilesData = () => {
+    const randomProfiles = getRandomProfiles();
+    setProfilesData(randomProfiles);
+  };
 
   useEffect(() => {
     dispatch(getProfilesAction());
+    updateProfilesData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -18,8 +30,8 @@ const AsideSeenProfiles = () => {
     <>
       <section id="side" className="bg-white rounded-3 mt-4 p-4 seen-profiles">
         <h3>Altri profili consultati</h3>
-        {profiles &&
-          profiles.map((profile, index) =>
+        {profilesData &&
+          profilesData.map((profile, index) =>
             index < 4 ? (
               <div className="d-flex border-bottom mt-3" key={index}>
                 <div>

@@ -1,12 +1,20 @@
 import { Col, Container, Form, FormControl, NavDropdown, Navbar } from "react-bootstrap";
-import { HouseDoorFill, Linkedin, PersonLinesFill, BriefcaseFill, ChatDotsFill, BellFill, Building } from "react-bootstrap-icons";
+import {
+  HouseDoorFill,
+  Linkedin,
+  PersonLinesFill,
+  BriefcaseFill,
+  ChatDotsFill,
+  BellFill,
+  Building,
+} from "react-bootstrap-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const MyNavbar = () => {
   const navigate = useNavigate();
 
-  const user = useSelector((state) => state.myProfile.content);
+  const user = useSelector(state => state.myProfile.content);
 
   const navigateBack = () => {
     navigate("/");
@@ -18,7 +26,7 @@ const MyNavbar = () => {
       <Col xs={8} className="mb-1">
         <Container className="d-flex align-items-center px-0">
           <Navbar.Brand href="#" className="p-0 d-block">
-            <Linkedin className="text-light fs-1" />
+            <Linkedin className="text-light fs-1" onClick={navigateBack} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -53,7 +61,13 @@ const MyNavbar = () => {
           <div className="px-4 fs-4 text-center nav-item-col">
             <img id="avatar" src={user.image} alt="Avatar" className="rounded-circle" />
             <div className=" fs-6 m-0">
-              <NavDropdown id="nav-dropdown-dark-example" title="Tu" menuVariant="dark" className="text-center" align={{ lg: "end" }}>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Tu"
+                menuVariant="dark"
+                className="text-center"
+                align={{ lg: "end" }}
+              >
                 <NavDropdown.Item>
                   <div className="d-flex justify-content-center">
                     <div className="me-3 d-flex align-items-center">
