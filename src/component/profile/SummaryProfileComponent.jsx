@@ -43,10 +43,14 @@ const SummaryProfileComponent = () => {
         <Col xs={12}>
           <div className="p-3">
             <div className="d-flex">
-              <div className="rounded-circle image-profile">
-                <Button variant="" bsPrefix="editBtn" className="btnLink" onClick={handleShowPictureModal}>
-                  <Image className="img-fluid" src={user.image} width={200} alt="" />
-                </Button>
+              <div className="rounded-circle image-profile ">
+                <Image
+                  className="img-fluid"
+                  src={user.image}
+                  width={200}
+                  alt=""
+                  onClick={handleShowPictureModal}
+                ></Image>
                 <ModalProfilePicture show={showPictureModal} handleClose={handleClosePictureModal} />
               </div>
               <div className="flex-grow-1 edit">

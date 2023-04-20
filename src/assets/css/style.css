@@ -101,6 +101,7 @@ body {
   color: rgba(0, 0, 0, 0.6);
 }
 .image-profile {
+  object-fit: cover;
   overflow: hidden;
   margin-top: -150px;
   border: 5px solid #fff;
@@ -236,7 +237,7 @@ section.profile div:last-of-type hr {
 .homeProfile .linkProfile p,
 .homeProfile .premiumProfile p,
 .homeProfile .footerProfile p {
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: 600;
   margin: 0;
 }
@@ -246,7 +247,7 @@ section.profile div:last-of-type hr {
 .homeProfile .linkProfile > p > span:last-of-type {
   color: rgb(10, 102, 194);
 }
-.homeProfile .premiumProfile p:first-of-type{
+.homeProfile .premiumProfile p:first-of-type {
   color: rgba(0, 0, 0, 0.6);
   font-weight: 400;
 }
@@ -256,10 +257,6 @@ section.profile div:last-of-type hr {
 /* .post .imgProfile {
   bo
 } */
-
-
-
-
 
 /* Helpers */
 .mt1 {
