@@ -166,7 +166,7 @@ const Home = () => {
             {postsData &&
               postsData.map(post => (
                 <>
-                  <div className="bg-white border rounded mt-3 post" key={post._id}>
+                  <div className="bg-white border rounded mt-1 post" key={post._id}>
                     <div className="m-3">
                       <div className="d-flex mb-3">
                         <Image
