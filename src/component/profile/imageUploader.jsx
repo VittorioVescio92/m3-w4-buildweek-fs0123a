@@ -45,7 +45,7 @@ function ImageUploader() {
   }
 
   return (
-    <form encType="multipart/form-data" action="">
+    <form>
       <input id="file-input" type="file" name="fileName" style={{ display: "none" }} onChange={handleFileChange} />
       <button type="button" onClick={selectFile}>
         Seleziona file
