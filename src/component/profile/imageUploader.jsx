@@ -9,10 +9,10 @@ function ImageUploader() {
 
   function uploadAction() {
     const data = new FormData();
-    data.append("data", file);
+    data.append("profile", file);
     console.log(data);
 
-    fetch(endpoint + userId + "/experiences", {
+    fetch(endpoint + userId + "/picture", {
       mode: "no-cors",
       method: "POST",
       headers: {
