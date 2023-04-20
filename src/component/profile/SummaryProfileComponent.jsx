@@ -3,36 +3,28 @@ import coverImg from "../../assets/img/cover.jpeg";
 import { Button, Card, Carousel, Col, Image, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { Link, useParams } from "react-router-dom";
-// import { getSelectedProfileAction, getUserProfileAction } from "../redux/actions";
+
 import { getSelectedProfileAction } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import ModalProfile from "./ModalProfile";
+import ModalProfilePicture from "./ModalProfilePicture";
 
 const SummaryProfileComponent = () => {
   const dispatch = useDispatch();
   const params = useParams();
   console.log(params);
 
-  // // const user = Object.keys(params).length === 0 && params.constructor === Object ? useSelector((state) => state.user.content) : useSelector((state) => state.selectedProfile.content);
-  // if (Object.keys(params).length === 0 && params.constructor === Object) {
-  const user = useSelector((state) => state.selectedProfile.content);
-  // }
-
-  // const user = useSelector((state) => state.user.content);
-  // const selectedProfile = useSelector((state) => state.selectedProfile.content);
+  const user = useSelector(state => state.selectedProfile.content);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // useEffect(() => {
-  //   console.log(Object.keys(params).length === 0 && params.constructor === Object);
-  //   dispatch(getUserProfileAction());
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const [showPictureModal, setShowPictureModal] = useState(false);
+  const handleShowPictureModal = () => setShowPictureModal(true);
+  const handleClosePictureModal = () => setShowPictureModal(false);
 
   useEffect(() => {
-    // console.log(Object.keys(params).length === 0 && params.constructor === Object);
     dispatch(getSelectedProfileAction(params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
@@ -52,7 +44,10 @@ const SummaryProfileComponent = () => {
           <div className="p-3">
             <div className="d-flex">
               <div className="rounded-circle image-profile">
-                <Image className="img-fluid" src={user.image} width={200} height={200} alt="1" />
+                <Button variant="" bsPrefix="editBtn" className="btnLink" onClick={handleShowPictureModal}>
+                  <Image className="img-fluid" src={user.image} width={200} alt="" />
+                </Button>
+                <ModalProfilePicture show={showPictureModal} handleClose={handleClosePictureModal} />
               </div>
               <div className="flex-grow-1 edit">
                 <div className="text-end">
@@ -93,7 +88,9 @@ const SummaryProfileComponent = () => {
                 <Card>
                   <Card.Body>
                     <Card.Title className="truncate">Disponibile a lavorare 1</Card.Title>
-                    <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                    <Card.Text className="truncate">
+                      Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                    </Card.Text>
                     <div>
                       <Card.Link>Mostra Dettagli</Card.Link>
                     </div>
@@ -105,7 +102,9 @@ const SummaryProfileComponent = () => {
                 <Card>
                   <Card.Body>
                     <Card.Title className="truncate">Disponibile a lavorare 2</Card.Title>
-                    <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                    <Card.Text className="truncate">
+                      Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                    </Card.Text>
                     <div>
                       <Card.Link>Mostra Dettagli</Card.Link>
                     </div>
@@ -117,7 +116,9 @@ const SummaryProfileComponent = () => {
                 <Card>
                   <Card.Body>
                     <Card.Title className="truncate">Disponibile a lavorare 3</Card.Title>
-                    <Card.Text className="truncate">Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer</Card.Text>
+                    <Card.Text className="truncate">
+                      Ruoli di Web Designer, Frontend Web Developer, Full Stack Web Developer
+                    </Card.Text>
                     <div>
                       <Card.Link>Mostra Dettagli</Card.Link>
                     </div>

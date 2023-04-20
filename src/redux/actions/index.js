@@ -8,9 +8,12 @@ const endpointUserExperience = `https://striveschool-api.herokuapp.com/api/profi
 const endpointProfiles = "https://striveschool-api.herokuapp.com/api/profile/";
 // endpoint posts home page
 const endpointPosts = "https://striveschool-api.herokuapp.com/api/posts/";
+// endpoint profile image
+const endpointProfileImage = "https://striveschool-api.herokuapp.com/api/profile/";
 
 // gestione del profilo personale
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
+export const SET_USER_IMAGE = "SET_USER_IMAGE";
 // gestione dei posts
 export const GET_POSTS = "GET_POSTS";
 export const POST_USER_POST = "POST_USER_POST";
@@ -276,3 +279,27 @@ export const setUserExperienceAction = (userId, experienceData) => {
 };
 
 export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIENCE, payload: value });
+
+//ACTION IMMAGINE DEL PROFILO
+
+export const setUserImageAction = userId => {
+  return async (dispatch, getState) => {
+    try {
+      const resp = await fetch(endpointProfileImage + userId + "/picture", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+        },
+        body: JSON.stringify(),
+      });
+      const data = await resp.json();
+      dispatch({
+        type: "SET_USER_IMAGE",
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
