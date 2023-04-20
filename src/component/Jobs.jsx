@@ -9,34 +9,20 @@ import {
 } from "react-bootstrap";
 import avatar from "../avatar.png";
 import {
-  ArrowsFullscreen,
+  ArrowRight,
   BellFill,
   Bookmark,
   BookmarkFill,
   Bullseye,
-  CalendarDate,
-  CardText,
-  CaretDown,
-  ChatText,
   Clipboard2Check,
-  Dot,
   EyeSlashFill,
   GearFill,
-  HandThumbsUp,
   PencilSquare,
   PlayBtnFill,
-  SendFill,
-  ThreeDots,
 } from "react-bootstrap-icons";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { getMyProfileAction, getPostsAction } from "../redux/actions";
-import coverImg from "../assets/img/cover.jpeg";
+import { Link } from "react-router-dom";
 
 const Jobs = () => {
-  const myProfile = useSelector((state) => state.myProfile.content);
-
   return (
     <>
       <Container className="mt-2 mb-5">
@@ -153,34 +139,139 @@ const Jobs = () => {
                 </div>
 
                 {/* POSTS */}
-                <div className="d-flex">
-                  <div>
-                    <Image
-                      src={avatar}
-                      alt=""
-                      width={50}
-                      className="me-3"
-                    ></Image>
-                  </div>
-                  <div>
-                    <Link>OPERAI STABILIMENTO DI SANT'ANGELO DEI LOMBARDI</Link>
-                    <p className="m-0">Ferrero</p>
-                    <p className="m-0 fw-light">
-                      Sant'Angelo dei Lombardi, Campania, Italia (In sede)
-                    </p>
-                    <div className="mb-3">
-                      <Bullseye className="text-success fw-bold" />
-                      <span className="fw-light"> Selezione attiva</span>
-                    </div>
-                    <span className="fw-light">1 mese fa</span>
-                  </div>
+                <div>
                   <div className="d-flex">
-                    <EyeSlashFill className="fs-3" />
-                    <Bookmark className="fs-3" />
+                    <div>
+                      <Image
+                        src={avatar}
+                        alt=""
+                        width={50}
+                        className="me-3"
+                      ></Image>
+                    </div>
+                    <div>
+                      <Link>
+                        OPERAI STABILIMENTO DI SANT'ANGELO DEI LOMBARDI
+                      </Link>
+                      <p className="m-0">Ferrero</p>
+                      <p className="m-0 fw-light">
+                        Sant'Angelo dei Lombardi, Campania, Italia (In sede)
+                      </p>
+                      <div className="mb-3">
+                        <Bullseye className="text-success fw-bold" />
+                        <span className="fw-light"> Selezione attiva</span>
+                      </div>
+                      <span className="fw-light">1 mese fa</span>
+                    </div>
+                    <div className="d-flex">
+                      <EyeSlashFill className="fs-3" />
+                      <Bookmark className="fs-3" />
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="d-flex">
+                    <div>
+                      <Image
+                        src={avatar}
+                        alt=""
+                        width={50}
+                        className="me-3"
+                      ></Image>
+                    </div>
+                    <div>
+                      <Link>
+                        OPERAI STABILIMENTO DI SANT'ANGELO DEI LOMBARDI
+                      </Link>
+                      <p className="m-0">Ferrero</p>
+                      <p className="m-0 fw-light">
+                        Sant'Angelo dei Lombardi, Campania, Italia (In sede)
+                      </p>
+                      <div className="mb-3">
+                        <Bullseye className="text-success fw-bold" />
+                        <span className="fw-light"> Selezione attiva</span>
+                      </div>
+                      <span className="fw-light">1 mese fa</span>
+                    </div>
+                    <div className="d-flex">
+                      <EyeSlashFill className="fs-3" />
+                      <Bookmark className="fs-3" />
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="d-flex">
+                    <div>
+                      <Image
+                        src={avatar}
+                        alt=""
+                        width={50}
+                        className="me-3"
+                      ></Image>
+                    </div>
+                    <div>
+                      <Link>
+                        OPERAI STABILIMENTO DI SANT'ANGELO DEI LOMBARDI
+                      </Link>
+                      <p className="m-0">Ferrero</p>
+                      <p className="m-0 fw-light">
+                        Sant'Angelo dei Lombardi, Campania, Italia (In sede)
+                      </p>
+                      <div className="mb-3">
+                        <Bullseye className="text-success fw-bold" />
+                        <span className="fw-light"> Selezione attiva</span>
+                      </div>
+                      <span className="fw-light">1 mese fa</span>
+                    </div>
+                    <div className="d-flex">
+                      <EyeSlashFill className="fs-3" />
+                      <Bookmark className="fs-3" />
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="d-flex justify-content-center">
+                    <Button
+                      variant="white"
+                      className="d-flex text-secondary align-items-center"
+                    >
+                      Mostra tutto
+                      <ArrowRight className="ms-2" />
+                    </Button>
                   </div>
                 </div>
-                <hr></hr>
               </div>
+            </div>
+          </Col>
+
+          {/* COLONNA DESTRA */}
+          <Col md={3}>
+            <div className="bg-white border rounded mt-3 p-3">
+              <div>
+                <h5 className="m-0">Disponibile a lavorare</h5>
+                <span className="fw-light">
+                  Consigliato in base alla tua attività
+                </span>
+              </div>
+              <div className="d-flex mt-3 bg-light">
+                <Link className="d-flex">
+                  <span className="text-dark">
+                    Mostra ai recruiter che sei disponibile per nuove
+                    opportunità di lavoro
+                  </span>
+                  <Image
+                    src={avatar}
+                    alt=""
+                    width={50}
+                    className="rounded-circle"
+                  ></Image>
+                </Link>
+              </div>
+              <p className="mt-3">
+                Ricevi più messaggi InMail dai recruiter con la cornice
+                #OpenToWork: controlli tu chi la vede
+              </p>
+              <Link className="text-secondary">
+                Inizia
+                <ArrowRight className="ms-2" />
+              </Link>
             </div>
           </Col>
         </Row>
