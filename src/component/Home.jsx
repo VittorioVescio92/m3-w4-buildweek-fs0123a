@@ -1,10 +1,29 @@
-import { Button, Col, Container, Row, Image } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Row,
+  Image,
+  ListGroup,
+  Badge,
+} from "react-bootstrap";
 import ModalHome from "./home/ModalHome";
 import ModalHomeImg from "./home/ModalHomeImg";
 import ModalHomeEvent from "./home/ModalHomeEvent";
 import ModalHomeVideo from "./home/ModalHomeVideo";
 // import avatar from "../avatar.png";
-import { ArrowsFullscreen, CalendarDate, CardText, ChatText, HandThumbsUp, PlayBtnFill, SendFill, ThreeDots } from "react-bootstrap-icons";
+import {
+  ArrowsFullscreen,
+  CalendarDate,
+  CardText,
+  CaretDown,
+  ChatText,
+  Dot,
+  HandThumbsUp,
+  PlayBtnFill,
+  SendFill,
+  ThreeDots,
+} from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -54,7 +73,12 @@ const Home = () => {
                 <Image src={coverImg} className="img-fluid" />
               </div>
               <div className="headerProfile text-center">
-                <Image src={myProfile.image} width={60} height={60} className="imgProfile" />
+                <Image
+                  src={myProfile.image}
+                  width={60}
+                  height={60}
+                  className="imgProfile"
+                />
                 <Link to={`/profile/${myProfile._id}`}>
                   <h6>
                     {myProfile.name} {myProfile.surname}
@@ -91,33 +115,66 @@ const Home = () => {
                 <div className="d-flex mb-3">
                   <Link>
                     <div className="m-2">
-                      <img id="avatar" src={myProfile.image} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
+                      <img
+                        id="avatar"
+                        src={myProfile.image}
+                        alt="Avatar"
+                        className="rounded-circle"
+                        onClick={navigateHomePage}
+                      />
                     </div>
                   </Link>
-                  <Button className="border" variant="light" onClick={handleShowHome}>
+                  <Button
+                    className="border"
+                    variant="light"
+                    onClick={handleShowHome}
+                  >
                     <span className="text-secondary">Avvia un post</span>
                   </Button>
                   <ModalHome show={show} handleCloseHome={handleCloseHome} />
                 </div>
                 <div>
-                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeImg}>
+                  <Button
+                    variant="white"
+                    className="p-0 mx-2"
+                    onClick={handleShowHomeImg}
+                  >
                     <Image className="text-primary" />
                     <span className="mx-2 text-secondary">Foto</span>
                   </Button>
-                  <ModalHomeImg showImg={showImg} handleCloseHomeImg={handleCloseHomeImg} />
-                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeVideo}>
+                  <ModalHomeImg
+                    showImg={showImg}
+                    handleCloseHomeImg={handleCloseHomeImg}
+                  />
+                  <Button
+                    variant="white"
+                    className="p-0 mx-2"
+                    onClick={handleShowHomeVideo}
+                  >
                     <PlayBtnFill className="text-success" />
                     <span className="mx-2 text-secondary">Video</span>
                   </Button>
-                  <ModalHomeVideo showVideo={showVideo} handleCloseHomeVideo={handleCloseHomeVideo} />
-                  <Button variant="white" className="p-0 mx-2" onClick={handleShowHomeEvent}>
+                  <ModalHomeVideo
+                    showVideo={showVideo}
+                    handleCloseHomeVideo={handleCloseHomeVideo}
+                  />
+                  <Button
+                    variant="white"
+                    className="p-0 mx-2"
+                    onClick={handleShowHomeEvent}
+                  >
                     <CalendarDate className="text-warning" />
                     <span className="mx-2 text-secondary">Evento</span>
                   </Button>
-                  <ModalHomeEvent showEvent={showEvent} handleCloseHomeEvent={handleCloseHomeEvent} />
+                  <ModalHomeEvent
+                    showEvent={showEvent}
+                    handleCloseHomeEvent={handleCloseHomeEvent}
+                  />
                   <Button variant="white" className="p-0 mx-2">
                     <CardText className="text-danger" />
-                    <span className="mx-2 text-secondary">Scrivi un articolo</span>
+                    <span className="mx-2 text-secondary">
+                      Scrivi un articolo
+                    </span>
                   </Button>
                 </div>
               </div>
@@ -137,10 +194,19 @@ const Home = () => {
             {posts &&
               posts.map((post) => (
                 <>
-                  <div className="bg-white border rounded mt-3 post" key={post._id}>
+                  <div
+                    className="bg-white border rounded mt-3 post"
+                    key={post._id}
+                  >
                     <div className="m-3">
                       <div className="d-flex mb-3">
-                        <Image src={post.user.image} width={60} height={60} alt="1" className="imgProfile rounded-circle me-2" />
+                        <Image
+                          src={post.user.image}
+                          width={60}
+                          height={60}
+                          alt="1"
+                          className="imgProfile rounded-circle me-2"
+                        />
                         <div>
                           <Link>{post.user.name}</Link>
                           <p>8.118 follower</p>
@@ -200,8 +266,152 @@ const Home = () => {
           </Col>
 
           {/* COLONNA DESTRA */}
-          <Col md={3} className="">
-            Testo
+          <Col md={3} id="aside-news">
+            <div className="mx-1">
+              <div className="mx-1 bg-white border rounded px-3">
+                <div className="mt-2">
+                  <Link>
+                    Linkedin Notizie <span className="ms-5">ℹ️</span>
+                  </Link>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Le top Companies del 2023 in Italia
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          Notizie principali - 964 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          L'importanza di mettersi in ascolto
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          2 giorni fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Che cosa succede al Salone del Mobile
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          18 ore fa - 460 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Un nuovo modello contrattuale per la banca intesa san
+                          paolo
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Tassi sui mutui al 4%
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          22 ore fa - 332 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Apple sfida le banche
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          3 minuti fa - 284 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Frena il venture capital
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Ucraina: gli ultimi aggiornamenti
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa - 436 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          L'importanza di mettersi in ascolto
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          2 giorni fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Arrivano i tutor in classe
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          21 ore fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                  </ListGroup>
+                  <Button variant="light" className="text-secondary">
+                    Visualizza altro <CaretDown />
+                  </Button>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
