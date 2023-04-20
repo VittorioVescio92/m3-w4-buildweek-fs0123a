@@ -4,24 +4,17 @@ import { Modal } from "react-bootstrap";
 // import { useSelector } from "react-redux";
 
 const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
-  const [experienceRole, setExperienceRole] = useState("");
-  const [experienceCompany, setExperienceCompany] = useState("");
-  const [experienceDescription, setExperienceDescription] = useState("");
-  const [experienceArea, setExperienceArea] = useState("");
-
   // const userId = useSelector((state) => state.myProfile._id);
   // const endPoint = `https://striveschool-api.herokuapp.com/api/profile/643d1a4522a6ab00141a856d/experiences`;
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${paramsId}/experiences`;
-  // const [experienceData, setExperienceData] = useState({
-  //   role: "",
-  //   company: "",
-  //   startDate: "",
-  //   endDate: "",
-  //   description: "",
-  //   area: "",
-  // });
-
-  const [isWorking, setIsWorking] = useState(true);
+  const [experienceData, setExperienceData] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+    area: "",
+  });
 
   // const postExperience = async () => {
   //   console.log(experienceData);
@@ -57,20 +50,11 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formExperienceObj = {
-      role: experienceRole,
-      company: experienceCompany,
-      startDate: "",
-      endDate: "",
-      description: experienceDescription,
-      area: experienceArea,
-    };
-
     // postExperience();
-    // console.log(JSON.stringify(experienceData));
-    // if (experienceData.endDate === "") {
-    //   setExperienceData.endDate = "null";
-    // }
+    console.log(JSON.stringify(experienceData));
+    if (experienceData.endDate === "") {
+      setExperienceData.endDate = "null";
+    }
     fetch(endPoint, {
       method: "POST",
       headers: {
@@ -107,29 +91,13 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
               <label htmlFor="role" className="form-label mb-2">
                 Qualifica*
               </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Esempio: Retails Sales Manager"
-                name="role"
-                value={(e) => setExperienceRole(e.target.value)}
-                onChange={handleInputChange}
-                required
-              />
+              <input type="text" className="form-control" placeholder="Esempio: Retails Sales Manager" name="role" value={experienceData.role} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="company" className="form-label mb-2">
                 Nome azienda*
               </label>
-              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={(e) => setExperienceCompany(e.target.value)} onChange={handleInputChange} required />
-            </div>
-            <div className="mb-2">
-              <div className="form-check">
-                <input type="checkbox" className="form-check-input" id="isWorking" defaultChecked onChange={() => setIsWorking(!isWorking)} value={isWorking} />
-                <label className="form-check-label" htmlFor="isWorking">
-                  Attualmente ricopro questo ruolo
-                </label>
-              </div>
+              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={experienceData.company} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="startDate" className="form-label mb-2">
@@ -141,12 +109,11 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
               <label htmlFor="endDate" className="form-label mb-2">
                 Data di fine
               </label>
-              {/* <input type="date" className="form-control" name="endDate" value={experienceData.endDate} onChange={handleInputChange} /> */}
-              <input type="date" className="form-control" name="endDate" value={experienceData.endDate} disabled={isWorking} onChange={handleInputChange} required />
+              <input type="date" className="form-control" name="endDate" value={experienceData.endDate} onChange={handleInputChange} />
             </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">
-                Competenze*
+                Competenze
               </label>
               <textarea
                 className="form-control"
@@ -155,14 +122,13 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
                 value={experienceData.description}
                 onChange={handleInputChange}
                 rows={3}
-                required
               />
             </div>
             <div className="mb-2">
               <label htmlFor="area" className="form-label mb-2">
-                Località*
+                Località
               </label>
-              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceData.area} onChange={handleInputChange} required />
+              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceData.area} onChange={handleInputChange} />
             </div>
             <Modal.Footer className="d-flex justify-content-between">
               <div>
