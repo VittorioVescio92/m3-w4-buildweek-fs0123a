@@ -35,7 +35,7 @@ const Jobs = () => {
                   <Link className="text-dark">
                     <div className="d-flex">
                       <span className="me-1">
-                        <BookmarkFill className="me-2" />
+                        <BookmarkFill className="me-2 fs-5 text-secondary" />
                       </span>
                       Le mie offerte di lavoro
                     </div>
@@ -45,7 +45,7 @@ const Jobs = () => {
                   <Link className="text-dark">
                     <div className="d-flex">
                       <span className="me-1">
-                        <BellFill className="me-2" />
+                        <BellFill className="me-2 fs-5 text-secondary" />
                       </span>
                       Avvisi offerte di lavoro
                     </div>
@@ -55,7 +55,7 @@ const Jobs = () => {
                   <Link className="text-dark">
                     <div className="d-flex">
                       <span className="me-1">
-                        <Clipboard2Check className="me-2" />
+                        <Clipboard2Check className="me-2 fs-5 text-secondary" />
                       </span>
                       Valutazioni delle competenze
                     </div>
@@ -65,7 +65,7 @@ const Jobs = () => {
                   <Link className="text-dark">
                     <div className="d-flex">
                       <span className="me-1">
-                        <PlayBtnFill className="me-2" />
+                        <PlayBtnFill className="me-2 fs-5 text-secondary" />
                       </span>
                       Indicazioni per chi cerca lavoro
                     </div>
@@ -75,7 +75,7 @@ const Jobs = () => {
                   <Link className="text-dark">
                     <div className="d-flex">
                       <span className="me-1">
-                        <GearFill className="me-2" />
+                        <GearFill className="me-2 fs-5 text-secondary" />
                       </span>
                       Impostazioni candidatura
                     </div>
@@ -86,9 +86,9 @@ const Jobs = () => {
             <Button variant="light" className="m-3 border border-primary">
               <div className="d-flex">
                 <div>
-                  <PencilSquare className="text-primary me-4 mt-3 fs-3" />
+                  <PencilSquare className="text-primary me-4 my-3 fs-3" />
                 </div>
-                <span className="text-primary fw-bold">
+                <span className="text-primary fw-bold mt-2">
                   Pubblica offerta gratuita
                 </span>
               </div>
@@ -245,13 +245,13 @@ const Jobs = () => {
           <Col md={3}>
             <div className="bg-white border rounded mt-3 p-3">
               <div>
-                <h5 className="m-0">Disponibile a lavorare</h5>
+                <h6 className="m-0">Disponibile a lavorare</h6>
                 <span className="fw-light">
                   Consigliato in base alla tua attività
                 </span>
               </div>
               <div className="d-flex mt-3 bg-light">
-                <Link className="d-flex">
+                <Link className="d-flex align-items-center">
                   <span className="text-dark">
                     Mostra ai recruiter che sei disponibile per nuove
                     opportunità di lavoro
@@ -259,7 +259,9 @@ const Jobs = () => {
                   <Image
                     src={avatar}
                     alt=""
-                    width={50}
+                    width={80}
+                    height={80}
+                    // per far coincidere la frase identica all'originale fare 40 e 40
                     className="rounded-circle"
                   ></Image>
                 </Link>
