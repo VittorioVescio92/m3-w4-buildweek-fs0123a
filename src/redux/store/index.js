@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import MainReducer from "../reducers/MainReducer";
+
 import { encryptTransform } from "redux-persist-transform-encrypt";
 // import persistReducer from "redux-persist/es/persistReducer";
 // import persistStore from "redux-persist/es/persistStore";
