@@ -6,6 +6,7 @@ import MyFooter from "./component/MyFooter";
 import Home from "./component/Home";
 import Profile from "./component/Profile";
 import Experiences from "./component/Experiences";
+import Jobs from "./component/Jobs";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/jobs" element={<Jobs />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/experience" element={<Experiences />} />
