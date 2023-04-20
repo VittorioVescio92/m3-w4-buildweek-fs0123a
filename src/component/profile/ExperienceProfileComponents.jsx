@@ -11,7 +11,6 @@ import ModalExperience from "../experience/ModalExperience";
 
 const ExperienceProfileComponents = () => {
   const dispatch = useDispatch();
-  const params = useParams();
   const selectedUserId = useSelector(state => state.selectedProfile.content._id);
 
   const experience = useSelector(state => state.experience.content);
