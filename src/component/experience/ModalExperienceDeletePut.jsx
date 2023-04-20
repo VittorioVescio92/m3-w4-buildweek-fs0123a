@@ -14,11 +14,16 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
     area: "",
   });
   useEffect(() => {
+    console.log(experience.endDate);
+    console.log(experience.endDate.substring(0, 10));
     setExperienceItem({
       role: experience.role,
       company: experience.company,
-      startDate: new Date(experience.startDate).toLocaleDateString(),
-      endDate: new Date(experience.endDate).toLocaleDateString(),
+      // startDate: new Date(experience.startDate).toLocaleDateString(),
+      startDate: experience.startDate.substring(0, 10),
+      endDate: experience.endDate.substring(0, 10) === "1/1/1970" ? "null" : experience.endDate.substring(0, 10),
+      // endDate: new Date(experience.endDate).toLocaleDateString(),
+      // endDate: experience.endDate.substring(0, 10),
       description: experience.description,
       area: experience.area,
     });
@@ -103,7 +108,7 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
               <label htmlFor="endDate" className="form-label mb-2">
                 Data di fine
               </label>
-              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} onChange={handleInputChange} />
+              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} onChange={handleInputChange} required />
             </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">

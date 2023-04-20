@@ -11,7 +11,7 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
     role: "",
     company: "",
     startDate: "",
-    endDate: "",
+    endDate: null,
     description: "",
     area: "",
   });
@@ -51,10 +51,10 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
     event.preventDefault();
 
     // postExperience();
-    console.log(JSON.stringify(experienceData));
-    if (experienceData.endDate === "") {
-      setExperienceData.endDate = "null";
-    }
+    alert(experienceData.endDate);
+    // if (experienceData.endDate === "1/1/1970") {
+    //   setExperienceData.endDate = "null";
+    // }
     fetch(endPoint, {
       method: "POST",
       headers: {
@@ -113,7 +113,7 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
             </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">
-                Competenze
+                Competenze*
               </label>
               <textarea
                 className="form-control"
@@ -122,13 +122,14 @@ const ModalExperience = ({ show, handleCloseModalEx, paramsId }) => {
                 value={experienceData.description}
                 onChange={handleInputChange}
                 rows={3}
+                required
               />
             </div>
             <div className="mb-2">
               <label htmlFor="area" className="form-label mb-2">
-                Località
+                Località*
               </label>
-              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceData.area} onChange={handleInputChange} />
+              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceData.area} onChange={handleInputChange} required />
             </div>
             <Modal.Footer className="d-flex justify-content-between">
               <div>
