@@ -25,7 +25,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   // user: userReducer, // forse questa proprietà dovrà cambiare il nome, renderla "parlante" => myProfile
-  main: MainReducer,
   myProfile: myProfileReducer,
   selectedProfile: selectedProfileReducer,
   experience: experienceReducer,
