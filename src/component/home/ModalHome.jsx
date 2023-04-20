@@ -1,10 +1,29 @@
-import { Button, Modal } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import avatar from "../../avatar.png";
 import { useSelector } from "react-redux";
 import { ChatText, Clock, EmojiSmile, FileEarmarkText, GlobeAmericas, Image, PlayBtnFill, ThreeDots } from "react-bootstrap-icons";
+import { useState } from "react";
 
 const ModalHome = ({ show, handleCloseHome }) => {
   const user = useSelector((state) => state.myProfile.content);
+
+  const [post, setPost] = useState("");
+
+  // useEffect(() => {
+  //   if (id) {
+  //     const post = userPosts.find((post) => post._id === id);
+
+  //     setText(post.text);
+  //   }
+  // }, [id]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formPost = {
+      text: text,
+    };
+    id ? dispatch(putUserPost(id, JSON.stringify(formPost))) : dispatch(postUserPost(id, JSON.stringify(formPost)));
+  };
 
   return (
     <>
@@ -16,7 +35,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <img src={avatar} alt="" width={50} className="rounded-pill" />
+            <img src={user.image} alt="" width={50} className="rounded-pill" />
             <h3 className="me-auto">
               {user.name} {user.surname}
             </h3>
@@ -27,10 +46,19 @@ const ModalHome = ({ show, handleCloseHome }) => {
               </Button>
             </div>
           </div>
-          <div className="form-floating my-3">
-            <input type="text" className="form-control p-0 border-white" id="floatingInput" />
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>
+                {/* <Form.Control type="text" placeholder="Di cosa vorresti parlare?" /> */}
+                <Form.Control as="textarea" value={post} onChange={(e) => setPost(e.target.value)} placeholder="Di cosa vorresti parlare?" aria-label="With textarea" />
+              </Form.Label>
+            </Form.Group>
+          </Form>
+          {/* <div className="form-floating my-3">
+            <input type="text" className="form-control p-0 border-white" id="floatingInput" placeholder="Di cosa vorresti parlare?" value={} onChange={} />
+            <input type="text" className="form-control p-0 border-white" id="floatingInput" placeholder="Di cosa vorresti parlare?" />
             <label className="p-0">Di cosa vorresti parlare?</label>
-          </div>
+          </div> */}
           <Button variant="white">
             <EmojiSmile />
           </Button>

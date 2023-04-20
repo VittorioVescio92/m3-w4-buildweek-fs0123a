@@ -14,6 +14,7 @@ export const GET_MY_PROFILE = "GET_MY_PROFILE";
 // gestione dei posts 
 export const GET_POSTS = "GET_POSTS";
 export const POST_USER_POST = "POST_USER_POST";
+export const PUT_USER_POST = "PUT_USER_POST";
 export const DELETE_USER_POST = "DELETE_USER_POST";
 
 export const GET_PROFILES = "GET_PROFILES";
@@ -280,3 +281,6 @@ export const setUserExperienceAction = (userId, experienceData) => {
 
 export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIENCE, payload: value });
 
+/**
+ * ACTION SPECIFICHE PER I MIEI POST
+ */

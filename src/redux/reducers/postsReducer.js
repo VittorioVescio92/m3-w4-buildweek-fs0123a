@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_USER_POST, DELETE_USER_POST } from "../actions";
+import { GET_POSTS, POST_USER_POST, DELETE_USER_POST, PUT_USER_POST } from "../actions";
 
 const initialState = {
   content: [],
@@ -16,10 +16,16 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         content:[...state.content, action.payload],
       };
-    // DA ESEGUIRE, NON LA TROVO CHIARA
-    // case PUT_USER_POST:
-    //   return {}
-    case DELETE_USER_POST:
+    case PUT_USER_POST:
+      return state.map((post) => {
+        if (post._id !== action.id) {
+          return post;
+        }
+        return {
+          ...action.payload
+        };
+      });
+      case DELETE_USER_POST:
       return {
         ...state,
         content: state.filter((post) => post._id !== action.payload)
