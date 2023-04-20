@@ -7,21 +7,20 @@ import {
   ListGroup,
   Badge,
 } from "react-bootstrap";
-import ModalHome from "./home/ModalHome";
-import ModalHomeImg from "./home/ModalHomeImg";
-import ModalHomeEvent from "./home/ModalHomeEvent";
-import ModalHomeVideo from "./home/ModalHomeVideo";
-// import avatar from "../avatar.png";
+import avatar from "../avatar.png";
 import {
   ArrowsFullscreen,
   BellFill,
+  Bookmark,
   BookmarkFill,
+  Bullseye,
   CalendarDate,
   CardText,
   CaretDown,
   ChatText,
   Clipboard2Check,
   Dot,
+  EyeSlashFill,
   GearFill,
   HandThumbsUp,
   PencilSquare,
@@ -108,6 +107,81 @@ const Jobs = () => {
                 </span>
               </div>
             </Button>
+          </Col>
+
+          {/* COLONNA CENTRALE */}
+          <Col md={6}>
+            {/* AVVIA UN POST */}
+            <div className="bg-white border rounded mt-3">
+              <div className="m-3">
+                <div className="d-flex mb-3">
+                  <div className="d-flex align-items-center">
+                    <h5 className="me-5">
+                      Ricerche di offerte di lavoro recenti
+                    </h5>
+                    <Button
+                      variant="light"
+                      size="sm"
+                      className="text-secondary rounded"
+                    >
+                      Cancella
+                    </Button>
+                  </div>
+                </div>
+                <div>
+                  <p className="fw-bold mb-0">
+                    qualsiasi -{" "}
+                    <span className="text-success fw-light">4 nuove</span>
+                  </p>
+                  <Badge bg="white" text="secondary" className="p-0">
+                    Avviso attivo - Napoli,Campania,Italia
+                  </Badge>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white border rounded mt-3 post">
+              <div className="m-3">
+                <div className="d-flex mb-4">
+                  <div className="mt-2">
+                    <h5 className="m-0">Consigliato per te</h5>
+                    <span className="fw-light text-secondary">
+                      Sulla base del tuo profilo e della tua cronologia delle
+                      ricerche
+                    </span>
+                  </div>
+                </div>
+
+                {/* POSTS */}
+                <div className="d-flex">
+                  <div>
+                    <Image
+                      src={avatar}
+                      alt=""
+                      width={50}
+                      className="me-3"
+                    ></Image>
+                  </div>
+                  <div>
+                    <Link>OPERAI STABILIMENTO DI SANT'ANGELO DEI LOMBARDI</Link>
+                    <p className="m-0">Ferrero</p>
+                    <p className="m-0 fw-light">
+                      Sant'Angelo dei Lombardi, Campania, Italia (In sede)
+                    </p>
+                    <div className="mb-3">
+                      <Bullseye className="text-success fw-bold" />
+                      <span className="fw-light"> Selezione attiva</span>
+                    </div>
+                    <span className="fw-light">1 mese fa</span>
+                  </div>
+                  <div className="d-flex">
+                    <EyeSlashFill className="fs-3" />
+                    <Bookmark className="fs-3" />
+                  </div>
+                </div>
+                <hr></hr>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
