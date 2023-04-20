@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function ImageUploader() {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState();
   const userId = useSelector(state => state.selectedProfile.content._id);
   const endpoint = "https://striveschool-api.herokuapp.com/api/profile/";
   console.log(userId);
@@ -10,10 +10,8 @@ function ImageUploader() {
   function uploadAction() {
     const data = new FormData();
     data.append("profile", file);
-    console.log(data);
 
     fetch(endpoint + userId + "/picture", {
-      mode: "no-cors",
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
@@ -38,6 +36,7 @@ function ImageUploader() {
     const file = e.target.files[0];
     setFile(file);
   }
+  console.log(file);
 
   function selectFile() {
     const fileInput = document.getElementById("file-input");
