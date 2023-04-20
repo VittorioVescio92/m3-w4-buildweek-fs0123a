@@ -68,9 +68,9 @@ export const getPostsAction = () => {
 
       if (resp.ok) {
         const data = await resp.json();
-        data.sort(() => Math.random() - 0.5);
+        const dataObj = data.sort(() => Math.random() - 0.5);
 
-        dispatch({ type: GET_POSTS, payload: data });
+        dispatch({ type: GET_POSTS, payload: dataObj });
       } else {
         console.log("errore");
       }

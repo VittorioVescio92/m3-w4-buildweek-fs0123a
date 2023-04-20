@@ -26,22 +26,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const myProfile = useSelector(state => state.myProfile.content);
   const posts = useSelector(state => state.posts.content);
-  const [postsData, setPostsData] = useState([]);
-
-  const getRandomPosts = () => {
-    const shuffledPosts = [...posts].sort(() => Math.random() - 0.5);
-    return shuffledPosts;
-  };
-
-  const updatePostsData = () => {
-    const randomPosts = getRandomPosts();
-    setPostsData(randomPosts);
-  };
 
   useEffect(() => {
     dispatch(getMyProfileAction());
     dispatch(getPostsAction());
-    updatePostsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -163,8 +151,8 @@ const Home = () => {
             </Row>
 
             {/* POSTS */}
-            {postsData &&
-              postsData.map(post => (
+            {posts &&
+              posts.map(post => (
                 <>
                   <div className="bg-white border rounded mt-1 post" key={post._id}>
                     <div className="m-3">
