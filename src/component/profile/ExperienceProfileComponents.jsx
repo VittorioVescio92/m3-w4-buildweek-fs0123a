@@ -3,7 +3,7 @@
 import { Button, Container } from "react-bootstrap";
 import EpicodeImg from "../../assets/img/epicode-logo.png";
 import { ArrowRight, Pencil, PlusLg } from "react-bootstrap-icons";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperienceSelectedProfileAction } from "../../redux/actions";
@@ -36,7 +36,7 @@ const ExperienceProfileComponents = () => {
           <Button onClick={handleShowModalEx} variant="white" className="d-flex text-secondary align-items-center fs-2">
             <PlusLg />
           </Button>
-          <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} paramsId={params.id} />
+          <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} selectedUserId={selectedUserId} />
           <Button
             onClick={navigateToExperience}
             variant="white"

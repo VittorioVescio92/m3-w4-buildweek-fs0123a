@@ -1,12 +1,12 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Alert, Button, Modal } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import { getExperienceSelectedProfileAction } from "../../redux/actions";
 
 const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
   const userId = useSelector(state => state.myProfile.content._id);
-  const params = useParams();
+
   const dispatch = useDispatch();
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
   const [experienceItem, setExperienceItem] = useState({
@@ -84,7 +84,7 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleMod}>
+          <form>
             <div id="emailHelp" className="form-text mb-2">
               * Indica che è obbligatorio
             </div>
@@ -177,7 +177,7 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
                 <Button variant="danger" className="mx-1" onClick={handleDelete}>
                   Elimina
                 </Button>
-                <Button variant="warning" type="submit" className="mx-1">
+                <Button variant="warning" className="mx-1" onClick={handleMod}>
                   Modifica
                 </Button>
               </div>
