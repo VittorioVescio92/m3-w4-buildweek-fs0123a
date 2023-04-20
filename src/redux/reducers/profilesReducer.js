@@ -12,8 +12,8 @@ const profilesReducer = (state = initialState, action) => {
         // content: [action.payload]
         content: action.payload.slice(0, 10),
       };
-    case SET_USER_IMAGE:
-      return { state, content: [...state.content, action.payload] };
+    // case SET_USER_IMAGE:
+    //   return { state, content: [...state.content, action.payload] };
     default:
       return state;
   }
