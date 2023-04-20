@@ -11,7 +11,7 @@ const endpointPosts = "https://striveschool-api.herokuapp.com/api/posts/";
 
 // gestione del profilo personale
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
-// gestione dei posts 
+// gestione dei posts
 export const GET_POSTS = "GET_POSTS";
 export const POST_USER_POST = "POST_USER_POST";
 export const DELETE_USER_POST = "DELETE_USER_POST";
@@ -46,7 +46,6 @@ export const getMyProfileAction = () => {
   };
 };
 
-
 /**
  * ACTION SPECIFICHE PER I POSTS
  * ---------------------------------------
@@ -66,6 +65,7 @@ export const getPostsAction = () => {
 
       if (resp.ok) {
         const data = await resp.json();
+        data.sort(() => Math.random() - 0.5);
 
         dispatch({ type: GET_POSTS, payload: data });
       } else {
@@ -79,7 +79,7 @@ export const getPostsAction = () => {
 
 // inserisco un nuovo post
 export const postUserAction = (postId, body) => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       let resp = await fetch(`${endpointPosts}${postId}`, {
         method: "POST",
@@ -103,15 +103,15 @@ export const postUserAction = (postId, body) => {
 };
 
 // elimino uno specifico post
-export const deleteUserPost = (postId) => {
-  return async (dispatch) => {
+export const deleteUserPost = postId => {
+  return async dispatch => {
     try {
       let resp = await fetch(`${endpointPosts}${postId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
           "Content-type": "application/json; charset=UTF-8",
-        }
+        },
       });
       if (resp.ok) {
       } else {
@@ -124,7 +124,6 @@ export const deleteUserPost = (postId) => {
     }
   };
 };
-
 
 // action che viene eseguita quando selezioniamo un profilo
 export const getSelectedProfileAction = id => {
@@ -202,8 +201,6 @@ export const getProfilesAction = () => {
   };
 };
 
-
-
 export const GET_USER_EXPERIENCE = "GET_USER_EXPERIENCE";
 export const SET_USER_EXPERIENCE = "SET_USER_EXPERIENCE";
 export const DELETE_USER_EXPERIENCE = "DELETE_USER_EXPERIENCE";
@@ -279,4 +276,3 @@ export const setUserExperienceAction = (userId, experienceData) => {
 };
 
 export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIENCE, payload: value });
-

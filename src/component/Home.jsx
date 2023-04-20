@@ -169,13 +169,15 @@ const Home = () => {
                   <div className="bg-white border rounded mt-1 post" key={post._id}>
                     <div className="m-3">
                       <div className="d-flex mb-3">
-                        <Image
-                          src={post.user.image}
-                          width={60}
-                          height={60}
-                          alt="1"
-                          className="imgProfile rounded-circle me-2"
-                        />
+                        {post.user.image && (
+                          <Image
+                            src={post.user.image}
+                            width={60}
+                            height={60}
+                            alt="1"
+                            className="imgProfile rounded-circle me-2"
+                          />
+                        )}
                         <div>
                           <Link>{post.user.name}</Link>
                           <p>8.118 follower</p>
@@ -187,11 +189,11 @@ const Home = () => {
                       </div>
                       <p>{post.text}</p>
                       {/* <div> */}
-                      {post.image ? (
+                      {post.image && (
                         <div>
                           <Image src={post.image} />
                         </div>
-                      ) : null}
+                      )}
                       {/* <div>
                         <Image src={post.image} />
                       </div> */}
