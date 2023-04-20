@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row, Image } from "react-bootstrap";
+import { Button, Col, Container, Row, Image, ListGroup, Badge } from "react-bootstrap";
 import ModalHome from "./home/ModalHome";
 import ModalHomeImg from "./home/ModalHomeImg";
 import ModalHomeEvent from "./home/ModalHomeEvent";
@@ -8,7 +8,9 @@ import {
   ArrowsFullscreen,
   CalendarDate,
   CardText,
+  CaretDown,
   ChatText,
+  Dot,
   HandThumbsUp,
   PlayBtnFill,
   SendFill,
@@ -233,8 +235,151 @@ const Home = () => {
           </Col>
 
           {/* COLONNA DESTRA */}
-          <Col md={3} className="">
-            Testo
+          <Col md={3} id="aside-news">
+            <div className="mx-1">
+              <div className="mx-1 bg-white border rounded px-3">
+                <div className="mt-2">
+                  <Link>
+                    Linkedin Notizie <span className="ms-5">ℹ️</span>
+                  </Link>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Le top Companies del 2023 in Italia
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          Notizie principali - 964 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          L'importanza di mettersi in ascolto
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          2 giorni fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Che cosa succede al Salone del Mobile
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          18 ore fa - 460 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Un nuovo modello contrattuale per la banca intesa san paolo
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Tassi sui mutui al 4%
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          22 ore fa - 332 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Apple sfida le banche
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          3 minuti fa - 284 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Frena il venture capital
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Ucraina: gli ultimi aggiornamenti
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          1 giorno fa - 436 lettori
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          L'importanza di mettersi in ascolto
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          2 giorni fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link className="text-dark">
+                        <div className="d-flex">
+                          <span className="me-1">
+                            <Dot />
+                          </span>
+                          Arrivano i tutor in classe
+                        </div>
+                        <Badge bg="light" text="secondary">
+                          21 ore fa
+                        </Badge>
+                      </Link>
+                    </ListGroup.Item>
+                  </ListGroup>
+                  <Button variant="light" className="text-secondary">
+                    Visualizza altro <CaretDown />
+                  </Button>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
