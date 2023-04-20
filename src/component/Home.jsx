@@ -68,7 +68,7 @@ const Home = () => {
 
   return (
     <>
-      <Container className=" mb-5">
+      <Container className="mt-2 mb-5">
         <Row>
           {/* COLONNA SINISTRA */}
           <Col md={3}>
