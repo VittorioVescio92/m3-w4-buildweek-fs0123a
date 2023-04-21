@@ -9,6 +9,8 @@ const JobsOffers = () => {
   const Offers = useSelector(state => state.jobs.content.data);
   const dispatch = useDispatch();
 
+  console.log(Offers);
+
   useEffect(() => {
     dispatch(getJobsAdsAction());
   }, []);

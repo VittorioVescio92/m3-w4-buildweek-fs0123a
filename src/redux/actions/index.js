@@ -11,7 +11,7 @@ const endpointPosts = "https://striveschool-api.herokuapp.com/api/posts/";
 // endpoint profile image
 // const endpointProfileImage = "https://striveschool-api.herokuapp.com/api/profile/";
 //endpoint Annunci di lavoro develop
-const endpointJobs = "https://strive-benchmark.herokuapp.com/api/jobs?develop=writing&limit=10";
+const endpointJobs = "https://strive-benchmark.herokuapp.com/api/jobs?web%20develop=writing&limit=10";
 
 // gestione del profilo personale
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
