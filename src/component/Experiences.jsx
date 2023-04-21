@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Experiences = () => {
   const navigate = useNavigate();
-  const experience = useSelector((state) => state.experience.content);
+  const experience = useSelector(state => state.experience.content);
 
   const navigateToHome = () => {
     navigate("/profile");
@@ -27,7 +27,7 @@ const Experiences = () => {
                 <h3 className="ms-3">Esperienze</h3>
               </div>
             </div>
-            {experience && experience.map((item) => <ExperienceCard item={item} />)}
+            {experience && experience.map(item => <ExperienceCard key={item._id} item={item} />)}
           </section>
         </Col>
         <Col md={3} className="aside">

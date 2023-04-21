@@ -16,7 +16,7 @@ import {
   SendFill,
   ThreeDots,
 } from "react-bootstrap-icons";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyProfileAction, getPostsAction } from "../redux/actions";
@@ -55,7 +55,7 @@ const Home = () => {
   const handleShowHomeEvent = () => setShowEvent(true);
 
   return (
-    <>
+    <React.Fragment>
       <Container className="mt-2 mb-5">
         <Row>
           {/* COLONNA SINISTRA */}
@@ -153,8 +153,8 @@ const Home = () => {
             {/* POSTS */}
             {posts &&
               posts.map(post => (
-                <>
-                  <div className="bg-white border rounded mt-1 post" key={post._id}>
+                <React.Fragment key={post._id}>
+                  <div className="bg-white border rounded mt-1 post">
                     <div className="m-3">
                       <div className="d-flex mb-3">
                         {post.user.image && (
@@ -220,7 +220,7 @@ const Home = () => {
                       {/* <p>ℹ️ Scrivi il tuo primo commento</p> */}
                     </div>
                   </div>
-                </>
+                </React.Fragment>
               ))}
           </Col>
 
@@ -373,7 +373,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </React.Fragment>
   );
 };
 

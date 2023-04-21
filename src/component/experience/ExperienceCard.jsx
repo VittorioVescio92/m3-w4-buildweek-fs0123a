@@ -4,13 +4,13 @@ import { Button } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { useState } from "react";
 
-const ExperienceCard = (item) => {
+const ExperienceCard = item => {
   const [show, setShow] = useState(false);
   const handleCloseModalEx = () => setShow(false);
   const handleShowModalEx = () => setShow(true);
 
   return (
-    <div key={item.item._id}>
+    <div>
       <div className="d-flex justify-content-start align-item.items-center">
         <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
         <div className="d-flex justify-content-between  flex-grow-1">
