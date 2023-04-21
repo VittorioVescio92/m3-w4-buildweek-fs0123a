@@ -5,8 +5,8 @@ import MyNavbar from "./component/MyNavbar";
 import MyFooter from "./component/MyFooter";
 import Home from "./component/Home";
 import Profile from "./component/Profile";
-import Experiences from "./component/Experiences";
 import Jobs from "./component/jobs/Jobs";
+import Experiences from "./component/Experiences";
 
 function App() {
   return (
