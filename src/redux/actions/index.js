@@ -10,6 +10,8 @@ const endpointProfiles = "https://striveschool-api.herokuapp.com/api/profile/";
 const endpointPosts = "https://striveschool-api.herokuapp.com/api/posts/";
 // endpoint profile image
 // const endpointProfileImage = "https://striveschool-api.herokuapp.com/api/profile/";
+//endpoint Annunci di lavoro develop
+const endpointJobs = "https://strive-benchmark.herokuapp.com/api/jobs?web%20develop=writing&limit=10";
 
 // gestione del profilo personale
 export const GET_MY_PROFILE = "GET_MY_PROFILE";
@@ -23,6 +25,9 @@ export const DELETE_USER_POST = "DELETE_USER_POST";
 export const GET_PROFILES = "GET_PROFILES";
 export const GET_SELECTED_PROFILE = "GET_SELECTED_PROFILE";
 export const GET_EXPERIENCES_SELECTED_PROFILE = "GET_EXPERIENCES_SELECTED_PROFILE";
+
+//gestione lavori
+export const GET_JOB_ADS = "GET_JOB_ADS";
 
 // action che viene eseguita all'avvio dell'app (homepage)
 export const getMyProfileAction = () => {
@@ -338,3 +343,30 @@ export const deleteUserExperienceAction = value => ({ type: DELETE_USER_EXPERIEN
 //     }
 //   };
 // };
+
+//ACTION PER LE OFFERTE DI LAVORO
+
+export const getJobsAdsAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      const resp = await fetch(endpointJobs, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+        },
+      });
+
+      if (resp.ok) {
+        const data = await resp.json();
+        data.sort(() => Math.random() - 0.5);
+
+        dispatch({ type: GET_JOB_ADS, payload: data });
+      } else {
+        console.log("errore nella fetch");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
