@@ -38,8 +38,14 @@ const ModalPostDeletePut = ({ show, handleClose, post }) => {
     dispatch(deleteUserPostAction(post._id));
   };
 
-  const handleMod = () => {
-    dispatch(putUserAction(post, text));
+  // modifica non funzionante
+  const handleMod = (e) => {
+    e.preventDefault();
+
+    const textPost = {
+      text: text,
+    };
+    dispatch(putUserAction(post, textPost));
   };
 
   // const handleMod = () => {
