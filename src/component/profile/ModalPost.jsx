@@ -16,10 +16,10 @@ const ModalPost = ({ show, handleCloseHome }) => {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <img src={avatar} alt="" width={50} className="rounded-pill" />
+            {/* <img src={avatar} alt="" width={50} className="rounded-pill" />
             <h3 className="me-auto">
               {user.name} {user.surname}
-            </h3>
+            </h3> */}
             <div className="ms-auto">
               <Button variant="white border-dark" className="ms-auto">
                 <GlobeAmericas className="mx-2" />

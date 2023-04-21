@@ -18,8 +18,8 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/experience" element={<Experiences />} />
-        <Route path="/posts" element={<Posts />} />
+        <Route path="/experience/:id" element={<Experiences />} />
+        <Route path="/posts/:id" element={<Posts />} />
       </Routes>
       <MyFooter />
     </BrowserRouter>

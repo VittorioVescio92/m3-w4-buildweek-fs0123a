@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Col, Container, Row, Image, ListGroup, Badge } from "react-bootstrap";
 import ModalHome from "./home/ModalHome";
 import ModalHomeImg from "./home/ModalHomeImg";
@@ -18,9 +19,11 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getMyProfileAction());
-    dispatch(getPostsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    dispatch(getPostsAction());
+  }, [posts]);
 
   const navigate = useNavigate();
   const navigateHomePage = () => {

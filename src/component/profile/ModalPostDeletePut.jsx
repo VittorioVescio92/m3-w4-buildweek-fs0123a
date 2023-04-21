@@ -2,138 +2,94 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Alert, Button, Modal } from "react-bootstrap";
-import { getExperienceSelectedProfileAction } from "../../redux/actions";
+import { deleteUserPostAction, getExperienceSelectedProfileAction, putUserAction } from "../../redux/actions";
 
-const ModalPostDeletePut = ({ show, handleCloseModalEx, experience }) => {
-  const userId = useSelector((state) => state.myProfile.content._id);
+const ModalPostDeletePut = ({ show, handleClose, post }) => {
+  // const userId = useSelector((state) => state.myProfile.content._id);
 
   const dispatch = useDispatch();
-  const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`;
-  const [experienceItem, setExperienceItem] = useState({
-    role: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-    area: "",
-  });
-  useEffect(() => {
-    setExperienceItem({
-      role: experience.role,
-      company: experience.company,
-      startDate: new Date(experience.startDate).toLocaleDateString(),
-      endDate: new Date(experience.endDate).toLocaleDateString(),
-      description: experience.description,
-      area: experience.area,
-    });
-  }, [experience]);
+  const endPoint = `https://striveschool-api.herokuapp.com/api/posts/${post._id}`;
+  // const [postItem, setPostItem] = useState({
+  //   text: "",
+  // });
+  const [text, setText] = useState("");
+  console.log(text);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setExperienceItem((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    setText(post.text);
+    console.log(text);
+  }, []);
+
+  // useEffect(() => {
+  //   setPostItem({
+  //     text: post.text,
+  //   });
+  // }, [post]);
+
+  // const handleInputChange = (event) => {
+  //   const { value } = event.target;
+  //   setPostItem((prevState) => ({
+  //     ...prevState,
+  //     text: value,
+  //   }));
+  // };
 
   const handleDelete = () => {
-    fetch(endPoint + experience._id, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          handleCloseModalEx();
-          dispatch(getExperienceSelectedProfileAction(userId));
-        } else {
-          throw new Error("Errore durante la cancellazione dei dati");
-        }
-      })
-      .catch((error) => console.log(error));
+    dispatch(deleteUserPostAction(post._id));
   };
-
-  console.log(userId);
 
   const handleMod = () => {
-    fetch(endPoint + experience._id, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
-      },
-      body: JSON.stringify(experienceItem),
-    })
-      .then((response) => {
-        if (response.ok) {
-          dispatch(getExperienceSelectedProfileAction(userId));
-        } else {
-          throw new Error("Errore durante la modifica dei dati");
-        }
-      })
-      .catch((error) => Alert(error));
+    dispatch(putUserAction(post._id, text));
   };
+
+  // const handleMod = () => {
+  //   fetch(endPoint, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8",
+  //       Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+  //     },
+  //     // body: JSON.stringify(postItem),
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         dispatch(getExperienceSelectedProfileAction(post._id));
+  //       } else {
+  //         throw new Error("Errore durante la modifica dei dati");
+  //       }
+  //     })
+  //     .catch((error) => Alert(error));
+  // };
 
   return (
     <>
-      <Modal show={show} onHide={handleCloseModalEx}>
+      <Modal show={show} onHide={handleClose}>
+        {console.log(post._id)}
+
         <Modal.Header closeButton>
           <Modal.Title>
-            <h1>Aggiungi esperienza lavorativa</h1>
+            <h1>Modifica Post</h1>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
-            <div id="emailHelp" className="form-text mb-2">
-              * Indica che è obbligatorio
-            </div>
-            <div className="mb-2">
-              <label htmlFor="role" className="form-label mb-2">
-                Qualifica*
-              </label>
-              <input type="text" className="form-control" placeholder="Esempio: Retails Sales Manager" name="role" value={experienceItem.role} onChange={handleInputChange} required />
-            </div>
-            <div className="mb-2">
-              <label htmlFor="company" className="form-label mb-2">
-                Nome azienda*
-              </label>
-              <input type="text" className="form-control" placeholder="Esempio: Microsoft" name="company" value={experienceItem.company} onChange={handleInputChange} required />
-            </div>
-            <div className="mb-2">
-              <label htmlFor="startDate" className="form-label mb-2">
-                Data di inizio*
-              </label>
-              <input type="date" className="form-control" name="startDate" value={experienceItem.startDate} onChange={handleInputChange} required />
-            </div>
-            <div className="mb-2">
-              <label htmlFor="endDate" className="form-label mb-2">
-                Data di fine
-              </label>
-              <input type="date" className="form-control" name="endDate" value={experienceItem.endDate} onChange={handleInputChange} />
-            </div>
             <div className="mb-2">
               <label htmlFor="description" className="form-label mb-2">
-                Competenze
+                Inserisci testo
               </label>
               <textarea
                 className="form-control"
                 placeholder="Esempio: Gestione contabilità, Amministrazione, Approvvigionamento Risorse ecc."
                 name="description"
-                value={experienceItem.description}
-                onChange={handleInputChange}
+                value={text}
+                // onChange={handleInputChange}
+                onChange={(e) => setText(e.target.value)}
                 rows={3}
               />
             </div>
-            <div className="mb-2">
-              <label htmlFor="area" className="form-label mb-2">
-                Località
-              </label>
-              <input type="text" className="form-control" placeholder="Esempio: Roma, Italia" name="area" value={experienceItem.area} onChange={handleInputChange} />
-            </div>
             <Modal.Footer className="d-flex justify-content-between">
               <div>
-                <Button variant="secondary" onClick={handleCloseModalEx}>
+                <Button variant="secondary" onClick={handleClose}>
                   Annulla
                 </Button>
               </div>

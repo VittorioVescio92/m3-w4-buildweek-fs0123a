@@ -16,6 +16,7 @@ export const GET_MY_PROFILE = "GET_MY_PROFILE";
 // export const SET_USER_IMAGE = "SET_USER_IMAGE";
 // gestione dei posts
 export const GET_POSTS = "GET_POSTS";
+export const PUT_USER_POST = "PUT_USER_POST";
 export const POST_USER_POST = "POST_USER_POST";
 export const DELETE_USER_POST = "DELETE_USER_POST";
 
@@ -82,7 +83,7 @@ export const getPostsAction = () => {
 
 // inserisco un nuovo post
 export const postUserAction = (postId, body) => {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     try {
       let resp = await fetch(`${endpointPosts}${postId}`, {
         method: "POST",
@@ -105,18 +106,51 @@ export const postUserAction = (postId, body) => {
   };
 };
 
-// elimino uno specifico post
-export const deleteUserPost = postId => {
-  return async dispatch => {
+// modifico un post specifico 
+export const putUserAction = (postId, text) => {
+  return async (dispatch, getState) => {
     try {
       let resp = await fetch(`${endpointPosts}${postId}`, {
-        method: "DELETE",
+        method: "PUT",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
           "Content-type": "application/json; charset=UTF-8",
         },
+        // body: JSON.stringify(text),
+        body: JSON.stringify({"text": text}),
       });
       if (resp.ok) {
+        let data = await resp.json();
+
+        // PUT_USER_POST
+        dispatch({ type: PUT_USER_POST, payload: data });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("fetch loading finish");
+    }
+  };
+};
+
+
+// elimino uno specifico post
+export const deleteUserPostAction = postId => {
+  return async (dispatch, getState) => {
+    try {
+      console.log(endpointPosts + postId)
+
+      let resp = await fetch(`${endpointPosts}${postId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+        },
+      });
+      if (resp.ok) {
+        dispatch({type: DELETE_USER_POST, payload: postId})
       } else {
         console.log("error");
       }
@@ -178,6 +212,7 @@ export const getExperienceSelectedProfileAction = userId => {
     }
   };
 };
+
 
 // action che riempie il componente AsideSeenProfiles
 export const getProfilesAction = () => {

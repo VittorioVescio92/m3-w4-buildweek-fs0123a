@@ -1,7 +1,7 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 // import { Link } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
-import ModalPost from "./ModalPost";
+// import ModalPost from "./ModalPost";
 import { useState } from "react";
 import { ArrowRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
@@ -14,8 +14,8 @@ const PostsProfileComponent = () => {
   console.log(userPosts);
 
   const navigate = useNavigate();
-  const navigateToExperience = () => {
-    navigate("/posts");
+  const navigateToPost = () => {
+    navigate(`/posts/${user._id}`);
     window.scrollTo(0, 0);
   };
 
@@ -31,7 +31,8 @@ const PostsProfileComponent = () => {
             <h3>Posts</h3>
             {userPosts &&
               userPosts.map((post) => (
-                <div className="post" onClick={handleShow}>
+                // <div className="post" onClick={handleShow}>
+                <div className="post">
                   <p>
                     <span>Pubblicato da: </span>
                     <span>
@@ -49,10 +50,10 @@ const PostsProfileComponent = () => {
                   </div>
                 </div>
               ))}
-            <ModalPost show={show} handleCloseHome={handleClose} />
+            {/* <ModalPost show={show} handleCloseHome={handleClose} /> */}
             <div className="d-flex justify-content-center">
-              <Button onClick={navigateToExperience} variant="white" className="d-flex text-secondary align-items-center">
-                Mostra tutte le esperienze ({userPosts.length})
+              <Button onClick={navigateToPost} variant="white" className="d-flex text-secondary align-items-center">
+                Mostra tutti i posts ({userPosts.length})
                 <ArrowRight className="ms-2" />
               </Button>
             </div>
