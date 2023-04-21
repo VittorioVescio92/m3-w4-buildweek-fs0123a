@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import ExperienceImageUploader from "./ExperienceImageUploader";
 
 const ModalExperience = ({ show, handleCloseModalEx, selectedUserId }) => {
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}/experiences`;
