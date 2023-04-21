@@ -21,7 +21,11 @@ const postsReducer = (state = initialState, action) => {
     case PUT_USER_POST:
       return {
         ...state,
-        content: action.payload
+        content: state.content.map((post) => {
+          if(post._id !== action.id) {
+            return post;
+          }
+        })
       }
     case DELETE_USER_POST:
       return {

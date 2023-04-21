@@ -23,7 +23,7 @@ const Home = () => {
   }, []);
   useEffect(() => {
     dispatch(getPostsAction());
-  }, [posts]);
+  }, []);
 
   const navigate = useNavigate();
   const navigateHomePage = () => {

@@ -18,7 +18,7 @@ const ModalPostDeletePut = ({ show, handleClose, post }) => {
   useEffect(() => {
     setText(post.text);
     console.log(text);
-  }, []);
+  }, [post]);
 
   // useEffect(() => {
   //   setPostItem({
@@ -39,7 +39,7 @@ const ModalPostDeletePut = ({ show, handleClose, post }) => {
   };
 
   const handleMod = () => {
-    dispatch(putUserAction(post._id, text));
+    dispatch(putUserAction(post, text));
   };
 
   // const handleMod = () => {

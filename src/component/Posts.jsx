@@ -25,29 +25,29 @@ const Posts = () => {
 
   return (
     <>
-      {userPosts && (
-        <Container className="mt-2 p-0 postsPage">
-          <Row>
-            <Col md={9}>
-              <section className="mt-4 rounded-3 border-dark profile p-3">
-                <div className="d-flex">
-                  <div className="d-flex justify-content-start align-items-center">
-                    <Button variant="light" onClick={navigateToProfile} className="rounded-pill my-2">
-                      <ArrowLeft className="fs-2" />
-                    </Button>
-                    <h3 className="ms-3">Posts</h3>
-                  </div>
+      {/* {userPosts && ( */}
+      <Container className="mt-2 p-0 postsPage">
+        <Row>
+          <Col md={9}>
+            <section className="mt-4 rounded-3 border-dark profile p-3">
+              <div className="d-flex">
+                <div className="d-flex justify-content-start align-items-center">
+                  <Button variant="light" onClick={navigateToProfile} className="rounded-pill my-2">
+                    <ArrowLeft className="fs-2" />
+                  </Button>
+                  <h3 className="ms-3">Posts</h3>
                 </div>
-                {userPosts && userPosts.map((post) => <PostCard key={post._id} post={post} />)}
-                {/* {userPosts && userPosts.map((post) => console.log(post))} */}
-              </section>
-            </Col>
-            <Col md={3} className="aside">
-              <Aside />
-            </Col>
-          </Row>
-        </Container>
-      )}
+              </div>
+              {userPosts && userPosts.map((post) => <PostCard key={post._id} post={post} />)}
+              {/* {userPosts && userPosts.map((post) => console.log(post))} */}
+            </section>
+          </Col>
+          <Col md={3} className="aside">
+            <Aside />
+          </Col>
+        </Row>
+      </Container>
+      {/* )} */}
     </>
   );
 };

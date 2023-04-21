@@ -117,13 +117,13 @@ export const putUserAction = (postId, text) => {
           "Content-type": "application/json; charset=UTF-8",
         },
         // body: JSON.stringify(text),
-        body: JSON.stringify({"text": text}),
+        body: JSON.stringify(text),
       });
       if (resp.ok) {
         let data = await resp.json();
 
         // PUT_USER_POST
-        dispatch({ type: PUT_USER_POST, payload: data });
+        dispatch({ type: PUT_USER_POST, payload: data, id: postId });
       } else {
         console.log("error");
       }
