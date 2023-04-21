@@ -24,10 +24,10 @@ const PostCard = ({ post }) => {
             <span>
               {post.user.name} {post.user.surname}
             </span>
-            <span> - {post.createdAt}</span>
+            <span> - {new Date(post.createdAt).toLocaleDateString()}</span>
           </p>
 
-          <p>{post.text}</p>
+          <p className="fs-5">{post.text}</p>
         </div>
         <Button variant="light" className="rounded-pill mt-0 my-2 ml-auto" onClick={handleShow}>
           <Pencil />
