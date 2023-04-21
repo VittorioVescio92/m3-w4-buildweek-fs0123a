@@ -262,3 +262,6 @@ section.profile div:last-of-type hr {
 .mt1 {
   margin-top: 1.5rem;
 }
+/* #jobs-eye:hover + div{
+  display: block;
+} */
