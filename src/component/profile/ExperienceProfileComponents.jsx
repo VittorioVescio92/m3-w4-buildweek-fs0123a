@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Container } from "react-bootstrap";
@@ -8,7 +9,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperienceSelectedProfileAction } from "../../redux/actions";
 import ModalExperience from "../experience/ModalExperience";
-import MyDefaultImage from "../MyDefaultImage";
 
 const ExperienceProfileComponents = () => {
   const dispatch = useDispatch();
