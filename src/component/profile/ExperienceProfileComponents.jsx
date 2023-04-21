@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperienceSelectedProfileAction } from "../../redux/actions";
 import ModalExperience from "../experience/ModalExperience";
+import MyDefaultImage from "../MyDefaultImage";
 
 const ExperienceProfileComponents = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const ExperienceProfileComponents = () => {
   const [show, setShow] = useState(false);
   const handleCloseModalEx = () => setShow(false);
   const handleShowModalEx = () => setShow(true);
+
   return (
     <Container className="mt-2 d-flex p-0">
       <section className="rounded-3 border-dark profile p-3 w-100">
@@ -47,9 +49,13 @@ const ExperienceProfileComponents = () => {
         </div>
         {experience &&
           experience.slice(0, 5).map(item => (
-            <div key={item._id}>
+            <div key={item._id} on>
               <div className="d-flex justify-content-start align-items-center">
-                <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
+                {item.image === undefined ? (
+                  <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />
+                ) : (
+                  <img src={item.image} alt="Experience-Image" className="img-fluid mb-5" width={50} />
+                )}
                 <div className="d-flex flex-column">
                   <p className="ms-3 fw-bold text-secondary">{item.role}</p>
                   <p className="ms-3 text-secondary">{item.company}</p>

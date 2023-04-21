@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Alert, Button, Modal } from "react-bootstrap";
 import { getExperienceSelectedProfileAction } from "../../redux/actions";
+import ExperienceImageUploader from "./ExperienceImageUploader";
 
 const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
   const userId = useSelector(state => state.myProfile.content._id);
@@ -167,17 +168,21 @@ const ModalExperienceDeletePut = ({ show, handleCloseModalEx, experience }) => {
                 onChange={handleInputChange}
               />
             </div>
+            <div>
+              Aggiungi un'immagine.
+              <ExperienceImageUploader experienceId={experience._id} />
+            </div>
             <Modal.Footer className="d-flex justify-content-between">
               <div>
-                <Button variant="secondary" onClick={handleCloseModalEx}>
+                <Button className="px-2 me-1" variant="secondary" onClick={handleCloseModalEx}>
                   Annulla
                 </Button>
               </div>
               <div>
-                <Button variant="danger" className="mx-1" onClick={handleDelete}>
+                <Button className="px-2 me-1" variant="danger" onClick={handleDelete}>
                   Elimina
                 </Button>
-                <Button variant="warning" className="mx-1" onClick={handleMod}>
+                <Button className="px-2" variant="warning" onClick={handleMod}>
                   Modifica
                 </Button>
               </div>
