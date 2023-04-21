@@ -201,10 +201,7 @@ const Jobs = () => {
                       <span className="fw-light">1 mese fa</span>
                     </div>
                     <div className="d-flex" id="jobs-eye">
-                      <EyeSlashFill
-                        className="fs-3 mx-3 d-none"
-                        id="jobs-eye"
-                      />
+                      <EyeSlashFill className="fs-3 mx-3" id="jobs-eye" />
                       <Bookmark className="fs-3" />
                     </div>
                   </div>
