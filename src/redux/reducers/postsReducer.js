@@ -9,7 +9,8 @@ const postsReducer = (state = initialState, action) => {
     case GET_POSTS:
       return {
         ...state,
-        content: action.payload.slice(0, 15),
+        // content: action.payload.slice(0, 15),
+        content: action.payload,
       }
     case POST_USER_POST:
       return {

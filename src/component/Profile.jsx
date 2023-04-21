@@ -8,7 +8,7 @@ const Profile = () => {
     <>
       <Container>
         <Row>
-          <Col md={9}>
+          <Col md={9} className="profile">
             <ProfileMain />
           </Col>
           <Col md={3} className="aside">
