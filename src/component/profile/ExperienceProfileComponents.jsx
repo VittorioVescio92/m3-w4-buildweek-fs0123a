@@ -12,9 +12,9 @@ import ModalExperience from "../experience/ModalExperience";
 
 const ExperienceProfileComponents = () => {
   const dispatch = useDispatch();
-  const selectedUserId = useSelector(state => state.selectedProfile.content._id);
+  const selectedUserId = useSelector((state) => state.selectedProfile.content._id);
 
-  const experience = useSelector(state => state.experience.content);
+  const experience = useSelector((state) => state.experience.content);
 
   useEffect(() => {
     dispatch(getExperienceSelectedProfileAction(selectedUserId));
@@ -22,7 +22,7 @@ const ExperienceProfileComponents = () => {
 
   const navigate = useNavigate();
   const navigateToExperience = () => {
-    navigate("/experience");
+    navigate(`/experience/${selectedUserId}`);
     window.scrollTo(0, 0);
   };
 
@@ -39,17 +39,13 @@ const ExperienceProfileComponents = () => {
             <PlusLg />
           </Button>
           <ModalExperience show={show} handleCloseModalEx={handleCloseModalEx} selectedUserId={selectedUserId} />
-          <Button
-            onClick={navigateToExperience}
-            variant="white"
-            className="d-flex text-secondary align-items-center fs-3"
-          >
+          <Button onClick={navigateToExperience} variant="white" className="d-flex text-secondary align-items-center fs-3">
             <Pencil />
           </Button>
         </div>
         {experience &&
-          experience.slice(0, 5).map(item => (
-            <div key={item._id} on>
+          experience.slice(0, 5).map((item) => (
+            <div key={item._id}>
               <div className="d-flex justify-content-start align-items-center">
                 {item.image === undefined ? (
                   <img src={EpicodeImg} alt="" className="img-fluid mb-5" width={50} />

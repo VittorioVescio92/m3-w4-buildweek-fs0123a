@@ -254,10 +254,37 @@ section.profile div:last-of-type hr {
 .homeProfile .footerProfile {
   border: unset;
 }
-/* .post .imgProfile {
-  bo
-} */
+.profile .post,
+.postsPage .post {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  cursor: pointer;
+}
+.postsPage .post {
+  cursor: unset;
+}
+.profile .post > p, 
+.postsPage .post > p {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.profile .post > p span:nth-of-type(2), 
+.postsPage .post > p span:nth-of-type(2) {
+  font-weight: 600;
+}
+.profile .post .post-body {
+  width: 65%;
 
+}
+.profile .post .post-body p,
+.postsPage .post .post-body p {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
 /* Helpers */
 .mt1 {
   margin-top: 1.5rem;
