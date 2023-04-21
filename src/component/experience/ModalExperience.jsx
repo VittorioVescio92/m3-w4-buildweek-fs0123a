@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-// import { useSelector } from "react-redux";
 
 const ModalExperience = ({ show, handleCloseModalEx, selectedUserId }) => {
-  // const userId = useSelector((state) => state.myProfile._id);
-  // const endPoint = `https://striveschool-api.herokuapp.com/api/profile/643d1a4522a6ab00141a856d/experiences`;
   const endPoint = `https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}/experiences`;
   const [experienceData, setExperienceData] = useState({
     role: "",
@@ -15,29 +12,6 @@ const ModalExperience = ({ show, handleCloseModalEx, selectedUserId }) => {
     description: "",
     area: "",
   });
-
-  // const postExperience = async () => {
-  //   console.log(experienceData);
-  //   try {
-  //     let resp = await fetch("https://striveschool-api.herokuapp.com/api/profile/643d1a4522a6ab00141a856d/experiences", {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(experienceData),
-  //     });
-  //     if (resp.ok) {
-  //       // let fetchedBooks = await resp.json();
-  //       // setBooks(fetchedBooks);
-  //       handleCloseModalEx();
-  //     } else {
-  //       console.log("error");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -50,7 +24,6 @@ const ModalExperience = ({ show, handleCloseModalEx, selectedUserId }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    // postExperience();
     console.log(JSON.stringify(experienceData));
     if (experienceData.endDate === "") {
       setExperienceData.endDate = "null";

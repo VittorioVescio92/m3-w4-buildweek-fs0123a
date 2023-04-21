@@ -1,11 +1,58 @@
 import { Button, Modal } from "react-bootstrap";
 import avatar from "../../avatar.png";
 import { useSelector } from "react-redux";
-import { ChatText, Clock, EmojiSmile, FileEarmarkText, GlobeAmericas, Image, PlayBtnFill, ThreeDots } from "react-bootstrap-icons";
+import {
+  ChatText,
+  Clock,
+  EmojiSmile,
+  FileEarmarkText,
+  GlobeAmericas,
+  Image,
+  PlayBtnFill,
+  ThreeDots,
+} from "react-bootstrap-icons";
+import { useState } from "react";
 
 const ModalHome = ({ show, handleCloseHome }) => {
-  const user = useSelector((state) => state.myProfile.content);
+  const user = useSelector(state => state.myProfile.content);
+  const endPoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const [post, setPost] = useState({
+    text: "",
+  });
 
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setPost(prevState => ({
+      ...prevState,
+      text: value,
+    }));
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    console.log(JSON.stringify(post));
+    if (post.text === "") {
+      setPost.text = "null";
+    }
+    fetch(endPoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_STRIVE_TOKEN}`,
+        "Content-type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(post),
+    })
+      .then(response => {
+        if (response.ok) {
+          handleCloseHome();
+        } else {
+          throw new Error("Errore durante l'invio dei dati");
+        }
+      })
+      .catch(error => console.log(error));
+  };
+  console.log(post);
   return (
     <>
       <Modal show={show} onHide={handleCloseHome}>
@@ -28,7 +75,12 @@ const ModalHome = ({ show, handleCloseHome }) => {
             </div>
           </div>
           <div className="form-floating my-3">
-            <input type="text" className="form-control p-0 border-white" id="floatingInput" />
+            <input
+              type="text"
+              className="form-control p-0 border-white"
+              id="floatingInput"
+              onChange={handleInputChange}
+            />
             <label className="p-0">Di cosa vorresti parlare?</label>
           </div>
           <Button variant="white">
@@ -55,7 +107,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
             <Button variant="light" className="p-0 ms-5">
               <Clock className="text-secondary ms-auto" />
             </Button>
-            <Button variant="secondary" className="mx-1">
+            <Button variant="secondary" className="mx-1" onClick={handleSubmit}>
               Pubblica
             </Button>
           </div>
