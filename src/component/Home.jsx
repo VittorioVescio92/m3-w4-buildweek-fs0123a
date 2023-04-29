@@ -4,7 +4,21 @@ import ModalHomeImg from "./home/ModalHomeImg";
 import ModalHomeEvent from "./home/ModalHomeEvent";
 import ModalHomeVideo from "./home/ModalHomeVideo";
 // import avatar from "../avatar.png";
-import { ArrowsFullscreen, BookmarkFill, CalendarDate, CardText, CaretDown, ChatText, Dot, HandThumbsUp, Images, PlayBtnFill, Plus, SendFill, ThreeDots } from "react-bootstrap-icons";
+import {
+  ArrowsFullscreen,
+  BookmarkFill,
+  CalendarDate,
+  CardText,
+  CaretDown,
+  ChatText,
+  Dot,
+  HandThumbsUp,
+  Images,
+  PlayBtnFill,
+  Plus,
+  SendFill,
+  ThreeDots,
+} from "react-bootstrap-icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,8 +28,8 @@ import LinkedinLogo from "../assets/img/linkedin-logo.png";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const myProfile = useSelector((state) => state.myProfile.content);
-  const posts = useSelector((state) => state.posts.content);
+  const myProfile = useSelector(state => state.myProfile.content);
+  const posts = useSelector(state => state.posts.content);
   console.log(posts);
 
   useEffect(() => {
@@ -113,7 +127,13 @@ const Home = () => {
                 <div className="d-flex mb-3">
                   <Link>
                     <div className="m-2">
-                      <img id="avatar" src={myProfile.image} alt="Avatar" className="rounded-circle" onClick={navigateHomePage} />
+                      <img
+                        id="avatar"
+                        src={myProfile.image}
+                        alt="Avatar"
+                        className="rounded-circle"
+                        onClick={navigateHomePage}
+                      />
                     </div>
                   </Link>
                   <Button className="border" variant="light" onClick={handleShowHome}>
@@ -157,12 +177,20 @@ const Home = () => {
 
             {/* POSTS */}
             {posts &&
-              posts.slice(0, 15).map((post) => (
+              posts.slice(0, 15).map(post => (
                 <React.Fragment key={post._id}>
                   <div className="bg-white border rounded mt-1 post">
                     <div className="m-3">
                       <div className="d-flex mb-3">
-                        {post.user.image && <Image src={post.user.image} width={60} height={60} alt="1" className="imgProfile rounded-circle me-2" />}
+                        {post.user.image && (
+                          <Image
+                            src={post.user.image}
+                            width={60}
+                            height={60}
+                            alt="1"
+                            className="imgProfile rounded-circle me-2"
+                          />
+                        )}
                         <div>
                           <Link>{post.user.name}</Link>
                           <p>8.118 follower</p>
@@ -383,7 +411,12 @@ const Home = () => {
                         Centro assistenza
                       </Link>
                       <Link to="#" className="mx-2 text-decoration-none text-secondary fw-light">
-                        <NavDropdown className="text-secondary" id="nav-dropdown-dark-example" title="Privacy e condizioni" menuVariant="secondary">
+                        <NavDropdown
+                          className="text-secondary"
+                          id="nav-dropdown-dark-example"
+                          title="Privacy e condizioni"
+                          menuVariant="secondary"
+                        >
                           <NavDropdown.Item href="#action/3.1" className="fw-bold">
                             Informativa sulla privacy
                           </NavDropdown.Item>
@@ -405,7 +438,12 @@ const Home = () => {
                         Pubblicità
                       </Link>
                       <Link to="#" className="mx-2 text-decoration-none text-secondary fw-light">
-                        <NavDropdown className="text-secondary" id="nav-dropdown-dark-example" title="Servizi alle aziende" menuVariant="secondary">
+                        <NavDropdown
+                          className="text-secondary"
+                          id="nav-dropdown-dark-example"
+                          title="Servizi alle aziende"
+                          menuVariant="secondary"
+                        >
                           <NavDropdown.Item href="#action/3.1" className="fw-bold">
                             Talent Solutions
                           </NavDropdown.Item>

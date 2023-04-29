@@ -1,11 +1,4 @@
-import {
-  Col,
-  Container,
-  Form,
-  FormControl,
-  NavDropdown,
-  Navbar,
-} from "react-bootstrap";
+import { Col, Container, Form, FormControl, NavDropdown, Navbar } from "react-bootstrap";
 import {
   HouseDoorFill,
   Linkedin,
@@ -21,7 +14,7 @@ import { useSelector } from "react-redux";
 const MyNavbar = () => {
   const navigate = useNavigate();
 
-  const user = useSelector((state) => state.myProfile.content);
+  const user = useSelector(state => state.myProfile.content);
 
   const navigateBack = () => {
     navigate("/");
@@ -34,11 +27,7 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar
-      bg="dark"
-      expand="lg"
-      className="py-0 d-flex justify-content-center"
-    >
+    <Navbar bg="dark" expand="lg" className="py-0 d-flex justify-content-center">
       <Col xs={8} className="mb-1">
         <Container className="d-flex align-items-center px-0">
           <Navbar.Brand href="#" className="p-0 d-block">
@@ -47,18 +36,11 @@ const MyNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Form className="ml-auto">
-              <FormControl
-                type="text"
-                placeholder="cerca"
-                className="mr-sm-2"
-              />
+              <FormControl type="text" placeholder="cerca" className="mr-sm-2" />
             </Form>
           </Navbar.Collapse>
 
-          <div
-            className="px-4 fs-4 text-center nav-item-col"
-            onClick={navigateBack}
-          >
+          <div className="px-4 fs-4 text-center nav-item-col" onClick={navigateBack}>
             {/* <Link to={`/`}> */}
             <HouseDoorFill />
             <p className=" fs-6 m-0">Home</p>
@@ -69,10 +51,7 @@ const MyNavbar = () => {
             <PersonLinesFill />
             <p className=" fs-6 m-0">Rete</p>
           </div>
-          <div
-            className="px-4 fs-4 text-center nav-item-col"
-            onClick={navigateJobs}
-          >
+          <div className="px-4 fs-4 text-center nav-item-col" onClick={navigateJobs}>
             <BriefcaseFill />
             <p className=" fs-6 m-0">Lavoro</p>
           </div>
@@ -85,12 +64,7 @@ const MyNavbar = () => {
             <p className=" fs-6 m-0">Notifiche</p>
           </div>
           <div className="px-4 fs-4 text-center nav-item-col">
-            <img
-              id="avatar"
-              src={user.image}
-              alt="Avatar"
-              className="rounded-circle"
-            />
+            <img id="avatar" src={user.image} alt="Avatar" className="rounded-circle" />
             <div className=" fs-6 m-0">
               <NavDropdown
                 id="nav-dropdown-dark-example"
@@ -102,12 +76,7 @@ const MyNavbar = () => {
                 <NavDropdown.Item>
                   <div className="d-flex justify-content-center">
                     <div className="me-3 d-flex align-items-center">
-                      <img
-                        id="avatar-big"
-                        src={user.image}
-                        alt="Avatar"
-                        className="rounded-circle"
-                      />
+                      <img id="avatar-big" src={user.image} alt="Avatar" className="rounded-circle" />
                     </div>
                     <div>
                       <h3 className="fs-4">
@@ -123,21 +92,15 @@ const MyNavbar = () => {
                 <NavDropdown.Item href="#action/3.2">
                   <h3 className="fs-4">Account</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Impostazioni e Privacy
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Impostazioni e Privacy</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Guida</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Lingua</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.2">
                   <h3 className="fs-4">Gestisci</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Post e Attività
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Account per pubblicazione offerte
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Post e Attività</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Account per pubblicazione offerte</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.3">Esci</NavDropdown.Item>
               </NavDropdown>
@@ -147,11 +110,7 @@ const MyNavbar = () => {
           <div className="ps-4 fs-4 text-center border-start border-white-50 nav-item-col">
             <Building />
             <div className="fs-6">
-              <NavDropdown
-                id="nav-dropdown-dark-example"
-                title="Per le aziende"
-                menuVariant="dark"
-              ></NavDropdown>
+              <NavDropdown id="nav-dropdown-dark-example" title="Per le aziende" menuVariant="dark"></NavDropdown>
             </div>
           </div>
         </Container>
