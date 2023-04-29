@@ -75,21 +75,21 @@ const Home = () => {
                 <Image src={coverImg} className="img-fluid" />
               </div>
               <div className="headerProfile text-center">
-                <Image src={myProfile.image} width={60} height={60} className="imgProfile" />
+                <Image src={myProfile.image} width={80} height={80} className="imgProfile" />
                 <Link to={`/profile/${myProfile._id}`}>
-                  <h6>
+                  <h6 className="fs-5">
                     {myProfile.name} {myProfile.surname}
                   </h6>
-                  <p>{myProfile.title}</p>
+                  <p className="fs-6">{myProfile.title}</p>
                 </Link>
               </div>
               <div className="linkProfile">
-                <p className="d-flex justify-content-between align-items-center">
+                <p className="d-flex justify-content-between align-items-center fs-6">
                   <span>Collegamenti</span>
                   <span>92</span>
                 </p>
                 <p>Espandi la tua rete</p>
-                <p className="d-flex justify-content-between align-items-center">
+                <p className="d-flex justify-content-between align-items-center fs-6">
                   <span>Chi ha visitato il tuo profilo?</span>
                   <span>9</span>
                 </p>
@@ -98,7 +98,7 @@ const Home = () => {
                 <p>Accedi a strumenti e informazioni in esclusiva</p>
                 <p>Prova Premium gratis</p>
               </div>
-              <div className="footerProfile d-flex">
+              <div className="footerProfile d-flex fs-6">
                 <BookmarkFill className="me-1 text-secondary" />
                 <p>I miei elementi</p>
               </div>
