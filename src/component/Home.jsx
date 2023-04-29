@@ -66,7 +66,7 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <Container className="mt-2 mb-5">
+      <Container className="mt-4 mb-5">
         <Row>
           {/* COLONNA SINISTRA */}
           <Col md={3}>
