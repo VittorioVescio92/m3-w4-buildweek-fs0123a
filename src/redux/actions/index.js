@@ -111,7 +111,7 @@ export const postUserAction = (postId, body) => {
   };
 };
 
-// modifico un post specifico 
+// modifico un post specifico
 export const putUserAction = (postId, text) => {
   return async (dispatch, getState) => {
     try {
@@ -140,12 +140,11 @@ export const putUserAction = (postId, text) => {
   };
 };
 
-
 // elimino uno specifico post
 export const deleteUserPostAction = postId => {
   return async (dispatch, getState) => {
     try {
-      console.log(endpointPosts + postId)
+      console.log(endpointPosts + postId);
 
       let resp = await fetch(`${endpointPosts}${postId}`, {
         method: "DELETE",
@@ -155,7 +154,7 @@ export const deleteUserPostAction = postId => {
         },
       });
       if (resp.ok) {
-        dispatch({type: DELETE_USER_POST, payload: postId})
+        dispatch({ type: DELETE_USER_POST, payload: postId });
       } else {
         console.log("error");
       }
@@ -217,7 +216,6 @@ export const getExperienceSelectedProfileAction = userId => {
     }
   };
 };
-
 
 // action che riempie il componente AsideSeenProfiles
 export const getProfilesAction = () => {
@@ -359,7 +357,6 @@ export const getJobsAdsAction = () => {
 
       if (resp.ok) {
         const data = await resp.json();
-        data.sort(() => Math.random() - 0.5);
 
         dispatch({ type: GET_JOB_ADS, payload: data });
       } else {
