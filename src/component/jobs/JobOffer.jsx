@@ -1,15 +1,14 @@
-import { Button, Image } from "react-bootstrap";
-import { ArrowRight, Bookmark, Bullseye, EyeSlashFill } from "react-bootstrap-icons";
+import { Image } from "react-bootstrap";
+import { Bookmark, Bullseye, EyeSlashFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import avatar from "../../avatar.png";
+import epicodeLogo from "../../assets/img/epicode-logo.png";
 
 const JobOffer = offer => {
-  const pubDate = new Date();
   return (
     <div>
       <div className="d-flex justify-content-between">
         <div>
-          <Image src={avatar} alt="" width={50} className="me-3"></Image>
+          <Image src={epicodeLogo} alt="" width={50} className="me-3"></Image>
         </div>
         <div className="px-1 d-flex flex-grow-1 justify-content-start">
           <Link className="text-decoration-none text-dark" to={offer.offer.url}>
