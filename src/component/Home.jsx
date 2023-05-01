@@ -70,50 +70,52 @@ const Home = () => {
         <Row>
           {/* COLONNA SINISTRA */}
           <Col md={3}>
-            <div className="homeProfile">
-              <div className="coverProfile text-center">
-                <Image src={coverImg} className="img-fluid" />
+            <div className=" sticky-top">
+              <div className="homeProfile">
+                <div className="coverProfile text-center">
+                  <Image src={coverImg} className="img-fluid" />
+                </div>
+                <div className="headerProfile text-center">
+                  <Image src={myProfile.image} width={80} height={80} className="imgProfile" />
+                  <Link to={`/profile/${myProfile._id}`}>
+                    <h6 className="fs-5">
+                      {myProfile.name} {myProfile.surname}
+                    </h6>
+                    <p className="fs-6">{myProfile.title}</p>
+                  </Link>
+                </div>
+                <div className="linkProfile">
+                  <p className="d-flex justify-content-between align-items-center fs-6">
+                    <span>Collegamenti</span>
+                    <span>92</span>
+                  </p>
+                  <p>Espandi la tua rete</p>
+                  <p className="d-flex justify-content-between align-items-center fs-6">
+                    <span>Chi ha visitato il tuo profilo?</span>
+                    <span>9</span>
+                  </p>
+                </div>
+                <div className="premiumProfile">
+                  <p>Accedi a strumenti e informazioni in esclusiva</p>
+                  <p>Prova Premium gratis</p>
+                </div>
+                <div className="footerProfile d-flex fs-6">
+                  <BookmarkFill className="me-1 text-secondary" />
+                  <p>I miei elementi</p>
+                </div>
               </div>
-              <div className="headerProfile text-center">
-                <Image src={myProfile.image} width={80} height={80} className="imgProfile" />
-                <Link to={`/profile/${myProfile._id}`}>
-                  <h6 className="fs-5">
-                    {myProfile.name} {myProfile.surname}
-                  </h6>
-                  <p className="fs-6">{myProfile.title}</p>
-                </Link>
-              </div>
-              <div className="linkProfile">
-                <p className="d-flex justify-content-between align-items-center fs-6">
-                  <span>Collegamenti</span>
-                  <span>92</span>
-                </p>
-                <p>Espandi la tua rete</p>
-                <p className="d-flex justify-content-between align-items-center fs-6">
-                  <span>Chi ha visitato il tuo profilo?</span>
-                  <span>9</span>
-                </p>
-              </div>
-              <div className="premiumProfile">
-                <p>Accedi a strumenti e informazioni in esclusiva</p>
-                <p>Prova Premium gratis</p>
-              </div>
-              <div className="footerProfile d-flex fs-6">
-                <BookmarkFill className="me-1 text-secondary" />
-                <p>I miei elementi</p>
-              </div>
-            </div>
-            <div className="homeProfile text-center mt-3 sticky-top">
-              <div className="d-flex flex-column align-items-start ms-3 my-2">
-                <Link className="my-2">Gruppi</Link>
-                <Link className="my-2">
-                  Eventi <Plus />
-                </Link>
-                <Link className="my-2">Hashtag seguiti</Link>
-                <div className="d-flex justify-content-center mx-auto">
-                  <Button variant="white" className="d-flex text-secondary align-items-center">
-                    Scopri di più
-                  </Button>
+              <div className="homeProfile text-center mt-3">
+                <div className="d-flex flex-column align-items-start ms-3 my-2">
+                  <Link className="my-2">Gruppi</Link>
+                  <Link className="my-2">
+                    Eventi <Plus />
+                  </Link>
+                  <Link className="my-2">Hashtag seguiti</Link>
+                  <div className="d-flex justify-content-center mx-auto">
+                    <Button variant="white" className="d-flex text-secondary align-items-center">
+                      Scopri di più
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -398,9 +400,8 @@ const Home = () => {
             <div className="d-flex">
               <footer className="my-5 mx-2 d-flex flex-row">
                 <Container className="p-0">
-                  <div className="">
+                  <div>
                     <Col className="p-0 d-flex flex-wrap justify-content-center">
-                      {/* rgb(156 156 154) colore testo */}
                       <Link to="#" className="mx-2 text-decoration-none text-secondary fw-light">
                         Informazioni
                       </Link>
@@ -465,10 +466,7 @@ const Home = () => {
                         Altro
                       </Link>
                       <Row className="mt-3">
-                        <Col className="text-secondary">
-                          <Image src={LinkedinLogo} alt="lnk-logo" width={80} height={40} className="bg-light"></Image>
-                          Linkedin Corporation &copy; 2023
-                        </Col>
+                        <Col className="text-secondary">Linkedin Corporation &copy; 2023</Col>
                       </Row>
                     </Col>
                   </div>

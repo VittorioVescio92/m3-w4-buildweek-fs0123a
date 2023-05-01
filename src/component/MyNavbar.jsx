@@ -85,7 +85,7 @@ const MyNavbar = () => {
                       <p>{user.title}</p>
                     </div>
                   </div>
-                  <button className="rounded-5 text-center flex-grow-1">
+                  <button className="rounded-5 text-center flex-grow-1 my-1">
                     <Link to={`/profile/${user._id}`}>Visualizza Profilo</Link>
                   </button>
                 </NavDropdown.Item>

@@ -9,6 +9,7 @@ const AsideSeenProfiles = () => {
   const dispatch = useDispatch();
   const profiles = useSelector(state => state.profiles.content);
   const [profilesData, setProfilesData] = useState([]);
+  console.log(profiles);
 
   const getRandomProfiles = () => {
     const shuffledProfiles = [...profiles].sort(() => Math.random() - 0.5);
