@@ -1,5 +1,4 @@
 import { Button, Modal } from "react-bootstrap";
-import avatar from "../../avatar.png";
 import { useSelector } from "react-redux";
 import {
   ChatText,
@@ -63,7 +62,7 @@ const ModalHome = ({ show, handleCloseHome }) => {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <img src={avatar} alt="" width={50} className="rounded-pill" />
+            <img src={user.image} alt="" width={50} className="rounded-pill" />
             <h3 className="me-auto">
               {user.name} {user.surname}
             </h3>

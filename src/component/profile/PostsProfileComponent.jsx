@@ -19,9 +19,9 @@ const PostsProfileComponent = () => {
     window.scrollTo(0, 0);
   };
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   return (
     <Container className="mt-2 p-0">

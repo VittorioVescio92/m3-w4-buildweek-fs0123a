@@ -1,10 +1,19 @@
 import { Button, Modal } from "react-bootstrap";
-import avatar from "../../avatar.png";
 import { useSelector } from "react-redux";
-import { ChatText, Clock, EmojiSmile, FileEarmarkText, GlobeAmericas, Image, PlayBtnFill, ThreeDots } from "react-bootstrap-icons";
+import {
+  ChatText,
+  Clock,
+  EmojiSmile,
+  FileEarmarkText,
+  GlobeAmericas,
+  Image,
+  PlayBtnFill,
+  ThreeDots,
+} from "react-bootstrap-icons";
 
 const ModalPost = ({ show, handleCloseHome }) => {
-  const user = useSelector((state) => state.myProfile.content);
+  const user = useSelector(state => state.myProfile.content);
+  console.log(user);
 
   return (
     <>
@@ -16,10 +25,10 @@ const ModalPost = ({ show, handleCloseHome }) => {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            {/* <img src={avatar} alt="" width={50} className="rounded-pill" />
+            <img src={user.image} alt="" width={50} className="rounded-pill" />
             <h3 className="me-auto">
               {user.name} {user.surname}
-            </h3> */}
+            </h3>
             <div className="ms-auto">
               <Button variant="white border-dark" className="ms-auto">
                 <GlobeAmericas className="mx-2" />
